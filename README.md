@@ -20,7 +20,7 @@ This repository is a static Cloudflare Pages site. The professional compliance b
 6. Add/verify the site in Search Console and submit the sitemap after the custom domain resolves correctly.
 
 ## Policy notes
-Amazon's Operating Agreement requires the exact Associate disclosure and properly tagged Special Links. Link-level disclosures should be clear and conspicuous near the link. Amazon's application review requires at least three qualifying sales within 180 days and checks that submitted sites are public and contain robust original content; Amazon describes 10 posts as a rule of thumb. Personal orders do not qualify. These site changes cannot guarantee acceptance or qualifying sales.
+Amazon's Operating Agreement requires the exact Associate disclosure and properly tagged Special Links. Link-level disclosures should be clear and conspicuous near the link. Amazon's application review requires at least three qualifying sales within 180 days and checks that submitted sites are public and contain robust original content; Amazon describes 10 posts as a rule of thumb. Personal orders do not qualify. Policy update notes: Amazon's April 14, 2026 policy update adds a 180-day completion requirement for qualifying purchases and expands disqualification to purchases referred through paid or boosted advertising that links to Amazon, subject to stated exceptions. Do not run paid/boosted campaigns directly to Amazon Special Links unless the exact campaign is permitted under the current policy. These site changes cannot guarantee acceptance or qualifying sales.
 
 Official references:
 - https://affiliate-program.amazon.com/help/operating/agreement
