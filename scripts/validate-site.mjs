@@ -12,6 +12,7 @@ check(/<link rel="canonical" href="https:\/\/progamefinds\.online\/?">/i.test(ht
 check(/property="og:title"/i.test(html) && /property="og:description"/i.test(html), "Open Graph title/description missing");
 check(/application\/ld\+json/i.test(html), "Structured data missing");
 check(html.includes("As an Amazon Associate I earn from qualifying purchases."), "Exact Amazon Associate disclosure missing");
+check(/Amazon Associates application pending/i.test(html) && /not yet approved/i.test(html), "Pending application status must be clear on the homepage");
 const amazonAnchors = [...html.matchAll(/<a\b([^>]*href="https?:\/\/www\.amazon\.com\/[^"]+"[^>]*)>([\s\S]*?)<\/a>/gi)];
 check(amazonAnchors.length === 22, `Expected 22 Amazon links, found ${amazonAnchors.length}`);
 for (const [i, m] of amazonAnchors.entries()) {
