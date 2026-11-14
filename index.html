@@ -302,6 +302,7 @@ p{margin:0}
           <label for="f-website">Leave this field empty</label>
           <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
         </div>
+        <p class="hint" id="contact-form-note">Contact form setup is pending. No message is transmitted until the owner configures a valid destination and Web3Forms access key.</p>
         <button class="btn btn-primary" type="submit">Send message</button>
         <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         <noscript><p class="err">Enable JavaScript to send this form.</p></noscript>
@@ -334,6 +335,12 @@ p{margin:0}
   if (!form) { return; }
   var status = document.getElementById("form-status");
   var submit = form.querySelector('button[type="submit"]');
+  var configuredKey = CONFIG.accessKey && CONFIG.accessKey.indexOf("REPLACE_") !== 0;
+  var configuredInbox = CONFIG.to && CONFIG.to.indexOf("@") > 0 && CONFIG.to !== "OWNER_EMAIL_ADDRESS";
+  if (!configuredKey && !configuredInbox) {
+    submit.disabled = true;
+    status.textContent = "Contact form is not active yet. The owner must configure the destination inbox and Web3Forms key.";
+  }
   var rules = {
     "f-name": function (v) { return v.trim().length < 2 ? "Enter your full name (at least 2 characters)." : ""; },
     "f-email": function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? "" : "Enter an email address such as name@example.com."; },
