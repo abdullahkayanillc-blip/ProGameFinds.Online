@@ -19,12 +19,14 @@ for (const file of htmlFiles) {
   const relFile = path.relative(root, file);
   if (!/<title>[^<]{8,}<\/title>/i.test(source)) failures.push(relFile + ": missing/short title");
   if (!/<meta\s+name="description"\s+content="[^"]{40,}"/i.test(source)) failures.push(relFile + ": missing SEO description");
-  const hrefs = [...source.matchAll(/\bhref\s*=\s*"([^"]+)"/gi)].map(m => m[1].replace(/&amp;/g, "&"));
-  for (const href of hrefs) {
+  for (const match of source.matchAll(/\bhref\s*=\s*"([^"]+)"/gi)) {
+    const href = match[1].replace(/&amp;/g, "&");
     if (/^https?:\/\/www\.amazon\.com\//i.test(href)) {
       amazonLinks++;
       if (!/[?&]tag=progamefinds-20(?:&|$)/i.test(href)) failures.push(relFile + ": Amazon link missing affiliate tag: " + href);
-      const anchor = source.slice(Math.max(0, source.lastIndexOf("<a", source.indexOf(href))), source.indexOf("</a>", source.indexOf(href)) + 4);
+      const anchorStart = source.lastIndexOf("<a", match.index);
+      const anchorEnd = source.indexOf("</a>", match.index) + 4;
+      const anchor = source.slice(Math.max(0, anchorStart), anchorEnd > 3 ? anchorEnd : source.length);
       if (!/rel="[^"]*sponsored/i.test(anchor)) failures.push(relFile + ": Amazon link missing rel=sponsored: " + href);
       continue;
     }
