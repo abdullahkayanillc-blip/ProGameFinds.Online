@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.progamefinds.online/sitemap.xml
