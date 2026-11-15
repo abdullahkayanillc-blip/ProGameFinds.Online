@@ -1,0 +1,22 @@
+name: ProGameFinds preview quality gate
+on:
+  push:
+    branches:
+      - "preview/**"
+  pull_request:
+    branches:
+      - main
+permissions:
+  contents: read
+jobs:
+  static-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Verify local links, SEO basics, and affiliate disclosures
+        run: node scripts/verify-site.mjs
