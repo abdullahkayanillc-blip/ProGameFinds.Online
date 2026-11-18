@@ -1,0 +1,25 @@
+name: ProGameFinds site quality and compliance checks
+on:
+  push:
+    branches:
+      - main
+      - amazon-compliance-professional-setup
+      - progamefinds-professional-upgrade-2026-11-19
+  pull_request:
+    branches:
+      - main
+permissions:
+  contents: read
+jobs:
+  validate:
+    name: Validate site content, disclosures and safety controls
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Validate static site
+        run: node scripts/validate-site.mjs
