@@ -1,36 +1,42 @@
-# ProGameFinds — Amazon Associates readiness
+# ProGameFinds — professional upgrade (preview branch)
 
-## Current state
-This repository is a static Cloudflare Pages site. The professional compliance branch is `amazon-compliance-professional-setup`; production `main` is intentionally preserved.
+## Working branch
+`progamefinds-professional-upgrade-2026-11-19` is an isolated working branch based on `amazon-compliance-professional-setup`.
 
-## Amazon Associates policy controls implemented in this branch
-- The exact program disclosure is retained and paired with a prominent notice that the Associates application is pending and ProGameFinds is not yet approved.
-- Every existing Amazon link is expected to use the `progamefinds-20` tracking tag, `rel="sponsored"`, and a nearby `(paid link)` label.
-- Product prices, stock status, ratings, testimonials and hands-on testing claims are not fabricated.
-- Ten original editorial buying guides have been added. They explain comparison criteria and verification steps; they do not claim hands-on testing or product endorsement.
-- SEO canonical, Open Graph metadata, WebSite/Article structured data, robots.txt and sitemap.xml are included.
-- GitHub Actions validates affiliate link formatting, disclosures, metadata, guide files and internal anchors.
+Production `main` is unchanged. This branch is not merged or published to the production domain.
 
-## Owner actions still required
-1. Application status is currently **pending**. Keep the visible pending notice until Amazon confirms acceptance. Do not describe ProGameFinds as an approved Associate before that confirmation.
-2. Confirm that `progamefinds-20` is the active tracking ID in the relevant Associates account. This repository cannot inspect private Associates Central reports.
-3. Configure a real contact destination and a valid Web3Forms access key. Never commit private credentials or publish placeholder values. The current contact form is deliberately left visibly unconfigured rather than pretending messages are delivered.
-4. Verify every ASIN against the exact Amazon listing and manufacturer source; verify current availability/prices at the time of display. Do not publish stale prices or unverified specifications.
-5. Complete DNS delegation and custom-domain validation separately. Existing Hostinger email MX/SPF/DKIM/DMARC records must be preserved during any DNS migration.
-6. Add/verify the site in Search Console and submit the sitemap after the custom domain resolves correctly.
+## Experience changes prepared
+- Premium responsive gaming-gear design with original vector illustration and local brand/social assets.
+- Local CSS and JavaScript assets; removed external Google Fonts dependency.
+- Accessible catalogue search and category filters; keyboard shortcut `/` focuses search and Escape clears it.
+- Clear owner-review notice around supplied product listings: verify ASIN/model mapping, seller, compatibility and current retailer details before purchase.
+- Preserved the 22 existing Amazon outbound links and the visible `(paid link)` disclosure, `rel=sponsored`, `noopener` and the current source tag. Tag ownership/activation is not verifiable from this repository.
+- Retained all 10 original editorial buying guides.
+- Added dedicated About, Affiliate Disclosure, Privacy and Terms pages.
+- Added sitemap entries, metadata and a vector social-preview image.
+- Added Cloudflare Pages response security headers and a Node-only site validator.
+- Disabled contact form controls until a real inbox and delivery provider are selected, configured and successfully tested.
 
-## Policy notes
-Amazon's Operating Agreement requires the exact Associate disclosure and properly tagged Special Links. Amazon's Participation Requirements say Special Links may be displayed after an application is submitted; keep the pending-status notice prominent so the site does not imply acceptance. Link-level disclosures should be clear and conspicuous near the link. Amazon's application review requires at least three qualifying sales within 180 days and checks that submitted sites are public and contain robust original content; Amazon describes 10 posts as a rule of thumb. Personal orders do not qualify. Policy update notes: Amazon's April 14, 2026 policy update adds a 180-day completion requirement for qualifying purchases and expands disqualification to purchases referred through paid or boosted advertising that links to Amazon, subject to stated exceptions. Do not run paid/boosted campaigns directly to Amazon Special Links unless the exact campaign is permitted under the current policy. These site changes cannot guarantee acceptance or qualifying sales.
+## Amazon Associates controls
+The page must accurately describe the actual Associates Central application status. Current source content has a pending-application notice and the required exact disclosure statement. Do not say the account is approved unless Amazon confirms acceptance. Do not create clicks, sessions, orders, ratings or reviews artificially. Do not display prices, stock or Amazon reviews/ratings without permitted Amazon data access. Do not use Amazon Program Content or Special Links in model-training or machine-learning workflows without Amazon's prior written permission.
 
 Official references:
-- https://affiliate-program.amazon.com/help/operating/agreement
-- https://affiliate-program.amazon.com/help/operating/linking/
+- https://affiliate-program.amazon.com/help/operating/policies
 - https://affiliate-program.amazon.com/help/operating/participation/
 - https://affiliate-program.amazon.com/help/node/topic/G8TW5AE9XL2VX9VM
 - https://affiliate-program.amazon.com/help/node/topic/GPXFHVYZMTGPUMPE
 
-## Local validation
-Run with Node.js 20+:
-```sh
-node scripts/validate-site.mjs
-```
+## Validation
+GitHub Actions runs `node scripts/validate-site.mjs`. The validator does not fetch Amazon pages or verify product identity; it checks source-level affiliate formatting, disclosures, SEO assets, page inventory, sitemap, robots and security headers.
+
+## Owner-only activation checklist
+1. Check Associates Central and confirm the exact account status and tracking ID.
+2. Verify the 20 ASIN mappings and model descriptions using manufacturer sources and the live listings; do not scrape Amazon.
+3. Select and confirm the contact inbox and delivery provider, then configure its secret securely and test real delivery/failure handling.
+4. Confirm Cloudflare zone activation, root/www Pages custom domains, HTTPS certificate and redirects.
+5. Complete Search Console ownership verification and submit the sitemap.
+6. Review the preview on desktop and mobile; request any final changes.
+7. Only after explicit approval, merge the PR and publish production.
+
+## Privacy and analytics
+No analytics or ad-pixel code has been added. Cloudflare Web Analytics and Google Search Console have not been connected because they require account-level owner verification/configuration. The privacy policy describes the current inactive contact form and must be updated before any new data-collection service is enabled.
