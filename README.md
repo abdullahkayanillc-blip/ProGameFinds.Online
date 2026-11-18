@@ -40,3 +40,7 @@ GitHub Actions runs `node scripts/validate-site.mjs`. The validator does not fet
 
 ## Privacy and analytics
 No analytics or ad-pixel code has been added. Cloudflare Web Analytics and Google Search Console have not been connected because they require account-level owner verification/configuration. The privacy policy describes the current inactive contact form and must be updated before any new data-collection service is enabled.
+
+
+## Preview build
+The professional upgrade branch is allowlisted for Cloudflare Pages preview builds. Its preview build is isolated from production; the production branch remains `main`.
