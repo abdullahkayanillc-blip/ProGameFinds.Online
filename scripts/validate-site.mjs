@@ -20,6 +20,9 @@ check(html.includes("As an Amazon Associate I earn from qualifying purchases."),
 check(/href="\/assets\/site\.css"/i.test(html) && existsSync(resolve(root,"assets/site.css")), "Local stylesheet missing");
 check(/src="\/assets\/site\.js"/i.test(html) && existsSync(resolve(root,"assets/site.js")), "Local JavaScript file missing");
 check(!/fonts\.googleapis\.com|fonts\.gstatic\.com/i.test(html), "Remote Google Fonts request remains");
+check(!/Google Fonts|Web3Forms/i.test(html), "Homepage contains a stale third-party font/form provider claim");
+check(!/Use the contact form on this page\\. Include your email address so we can reply\\./i.test(html), "FAQ claims the disabled contact form can receive messages");
+check(/Last updated November 19, 2026/i.test(html), "Homepage policy update date is stale");
 check(/data-filter="mice"/.test(html) && /id="gear-search"/.test(html), "Accessible product search/filter controls missing");
 check(/Contact intake is not active yet/.test(html) && /type="submit" disabled/.test(html), "Inactive contact form must be clearly and safely disabled");
 check(!/REPLACE_WITH_WEB3FORMS_ACCESS_KEY|OWNER_EMAIL_ADDRESS/.test(html), "Contact form placeholder configuration remains in homepage");
