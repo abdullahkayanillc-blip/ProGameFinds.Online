@@ -42,6 +42,8 @@ try {
   check(await page.locator('a[href^="mailto:support@progamefinds.online"]').count() === 1, "Direct support email link is present");
   const productArt = page.locator("img.product-art");
   check(await productArt.count() === 22, "All 22 catalogue cards include illustrative artwork");
+  await productArt.evaluateAll(images => images.forEach(image => { image.loading = "eager"; }));
+  await page.waitForFunction(() => [...document.querySelectorAll("img.product-art")].every(image => image.complete), null, { timeout: 15000 });
   const allArtworkLoaded = await productArt.evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0));
   check(allArtworkLoaded, "All catalogue artwork files load successfully");
 
