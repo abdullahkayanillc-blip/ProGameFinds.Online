@@ -26,5 +26,5 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Test deployed preview
         env:
-          PREVIEW_URL: https://421a421b.progamefinds-online.pages.dev
+          PREVIEW_URL: https://7d2cfb8b.progamefinds-online.pages.dev
         run: node scripts/browser-smoke.mjs
