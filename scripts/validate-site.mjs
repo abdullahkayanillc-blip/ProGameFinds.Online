@@ -24,7 +24,7 @@ check(!/Google Fonts|Web3Forms/i.test(html), "Homepage contains a stale third-pa
 check(!/Use the contact form on this page\\. Include your email address so we can reply\\./i.test(html), "FAQ claims the disabled contact form can receive messages");
 check(/Last updated November 19, 2026/i.test(html), "Homepage policy update date is stale");
 check(/data-filter="mice"/.test(html) && /id="gear-search"/.test(html), "Accessible product search/filter controls missing");
-check(/Contact intake is not active yet/.test(html) && /type="submit" disabled/.test(html), "Inactive contact form must be clearly and safely disabled");
+check(/On-page form submissions are not active/.test(html) && /type="submit" disabled/.test(html), "Inactive contact form must be clearly and safely disabled");
 check(!/REPLACE_WITH_WEB3FORMS_ACCESS_KEY|OWNER_EMAIL_ADDRESS/.test(html), "Contact form placeholder configuration remains in homepage");
 
 // Validate every Amazon link without fetching or scraping Amazon pages.
@@ -75,7 +75,7 @@ for (const match of html.matchAll(/href="#([^"]+)"/g)) check(ids.has(match[1]), 
 // The following items cannot be confirmed from public source code.
 warnings.push("OWNER CHECK: Confirm in Associates Central that the account is accepted/pending and that progamefinds-20 is the active tracking ID before public promotion.");
 warnings.push("OWNER CHECK: Verify each ASIN-to-product match, model revision, seller, compatibility and warranty with manufacturer and live retailer sources.");
-warnings.push("OWNER CHECK: Contact form remains disabled until a destination inbox and delivery provider are confirmed, configured and delivery-tested.");
+warnings.push("OWNER CHECK: On-page contact form remains disabled pending a delivery backend; direct email link is available at support@progamefinds.online.");
 warnings.push("OWNER CHECK: Verify root/www DNS, HTTPS certificate and canonical redirects after nameserver propagation.");
 warnings.push("OWNER CHECK: Complete Search Console ownership verification and submit sitemap after the canonical domain is live.");
 
