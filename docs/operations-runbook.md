@@ -67,7 +67,7 @@ Before release, test the preview at mobile and desktop widths:
 
 ## Contact, analytics and search
 
-- Keep the contact form disabled until the owner selects a real inbox/provider, configures credentials as secrets, and tests successful delivery plus failure handling.
+- Direct email contact is available through `mailto:support@progamefinds.online`; the mailbox is present in the connected Hostinger account. The on-page form remains disabled until a server-side delivery provider is configured and success/failure handling is tested. Do not send test messages without explicit owner authorization.
 - Do not place credentials in source files, Git history, screenshots or chat.
 - Enable analytics only after the owner chooses the provider and the privacy notice is updated. Prefer privacy-conscious, minimal collection.
 - Verify domain ownership in Search Console from the owner account, then submit the sitemap and inspect indexing/canonical selection.
