@@ -1,0 +1,30 @@
+name: ProGameFinds preview browser QA
+on:
+  push:
+    branches:
+      - progamefinds-professional-qa-2026-11-19
+  pull_request:
+    branches:
+      - progamefinds-professional-upgrade-2026-11-19
+permissions:
+  contents: read
+jobs:
+  browser-smoke:
+    name: Chromium desktop and mobile smoke tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install Playwright
+        run: npm install --no-save --no-package-lock playwright@1.55.0
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Test deployed preview
+        env:
+          PREVIEW_URL: https://421a421b.progamefinds-online.pages.dev
+        run: node scripts/browser-smoke.mjs
