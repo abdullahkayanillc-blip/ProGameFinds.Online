@@ -63,7 +63,7 @@ for (const product of manifest.products ?? []) {
   }
 }
 
-for (const asset of ["assets/site.css", "assets/site.js", "_headers", "robots.txt", "sitemap.xml"]) {
+for (const asset of ["assets/site.css", "assets/site.js", "_headers", "robots.txt", "sitemap.xml", "_redirects"]) {
   check(existsSync(join(root, asset)), "Required site asset missing: " + asset);
 }
 const css = join(root, "assets/site.css");
