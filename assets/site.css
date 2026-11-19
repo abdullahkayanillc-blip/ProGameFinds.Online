@@ -252,3 +252,5 @@ h2{letter-spacing:-.04em}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.card,.filter-chip{transition:none}.card:hover,.btn:hover{transform:none}}
 
 .icon-defs{position:absolute}
+
+.product-art{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border:1px solid rgba(132,158,197,.16);border-radius:14px;margin:12px 0 16px;background:#0b1628}.card{overflow:hidden}.product-art+ h4{margin-top:4px}
