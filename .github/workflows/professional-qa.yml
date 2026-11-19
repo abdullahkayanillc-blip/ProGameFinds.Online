@@ -6,6 +6,7 @@ on:
   pull_request:
     branches:
       - main
+      - progamefinds-professional-upgrade-2026-11-19
 permissions:
   contents: read
 jobs:
