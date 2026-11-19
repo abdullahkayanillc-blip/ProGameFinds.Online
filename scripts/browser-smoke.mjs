@@ -36,7 +36,7 @@ try {
   }
   check(affiliateLinksValid, "Every Amazon CTA retains affiliate tag, sponsored/noopener rel and paid-link disclosure");
 
-  const aboutLinks = page.locator('nav[aria-label="Primary"] a').filter({ hasText: /^About$/ });
+  const aboutLinks = page.locator('nav[aria-label="Primary"] a[href="/about.html"]');
   check(await aboutLinks.count() === 1, "Primary navigation contains one About link (no duplicate)");
 
   const search = page.locator("#gear-search");
@@ -51,7 +51,7 @@ try {
   check(await page.locator('#mice .card:visible').count() === 4, "Mice category filter displays four mouse candidates");
   check(await page.locator('[data-filter="mice"]').getAttribute("aria-pressed") === "true", "Active category filter exposes aria-pressed state");
   await page.locator('[data-filter="all"]').click();
-  check(await page.locator(".card:visible").count() === 20, "All gear filter restores the 20 product cards");
+  check(await page.locator(".card:visible").count() === 22, "All gear filter restores all 22 catalogue cards, including category searches");
 
   for (const path of ["/about.html", "/affiliate-disclosure.html", "/privacy.html", "/terms.html"]) {
     const pageResponse = await page.request.get(new URL(path, baseURL).toString());
