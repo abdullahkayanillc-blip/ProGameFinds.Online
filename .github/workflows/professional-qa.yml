@@ -1,0 +1,26 @@
+name: ProGameFinds professional quality audit
+on:
+  push:
+    branches:
+      - progamefinds-professional-qa-2026-11-19
+  pull_request:
+    branches:
+      - main
+      - progamefinds-professional-upgrade-2026-11-19
+permissions:
+  contents: read
+jobs:
+  quality-audit:
+    name: Static quality and product-evidence audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Run existing compliance checks
+        run: node scripts/validate-site.mjs
+      - name: Run professional quality audit
+        run: node scripts/quality-audit.mjs
