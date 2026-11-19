@@ -55,7 +55,7 @@ Before release, test the preview at mobile and desktop widths:
 - No console errors, failed requests, horizontal overflow, missing image alt text, or layout shifts caused by un-sized images.
 - Measure Lighthouse/PageSpeed metrics (LCP, INP, CLS, TBT, accessibility and best practices) on the deployed preview. Save the report and test date; do not claim "ultra-fast" without measured results.
 - Check image payload sizes, responsive variants, compression, lazy loading below the fold and cache headers.
-- Browser automation currently requires a funded external test wallet; it is not a $0/free-forever dependency. Use local browser DevTools or Lighthouse CLI as the zero-cost alternative.
+- A GitHub Actions Playwright Chromium smoke test runs on the isolated preview branch without an external browser wallet. GitHub Actions and hosted runners have account quotas/limits, so confirm current plan limits. TinyFish browser automation is a separate metered service and is not required for this workflow. Use local browser DevTools or Lighthouse CLI as additional zero-cost checks.
 
 ## Affiliate and legal readiness
 
