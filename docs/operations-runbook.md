@@ -87,3 +87,8 @@ Before release, test the preview at mobile and desktop widths:
 - GitHub Actions and Cloudflare Pages may have free-tier quotas and usage limits; confirm current account limits before relying on them.
 - Node.js static validation and local Lighthouse/DevTools workflows can be run at $0.
 - External browser automation, licensed UGC, paid image libraries, email delivery services and custom domains may incur costs or require owner accounts/permissions. They are not represented as free forever.
+
+
+## Preview branch deployment
+
+Cloudflare Pages preview deployments are enabled for all non-production branches. QA browser tests must target the current deployment URL for this exact commit, never a stale preview URL. Production remains pinned to `main` until the approved release PR is merged.
