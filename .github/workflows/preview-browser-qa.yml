@@ -4,6 +4,7 @@ on:
     branches:
       - progamefinds-professional-qa-2026-11-19
       - release/progamefinds-professional-2026-11-20
+      - main
   pull_request:
     branches:
       - progamefinds-professional-upgrade-2026-11-19
@@ -28,5 +29,5 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Test deployed preview
         env:
-          PREVIEW_URL: https://9000908e.progamefinds-online.pages.dev
+          PREVIEW_URL: ${{ github.ref == 'refs/heads/main' && 'https://progamefinds.online' || 'https://9000908e.progamefinds-online.pages.dev' }}
         run: node scripts/browser-smoke.mjs
