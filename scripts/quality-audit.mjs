@@ -1,5 +1,5 @@
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
-import { extname, join, relative, resolve } from "node:path";
+import { dirname, extname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
@@ -25,27 +25,27 @@ let checkedImages = 0;
 for (const file of htmlFiles) {
   const html = read(file);
   const page = relativePath(file);
-  check(/<html\\b[^>]*lang=/i.test(html), `${page}: missing document language.`);
-  check(/<title>[^<]+<\\/title>/i.test(html), `${page}: missing page title.`);
-  check(/<meta\\s+name=["']description["']/i.test(html), `${page}: missing meta description.`);
-  check(/<meta\\s+name=["']viewport["']/i.test(html), `${page}: missing responsive viewport.`);
+  check(/<html\b[^>]*lang=/i.test(html), page + ": missing document language.");
+  check(/<title>[^<]+<\/title>/i.test(html), page + ": missing page title.");
+  check(/<meta\s+name=["']description["']/i.test(html), page + ": missing meta description.");
+  check(/<meta\s+name=["']viewport["']/i.test(html), page + ": missing responsive viewport.");
 
-  const ids = [...html.matchAll(/\\bid=["']([^"']+)["']/gi)].map((m) => m[1]);
-  check(new Set(ids).size === ids.length, `${page}: duplicate element IDs found.`);
+  const ids = [...html.matchAll(/\bid=["']([^"']+)["']/gi)].map((m) => m[1]);
+  check(new Set(ids).size === ids.length, page + ": duplicate element IDs found.");
 
-  for (const match of html.matchAll(/<(?:a|img|script|link)\\b[^>]*?(?:href|src)=["']([^"'#]+)["'][^>]*>/gi)) {
+  for (const match of html.matchAll(/<(?:a|img|script|link)\b[^>]*?(?:href|src)=["']([^"'#]+)["'][^>]*>/gi)) {
     const tag = match[0];
     const ref = match[1];
-    if (/^(?:https?:|mailto:|tel:|data:|javascript:|\\/\\/)/i.test(ref)) continue;
+    if (/^(?:https?:|mailto:|tel:|data:|javascript:|\/\/)/i.test(ref)) continue;
     const clean = decodeURIComponent(ref.split(/[?#]/)[0]);
-    const target = clean.startsWith("/") ? join(root, clean.slice(1)) : resolve(file, "..", clean);
     if (!clean || clean === "/") continue;
+    const target = clean.startsWith("/") ? join(root, clean.slice(1)) : resolve(dirname(file), clean);
     checkedLocalRefs++;
-    check(existsSync(target), `${page}: broken local reference ${ref}`);
-    if (/<img\\b/i.test(tag)) {
+    check(existsSync(target), page + ": broken local reference " + ref);
+    if (/<img\b/i.test(tag)) {
       checkedImages++;
-      check(/\\balt=["']/i.test(tag), `${page}: image is missing alt text (${ref}).`);
-      check(/\\bwidth=["']\\d+["']/i.test(tag) && /\\bheight=["']\\d+["']/i.test(tag), `${page}: image should declare width and height (${ref}).`);
+      check(/\balt=["']/i.test(tag), page + ": image is missing alt text (" + ref + ").");
+      check(/\bwidth=["']\d+["']/i.test(tag) && /\bheight=["']\d+["']/i.test(tag), page + ": image should declare width and height (" + ref + ").");
     }
   }
 }
@@ -54,15 +54,15 @@ const manifest = JSON.parse(read("data/product-verification.json"));
 check(manifest.schema_version === 1, "Product verification manifest schema is not supported.");
 check(Array.isArray(manifest.products) && manifest.products.length > 0, "No products are recorded in the verification manifest.");
 for (const product of manifest.products ?? []) {
-  check(Boolean(product.manufacturer_source), `${product.product_name}: manufacturer source missing.`);
-  check(product.retailer_listing?.asin_to_model_mapping_status !== "verified" || product.retailer_listing?.live_listing_status === "checked", `${product.product_name}: ASIN cannot be verified without a checked live listing.`);
+  check(Boolean(product.manufacturer_source), product.product_name + ": manufacturer source missing.");
+  check(product.retailer_listing?.asin_to_model_mapping_status !== "verified" || product.retailer_listing?.live_listing_status === "checked", product.product_name + ": ASIN cannot be verified without a checked live listing.");
   if (product.image_rights?.manufacturer_asset_permission !== "confirmed" && product.image_rights?.licensed_ugc !== "confirmed") {
-    warnings.push(`${product.product_name}: no confirmed product-image licence/UGC release; keep product image unpublished.`);
+    warnings.push(product.product_name + ": no confirmed product-image licence/UGC release; keep product image unpublished.");
   }
 }
 
 for (const asset of ["assets/site.css", "assets/site.js", "_headers", "robots.txt", "sitemap.xml"]) {
-  check(existsSync(join(root, asset)), `Required site asset missing: ${asset}`);
+  check(existsSync(join(root, asset)), "Required site asset missing: " + asset);
 }
 const css = join(root, "assets/site.css");
 const js = join(root, "assets/site.js");
@@ -72,7 +72,7 @@ if (existsSync(js)) check(bytes(js) <= 60 * 1024, "JavaScript exceeds the 60 KB 
 const home = read("index.html");
 check(home.includes("As an Amazon Associate I earn from qualifying purchases."), "Exact Amazon Associates disclosure missing.");
 check(/Amazon Associates application pending/i.test(home), "Amazon application status notice missing.");
-check(!/fonts\\.googleapis\\.com|fonts\\.gstatic\\.com/i.test(home), "Remote Google Fonts dependency detected.");
+check(!/fonts\.googleapis\.com|fonts\.gstatic\.com/i.test(home), "Remote Google Fonts dependency detected.");
 check(/data-filter=["']mice["']/i.test(home) && /id=["']gear-search["']/i.test(home), "Search and category-filter controls are missing.");
 
 if (errors.length) {
@@ -81,6 +81,6 @@ if (errors.length) {
   process.exit(1);
 }
 console.log("PROFESSIONAL QUALITY AUDIT: PASS");
-console.log(`HTML pages: ${htmlFiles.length}; local references checked: ${checkedLocalRefs}; image elements checked: ${checkedImages}`);
-console.log(`Raw CSS: ${existsSync(css) ? bytes(css) : 0} bytes; raw JS: ${existsSync(js) ? bytes(js) : 0} bytes`);
+console.log("HTML pages: " + htmlFiles.length + "; local references checked: " + checkedLocalRefs + "; image elements checked: " + checkedImages);
+console.log("Raw CSS: " + (existsSync(css) ? bytes(css) : 0) + " bytes; raw JS: " + (existsSync(js) ? bytes(js) : 0) + " bytes");
 for (const warning of warnings) console.warn("REVIEW REQUIRED:", warning);
