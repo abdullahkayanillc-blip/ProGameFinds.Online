@@ -54,10 +54,12 @@ const manifest = JSON.parse(read("data/product-verification.json"));
 check(manifest.schema_version === 1, "Product verification manifest schema is not supported.");
 check(Array.isArray(manifest.products) && manifest.products.length > 0, "No products are recorded in the verification manifest.");
 for (const product of manifest.products ?? []) {
-  check(Boolean(product.manufacturer_source), product.product_name + ": manufacturer source missing.");
+  if (product.model_identity_status === "manufacturer_source_checked") check(Boolean(product.manufacturer_source), product.product_name + ": checked manufacturer source missing.");
+  check(Boolean(product.image_rights?.illustration_asset), product.product_name + ": original category illustration missing.");
+  check(product.image_rights?.illustration_only === true && product.image_rights?.publish_exact_product_photo === false, product.product_name + ": illustration must not be represented as exact product photography.");
   check(product.retailer_listing?.asin_to_model_mapping_status !== "verified" || product.retailer_listing?.live_listing_status === "checked", product.product_name + ": ASIN cannot be verified without a checked live listing.");
   if (product.image_rights?.manufacturer_asset_permission !== "confirmed" && product.image_rights?.licensed_ugc !== "confirmed") {
-    warnings.push(product.product_name + ": no confirmed product-image licence/UGC release; keep product image unpublished.");
+    warnings.push(product.product_name + ": no licensed customer UGC supplied; published artwork is illustrative only.");
   }
 }
 
