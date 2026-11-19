@@ -20,6 +20,14 @@ try {
 
   const response = await page.goto(baseURL, { waitUntil: "networkidle", timeout: 45000 });
   check(Boolean(response && response.ok()), "Preview homepage returns a successful HTTP response");
+  if (baseURL === "https://progamefinds.online") {
+    const wwwResponse = await page.request.get("https://www.progamefinds.online", { maxRedirects: 0 });
+    const wwwLocation = wwwResponse.headers()["location"] || "";
+    check(wwwResponse.status() === 301 && wwwLocation.startsWith("https://progamefinds.online/"), "www hostname redirects permanently to canonical root domain");
+    const httpResponse = await page.request.get("http://progamefinds.online", { maxRedirects: 0 });
+    const httpLocation = httpResponse.headers()["location"] || "";
+    check([301, 308].includes(httpResponse.status()) && httpLocation.startsWith("https://progamefinds.online/"), "HTTP root redirects to HTTPS");
+  }
   check((await page.title()).includes("ProGameFinds"), "Homepage title identifies ProGameFinds");
   check(await page.locator('meta[name="description"]').count() === 1, "Homepage has exactly one meta description");
 
