@@ -39,6 +39,12 @@ try {
   const aboutLinks = page.locator('nav[aria-label="Primary"] a[href="/about.html"]');
   check(await aboutLinks.count() === 1, "Primary navigation contains one About link (no duplicate)");
 
+  check(await page.locator('a[href^="mailto:support@progamefinds.online"]').count() === 1, "Direct support email link is present");
+  const productArt = page.locator("img.product-art");
+  check(await productArt.count() === 22, "All 22 catalogue cards include illustrative artwork");
+  const allArtworkLoaded = await productArt.evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0));
+  check(allArtworkLoaded, "All catalogue artwork files load successfully");
+
   const search = page.locator("#gear-search");
   await search.fill("Logitech G305");
   check(await page.locator(".card:visible").count() === 1, "Search filters the catalogue to the matching G305 card");
