@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "purpose": "Separate manufacturer-confirmed model facts from unverified retailer identifiers and image rights.",
+  "last_reviewed": "2026-11-19",
+  "policy": {
+    "never_infer_asin_mapping_from_model_name": true,
+    "never_invent_reviews_ratings_prices_or_stock": true,
+    "ugc_requires_documented_creator_permission": true,
+    "manufacturer_assets_require_confirmed_usage_rights": true,
+    "ai_editorial_art_must_be_labelled_illustrative_not_ugc": true
+  },
+  "products": [
+    {
+      "product_name": "Logitech G305 LIGHTSPEED Wireless Gaming Mouse",
+      "manufacturer": "Logitech G",
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://www.logitechg.com/en-us/products/gaming-mice/g305-lightspeed-wireless-gaming-mouse.html",
+      "manufacturer_facts": {
+        "wireless_technology": "LIGHTSPEED",
+        "sensor_dpi_range": "200–12,000 DPI",
+        "battery_life_claim": "Up to 250 hours",
+        "battery_type": "1 AA",
+        "programmable_buttons": 6
+      },
+      "retailer_listing": {
+        "retailer": "Amazon US",
+        "asin": "B07CMS5Q6P",
+        "asin_to_model_mapping_status": "not_verified",
+        "live_listing_status": "not_checked",
+        "seller_status": "not_checked",
+        "variant_status": "not_checked"
+      },
+      "image_rights": {
+        "manufacturer_asset_permission": "not_confirmed",
+        "licensed_ugc": "not_supplied",
+        "original_editorial_image": "not_created",
+        "publish_product_image": false
+      },
+      "verification_notes": "Manufacturer model facts are checked against the linked Logitech product source. This does not verify that the candidate Amazon ASIN resolves to the exact model, region, colour or revision. Do not label the retailer listing verified until that mapping is checked against the live listing and manufacturer evidence."
+    }
+  ]
+}
