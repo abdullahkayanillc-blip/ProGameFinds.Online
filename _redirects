@@ -1,5 +1,5 @@
-# Canonicalize www and HTTP requests directly to the production root hostname.
-# Cloudflare Pages preserves the original query string when redirecting with :splat.
+# Canonical host and protocol redirects.
+# Keep the exact hostname/protocol normalization in Cloudflare Pages rules.
 https://www.progamefinds.online/* https://progamefinds.online/:splat 301!
 http://progamefinds.online/* https://progamefinds.online/:splat 301!
 http://www.progamefinds.online/* https://progamefinds.online/:splat 301!
