@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - progamefinds-professional-qa-2026-11-19
+      - preview/product-verification-2026-11-20
   pull_request:
     branches:
       - main
