@@ -254,3 +254,5 @@ h2{letter-spacing:-.04em}
 .icon-defs{position:absolute}
 
 .product-art{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border:1px solid rgba(132,158,197,.16);border-radius:14px;margin:12px 0 16px;background:#0b1628}.card{overflow:hidden}.product-art+ h4{margin-top:4px}
+
+.product-resources{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:9px 0 12px;font-size:.76rem;line-height:1.55}.product-resources a{color:#83d8f2;text-decoration:underline;text-underline-offset:3px}.product-resources a:hover{color:#fff}.product-resources span{color:#71839d}
