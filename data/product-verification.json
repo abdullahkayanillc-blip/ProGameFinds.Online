@@ -88,11 +88,11 @@
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
-        "asin": "B092CB69Q4",
-        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
-        "live_listing_status": "not_live_verified_on_Amazon_US",
+        "asin": null,
+        "asin_to_model_mapping_status": "not_verified",
+        "live_listing_status": "Amazon_search_link_only",
         "seller_status": "not_checked",
-        "variant_status": "not_live_verified",
+        "variant_status": "not_checked",
         "price_status": "not_published"
       },
       "image_rights": {
@@ -105,9 +105,10 @@
         "publish_illustration": true,
         "licensed_video": "not_supplied"
       },
-      "verification_notes": "Official Logitech page verifies G502 X PLUS model family. Device record maps model 910-006160 to G502 X PLUS and Amazon product source; Amazon.com current offer, seller and exact colour not checked.",
+      "verification_notes": "Logitech official product page verifies the G502 X PLUS family and model 910-006160, but the previously listed B092CB69Q4 ASIN could not be independently confirmed to this exact model. The card now links to an Amazon search rather than a possibly mismatched ASIN.",
       "evidence_sources": [
-        "https://device.report/logitech-g/910-006160"
+        "https://www.logitechg.com/en-us/shop/p/g502-x-plus-wireless-lightforce",
+        "https://doi-product-assets.s3.amazonaws.com/pub/Manufacturer-Brochure/1074443754.pdf"
       ]
     },
     {
@@ -732,9 +733,9 @@
   ],
   "audit_scope": {
     "status": "research_crosscheck_completed_partial_owner_verification_pending",
-    "candidate_asin_count": 20,
+    "candidate_asin_count": 19,
     "category_search_only_count": 2,
-    "independent_candidate_mappings_corroborated": 20,
+    "independent_candidate_mappings_corroborated": 19,
     "live_amazon_us_offers_seller_and_exact_variant_verified": 0,
     "live_amazon_prices_authorized_for_site": 0,
     "licensed_ugc_assets_supplied": 0,
@@ -750,6 +751,7 @@
     "creator_video_links_found": 3,
     "official_product_video_or_tutorial_links_found": 2,
     "video_files_downloaded_or_rehosted": 0,
-    "ugc_photos_supplied": 0
+    "ugc_photos_supplied": 0,
+    "not_mapped_or_category_search_only_count": 3
   }
 }
