@@ -7,7 +7,9 @@
     "never_invent_reviews_ratings_prices_or_stock": true,
     "ugc_requires_documented_creator_permission": true,
     "manufacturer_assets_require_confirmed_usage_rights": true,
-    "editorial_art_must_be_labelled_illustrative_not_ugc": true
+    "editorial_art_must_be_labelled_illustrative_not_ugc": true,
+    "price_content": "Do not display third-party tracker or manufacturer-site prices as Amazon prices. Amazon price/availability/product image content must be delivered through an Amazon-permitted method (e.g. eligible Creators API) and refreshed according to current policies.",
+    "media_rights": "Do not copy Amazon or manufacturer product photos, UGC photos, or videos into this site without an applicable Amazon program license or explicit rights-holder permission. Keep original illustrations labelled illustrative until rights are confirmed."
   },
   "catalogue_count": 22,
   "products": [
@@ -15,7 +17,7 @@
       "product_name": "Logitech G305 LIGHTSPEED",
       "manufacturer": "Logitech",
       "model_identity_status": "manufacturer_source_checked",
-      "manufacturer_source": "https://www.logitechg.com/en-us/products/gaming-mice/g305-lightspeed-wireless-gaming-mouse.html",
+      "manufacturer_source": "https://www.logitechg.com/en-us/shop/p/g305-lightspeed-wireless-gaming-mouse",
       "manufacturer_facts": {
         "wireless_technology": "LIGHTSPEED",
         "sensor_dpi_range": "200–12,000 DPI",
@@ -26,10 +28,11 @@
       "retailer_listing": {
         "retailer": "Amazon US",
         "asin": "B07CMS5Q6P",
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
+        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
+        "live_listing_status": "not_live_verified_on_Amazon_US",
         "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "variant_status": "not_live_verified",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -38,23 +41,29 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official Logitech source verifies LIGHTSPEED, HERO sensor, 200–12,000 DPI and up to 250-hour battery on one AA. ASIN B07CMS5Q6P is corroborated by Amazon.ca/product records; Amazon.com offer, seller and current variant remain unchecked.",
+      "evidence_sources": [
+        "https://www.amazon.ca/Logitech-Lightspeed-Lightweight-Programmable-Compatible/dp/B07CMS5Q6P",
+        "https://device.report/logitech-g/b07cms5q6p"
+      ]
     },
     {
       "product_name": "Logitech G502 HERO",
       "manufacturer": "Logitech",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://www.logitechg.com/en-us/shop/p/g502-hero-gaming-mouse.910-005469",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
         "asin": "B07GBZ4Q68",
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
+        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
+        "live_listing_status": "not_live_verified_on_Amazon_US",
         "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "variant_status": "not_live_verified",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -63,23 +72,28 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official Logitech page verifies G502 HERO wired product family and HERO 25K sensor. Device record maps model 910-005469 to ASIN B07GBZ4Q68. Amazon.com current offer and seller not checked.",
+      "evidence_sources": [
+        "https://device.report/logitech/910-005469"
+      ]
     },
     {
       "product_name": "Logitech G502 X Plus Wireless",
       "manufacturer": "Logitech",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://www.logitechg.com/en-us/shop/p/g502-x-plus-wireless-lightforce",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
         "asin": "B092CB69Q4",
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
+        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
+        "live_listing_status": "not_live_verified_on_Amazon_US",
         "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "variant_status": "not_live_verified",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -88,23 +102,28 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official Logitech page verifies G502 X PLUS model family. Device record maps model 910-006160 to G502 X PLUS and Amazon product source; Amazon.com current offer, seller and exact colour not checked.",
+      "evidence_sources": [
+        "https://device.report/logitech-g/910-006160"
+      ]
     },
     {
       "product_name": "Logitech G502 Lightspeed (HERO 25K)",
       "manufacturer": "Logitech",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://www.logitechg.com/en-us/shop/p/g502-lightspeed-wireless-gaming-mouse.910-005568",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
         "asin": "B07L4BM851",
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
+        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
+        "live_listing_status": "not_live_verified_on_Amazon_US",
         "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "variant_status": "not_live_verified",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -113,23 +132,28 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official Logitech page verifies G502 LIGHTSPEED wireless family. Independent Amazon price-tracker record maps ASIN B07L4BM851 to G502 LIGHTSPEED with HERO 25K. Live Amazon.com offer/seller/variant not checked.",
+      "evidence_sources": [
+        "https://pricehistory.app/p/logitech-g502-lightspeed-wireless-gaming-mouse-hero-vVugiHyp"
+      ]
     },
     {
       "product_name": "HyperX Cloud III",
       "manufacturer": "HyperX",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://hyperx.com/products/hyperx-cloud-iii-wired-gaming-headset?variant=43656365375645",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
         "asin": "B0C3BSZ56D",
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
+        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
+        "live_listing_status": "not_live_verified_on_Amazon_US",
         "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "variant_status": "not_live_verified",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -138,23 +162,29 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official HyperX source verifies wired Cloud III specifications; Amazon.ie item record maps ASIN B0C3BSZ56D to part 727A8AA / Black. Amazon.com current offer and seller not checked.",
+      "evidence_sources": [
+        "https://www.amazon.ie/HyperX-727A8AA-Headset-Drivers-Ultra-Clear/dp/B0C3BSZ56D",
+        "https://hyperx.com/blogs/press/hyperx-announces-cloud-iii-gaming-headset"
+      ]
     },
     {
       "product_name": "Razer BlackShark V2 X",
       "manufacturer": "Razer",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://www.razer.com/gaming-headsets/razer-blackshark-v2-x",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
         "asin": "B086PKMZ21",
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
+        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
+        "live_listing_status": "not_live_verified_on_Amazon_US",
         "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "variant_status": "not_live_verified",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -163,23 +193,29 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official Razer source verifies wired BlackShark V2 X family, 50 mm drivers, 3.5 mm and platform compatibility. Amazon UK record maps B086PKMZ21 to model RZ04-03240100-R3M1. Amazon.com seller/current offer not checked.",
+      "evidence_sources": [
+        "https://www.amazon.co.uk/Razer-BlackShark-V2-Gaming-Headset/dp/B086PKMZ21",
+        "https://mysupport.razer.com/app/answers/detail/a_id/3540/kw/usb%20connection"
+      ]
     },
     {
       "product_name": "HyperX Cloud III S Wireless",
       "manufacturer": "HyperX",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://hyperx.com/products/hyperx-cloud-iii-s-wireless-gaming-headset",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
         "asin": "B0F6NZWPTC",
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
+        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
+        "live_listing_status": "not_live_verified_on_Amazon_US",
         "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "variant_status": "not_live_verified",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -188,23 +224,29 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official HyperX source verifies Cloud III S Wireless family. Amazon Turkey record maps B0F6NZWPTC to model A59YZAA. US listing seller and current offer not checked.",
+      "evidence_sources": [
+        "https://www.amazon.com.tr/HyperX-Wireless-Headset-Kablosuz-Kulakl%C4%B1%C4%9F%C4%B1/dp/B0F6NZWPTC",
+        "https://www.basketprice.com/p/hyperx-cloud-iii-s-wireless-gaming-headset-multi-platform"
+      ]
     },
     {
       "product_name": "HyperX Cloud II",
       "manufacturer": "HyperX",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://hyperx.com/products/hyperx-cloud-ii",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
         "asin": "B00SAYCXWG",
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
+        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
+        "live_listing_status": "not_live_verified_on_Amazon_US",
         "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "variant_status": "not_live_verified",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -213,23 +255,28 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official HyperX page verifies Cloud II specifications. Independent product record maps candidate ASIN B00SAYCXWG to Cloud II; Amazon.com offer and seller remain unverified.",
+      "evidence_sources": [
+        "https://device.report/hyperx/cloud-ii"
+      ]
     },
     {
-      "product_name": "HyperX Cloud III (second listing)",
+      "product_name": "HyperX Cloud III (Black-Red variant)",
       "manufacturer": "HyperX",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://hyperx.com/products/hyperx-cloud-iii-wired-gaming-headset?variant=43656365375645",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
         "asin": "B0C3BV19Q3",
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
+        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
+        "live_listing_status": "not_live_verified_on_Amazon_US",
         "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "variant_status": "not_live_verified",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -238,23 +285,29 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Independent device record maps B0C3BV19Q3 to HyperX part 727A9AA, Black/Red. Official HyperX announcement distinguishes Black and Black-Red parts. Amazon.com live offer/seller not checked.",
+      "evidence_sources": [
+        "https://device.report/hyperx/727a9aa",
+        "https://hyperx.com/blogs/press/hyperx-announces-cloud-iii-gaming-headset"
+      ]
     },
     {
       "product_name": "Logitech G213 Prodigy",
       "manufacturer": "Logitech",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://www.logitechg.com/en-us/shop/p/g213-rgb-gaming-keyboard",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
         "asin": "B07QGHK6Q8",
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
+        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
+        "live_listing_status": "not_live_verified_on_Amazon_US",
         "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "variant_status": "not_live_verified",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -263,23 +316,28 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official Logitech source verifies G213 Prodigy Mech-Dome, LIGHTSYNC and spill-resistant construction. Independent listing record corroborates B07QGHK6Q8; Amazon.com current offer/seller not checked.",
+      "evidence_sources": [
+        "https://pricehistory.app/p/logitech-g213-prodigy-gaming-keyboard-wired-keyboard-qq131GIm"
+      ]
     },
     {
       "product_name": "SteelSeries Apex 3 TKL RGB",
       "manufacturer": "SteelSeries",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://steelseries.com/gaming-keyboards/apex-3?color=black&keyboardLanguage=english&keyboardSize=tkl",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
         "asin": "B09FTNMT84",
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
+        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
+        "live_listing_status": "not_live_verified_on_Amazon_US",
         "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "variant_status": "not_live_verified",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -288,23 +346,29 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official SteelSeries page verifies Apex 3 TKL family and IP32 rating. Device record maps model 12167 to Amazon product data; ASIN candidate B09FTNMT84 is corroborated but live seller/offer not checked.",
+      "evidence_sources": [
+        "https://device.report/steelseries/12167",
+        "https://support.steelseries.com/hc/en-us/article_attachments/39646209161229"
+      ]
     },
     {
-      "product_name": "GameSir G7 Pro",
+      "product_name": "GameSir G7 Pro Tri-Mode Controller",
       "manufacturer": "GameSir",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://gamesir.com/pages/faq-questions-about-g7-pro",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
-        "asin": "B0FD41XC3P",
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
+        "asin": "B0FHHFBDNQ",
+        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
+        "live_listing_status": "not_live_verified_on_Amazon_US",
         "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "variant_status": "not_live_verified",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -313,23 +377,30 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Corrected candidate ASIN from unsupported B0FD41XC3P to independently corroborated B0FHHFBDNQ. Price-history and seller catalogue identify B0FHHFBDNQ as GameSir-G7 Pro, and GameSir official FAQ confirms wired Xbox, 2.4G/wired PC and Bluetooth Android. Amazon.com seller/variant/current offer still requires live owner-side confirmation.",
+      "evidence_sources": [
+        "https://pricehistory.app/p/gamesir-g7-pro-wired-controller-xbox-series-oSx6lESj",
+        "https://www.sellersnooper.com/GameSir%20Official%20Store%20US/productsByRevenue",
+        "https://gamesir.com/pages/tutorials-how-to-connect-g7-pro"
+      ]
     },
     {
       "product_name": "GameSir G7 SE",
       "manufacturer": "GameSir",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://gamesir.com/products/gamesir-g7-se",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
         "asin": "B0C7GW9F88",
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
+        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
+        "live_listing_status": "not_live_verified_on_Amazon_US",
         "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "variant_status": "not_live_verified",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -338,23 +409,29 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official GameSir page verifies officially licensed wired Xbox/PC controller with Hall Effect sticks. Independent catalogue corroborates B0C7GW9F88; Amazon.com live offer and seller not checked.",
+      "evidence_sources": [
+        "https://www.starshop.pk/product/gamesir-g7-se-wired-controller-for-xbox-series-x-s-xbox-one-windows-10-1-in-pakistan/",
+        "https://www.basketprice.com/p/gamesir-g7-se-wired-controller-for-xbox-series-x-s-xbox-one"
+      ]
     },
     {
       "product_name": "GameSir G7 SE (licensed edition)",
       "manufacturer": "GameSir",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://gamesir.com/products/gamesir-g7-se",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
         "asin": "B0CT3BXRLS",
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
+        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
+        "live_listing_status": "not_live_verified_on_Amazon_US",
         "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "variant_status": "not_live_verified",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -363,23 +440,29 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official GameSir product family confirms G7 SE is officially licensed for Xbox; independent catalogue maps B0CT3BXRLS to a G7 SE licensed variant. Colour/package and Amazon.com seller must be confirmed on live listing.",
+      "evidence_sources": [
+        "https://www.starshop.pk/product/gamesir-g7-se-officially-licensed-xbox-one-controller-with-hall-effect-s-in-pakistan/",
+        "https://www.desertcart.ae/products/632590399-gamesir-g7-se-xbox-controller-wired-for-pc-series-x"
+      ]
     },
     {
-      "product_name": "GameSir Nova Lite 2 Wireless",
+      "product_name": "GameSir Nova 2 Lite Wireless",
       "manufacturer": "GameSir",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://gamesir.com/products/gamesir-nova-lite2",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
         "asin": "B0F3D25PD3",
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
+        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
+        "live_listing_status": "not_live_verified_on_Amazon_US",
         "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "variant_status": "not_live_verified",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -388,23 +471,30 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Corrected product naming to the official GameSir Nova 2 Lite designation. Device record maps ASIN B0F3D25PD3 to Nova 2 Lite; official FAQ confirms Switch, PC, iOS and Android and Bluetooth/dongle/wired modes. Amazon.com offer/seller not checked.",
+      "evidence_sources": [
+        "https://device.report/gamesir/gamesir-nova2-lite",
+        "https://gamesir.com/pages/faq-questions-about-nova-2-lite",
+        "https://gamesir.com/pages/tutorials-how-to-connect-nova-2-lite"
+      ]
     },
     {
-      "product_name": "Govee RGBIC LED Strip",
+      "product_name": "Govee RGBIC Basic LED Strip Lights (H617A)",
       "manufacturer": "Govee",
-      "model_identity_status": "not_checked",
+      "model_identity_status": "independent_catalogue_crosschecked",
       "manufacturer_source": null,
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
         "asin": "B0991Q94KP",
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
+        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
+        "live_listing_status": "not_live_verified_on_Amazon_US",
         "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "variant_status": "not_live_verified",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -413,23 +503,29 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "ASIN B0991Q94KP is cross-referenced to Govee 16.4 ft RGBIC LED strip; the H617A model is shown in a Govee product manual/Declaration record. Live Amazon US seller and current package variant not checked.",
+      "evidence_sources": [
+        "https://app.parseshelf.com/best-sellers/asin/B0991Q94KP/",
+        "https://manuals.plus/m/892b402de22be2e54e7939e444c55614825150ac21fcb8c84f777e5c575e3806"
+      ]
     },
     {
       "product_name": "KSIPZE 100ft RGB Strip",
       "manufacturer": "KSIPZE",
-      "model_identity_status": "not_checked",
+      "model_identity_status": "independent_catalogue_crosschecked",
       "manufacturer_source": null,
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
         "asin": "B09V366BDY",
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
+        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
+        "live_listing_status": "not_live_verified_on_Amazon_US",
         "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "variant_status": "not_live_verified",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -438,23 +534,29 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Device record maps B09V366BDY to KSIPZE ST52_N12430US_LY, 100 ft LED strip. Live Amazon US seller/offer not checked.",
+      "evidence_sources": [
+        "https://device.report/ksipze/st52-n12430us-ly",
+        "https://www.desertcart.com.sa/products/436029385-ksipze-100ft-led-strip-lights-rgb-music-sync"
+      ]
     },
     {
       "product_name": "DAYBETTER LED Strip 32.8 ft",
       "manufacturer": "DAYBETTER",
-      "model_identity_status": "not_checked",
+      "model_identity_status": "independent_catalogue_crosschecked",
       "manufacturer_source": null,
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
         "asin": "B08D99TWQJ",
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
+        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
+        "live_listing_status": "not_live_verified_on_Amazon_US",
         "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "variant_status": "not_live_verified",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -463,23 +565,29 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Device record identifies DAYBETTER DR507250R-RGB-V2 and cross-references the 32.8 ft kit; seller and current Amazon US offer not checked.",
+      "evidence_sources": [
+        "https://device.report/daybetter/dr507250r-rgb-v2",
+        "https://www.desertcart.com.sa/products/219771401-daybetter-led-strip-lights-32-8ft-kit-led-light-strips"
+      ]
     },
     {
       "product_name": "HBOWMDJIA LED Lights 200 ft",
       "manufacturer": "HBOWMDJIA",
-      "model_identity_status": "not_checked",
+      "model_identity_status": "independent_catalogue_crosschecked",
       "manufacturer_source": null,
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
         "asin": "B0DFYBYPZM",
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
+        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
+        "live_listing_status": "not_live_verified_on_Amazon_US",
         "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "variant_status": "not_live_verified",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -488,23 +596,29 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Two independent catalogue records map B0DFYBYPZM to HBOWMDJIA 200 ft (two 100 ft rolls). Seller and current Amazon US listing/availability still not checked.",
+      "evidence_sources": [
+        "https://amzdesignkit.com/listings/B0DFYBYPZM-led-lights-for-bedroom-200-ft-2-rolls-100-ft",
+        "https://www.desertcart.be/products/664685297-hbowmdjia-led-lights-for-bedroom-200-ft-2-rolls-100"
+      ]
     },
     {
       "product_name": "Leeleberd LED Lights 100 ft",
       "manufacturer": "Leeleberd",
-      "model_identity_status": "not_checked",
+      "model_identity_status": "independent_catalogue_crosschecked",
       "manufacturer_source": null,
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
         "asin": "B0C2MHG632",
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
+        "asin_to_model_mapping_status": "independent_sources_corroborate_candidate",
+        "live_listing_status": "not_live_verified_on_Amazon_US",
         "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "variant_status": "not_live_verified",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -513,9 +627,14 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Independent catalogue maps B0C2MHG632 to Leeleberd T-100 100 ft LED strip. Amazon.com seller/current offer not checked.",
+      "evidence_sources": [
+        "https://pricehistory.app/p/leeleberd-led-lights-bedroom-100-ft-2-rmbbtqw8",
+        "https://en.smarterashop.com/US/g/leeleberd-led-lights-for-bedroom"
+      ]
     },
     {
       "product_name": "Gaming chairs",
@@ -526,10 +645,11 @@
       "retailer_listing": {
         "retailer": null,
         "asin": null,
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
-        "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "asin_to_model_mapping_status": "category_search_only_no_ASIN",
+        "live_listing_status": "Amazon_search_link_only",
+        "seller_status": "not_applicable",
+        "variant_status": "not_applicable",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -538,7 +658,8 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
       "verification_notes": "Category-level candidate; no retailer ASIN supplied. Artwork is illustrative, not a product photo or customer UGC."
     },
@@ -551,10 +672,11 @@
       "retailer_listing": {
         "retailer": null,
         "asin": null,
-        "asin_to_model_mapping_status": "not_verified",
-        "live_listing_status": "not_checked",
-        "seller_status": "not_checked",
-        "variant_status": "not_checked"
+        "asin_to_model_mapping_status": "category_search_only_no_ASIN",
+        "live_listing_status": "Amazon_search_link_only",
+        "seller_status": "not_applicable",
+        "variant_status": "not_applicable",
+        "price_status": "not_published"
       },
       "image_rights": {
         "manufacturer_asset_permission": "not_confirmed",
@@ -563,9 +685,28 @@
         "illustration_rights": "original artwork created for this site",
         "illustration_only": true,
         "publish_exact_product_photo": false,
-        "publish_illustration": true
+        "publish_illustration": true,
+        "licensed_video": "not_supplied"
       },
       "verification_notes": "Category-level candidate; no retailer ASIN supplied. Artwork is illustrative, not a product photo or customer UGC."
     }
-  ]
+  ],
+  "audit_scope": {
+    "status": "research_crosscheck_completed_partial_owner_verification_pending",
+    "candidate_asin_count": 20,
+    "category_search_only_count": 2,
+    "independent_candidate_mappings_corroborated": 20,
+    "live_amazon_us_offers_seller_and_exact_variant_verified": 0,
+    "live_amazon_prices_authorized_for_site": 0,
+    "licensed_ugc_assets_supplied": 0,
+    "licensed_product_videos_supplied": 0,
+    "owner_actions_required": [
+      "Confirm Associates Central acceptance and active tracking ID",
+      "Open each Amazon.com link while signed in as the owner and confirm seller, exact variant, availability and delivery region",
+      "Obtain Creators API eligibility/credentials before showing Amazon price, availability, ratings, reviews or Amazon product images",
+      "Obtain written creator/manufacturer asset licences before publishing UGC or product photography",
+      "Complete Search Console ownership and sitemap submission",
+      "Choose and configure a secure server-side contact form provider before enabling form submissions"
+    ]
+  }
 }
