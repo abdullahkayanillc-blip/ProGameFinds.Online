@@ -28,12 +28,21 @@ try {
     check([301, 308].includes(wwwResponse.status()) && wwwTarget?.origin === "https://progamefinds.online" && wwwTarget.pathname === "/", "www hostname redirects permanently to canonical root domain");
 
     // Verify a non-root route and query string survive the canonical redirect.
-    const deepPath = "/guides/choosing-a-gaming-mouse.html";
+    const deepPath = "/guides/choosing-a-gaming-mouse";
     const deepQuery = "?source=qa&campaign=canonical-redirect";
     const deepResponse = await page.request.get("https://www.progamefinds.online" + deepPath + deepQuery, { maxRedirects: 0 });
     const deepLocation = deepResponse.headers()["location"] || "";
     const deepTarget = deepLocation ? new URL(deepLocation, "https://www.progamefinds.online") : null;
     check([301, 308].includes(deepResponse.status()) && deepTarget?.origin === "https://progamefinds.online" && deepTarget.pathname === deepPath && deepTarget.search === deepQuery, "www redirect preserves a deep guide path and query string");
+
+    // Cloudflare Pages Clean URLs canonically redirect the .html alias to an
+    // extensionless URL. Confirm that alias redirect preserves the query string.
+    const htmlAliasResponse = await page.request.get("https://progamefinds.online" + deepPath + ".html" + deepQuery, { maxRedirects: 0 });
+    const htmlAliasLocation = htmlAliasResponse.headers()["location"] || "";
+    const htmlAliasTarget = htmlAliasLocation ? new URL(htmlAliasLocation, "https://progamefinds.online") : null;
+    check(htmlAliasResponse.status() === 308 && htmlAliasTarget?.origin === "https://progamefinds.online" &&
+      htmlAliasTarget.pathname === deepPath && htmlAliasTarget.search === deepQuery,
+      ".html guide alias redirects to the extensionless canonical URL and preserves its query string");
 
     const httpResponse = await page.request.get("http://progamefinds.online", { maxRedirects: 0 });
     const httpLocation = httpResponse.headers()["location"] || "";
