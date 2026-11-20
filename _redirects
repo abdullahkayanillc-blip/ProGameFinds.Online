@@ -1,3 +1,5 @@
-# Canonical hostname redirects are handled by the Cloudflare Zone Single Redirect rule.
-# www.progamefinds.online -> https://progamefinds.online (301; preserves path and query string).
-# HTTP-to-HTTPS is handled by the zone Always Use HTTPS setting.
+# Canonicalize www and HTTP requests directly to the production root hostname.
+# Cloudflare Pages preserves the original query string when redirecting with :splat.
+https://www.progamefinds.online/* https://progamefinds.online/:splat 301!
+http://progamefinds.online/* https://progamefinds.online/:splat 301!
+http://www.progamefinds.online/* https://progamefinds.online/:splat 301!
