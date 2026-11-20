@@ -72,6 +72,9 @@ No Amazon price is approved for display on the website yet. A few external track
 | HyperX Cloud III S Wireless | US$135.37, reported by tracker as of 16 Nov 2026 | [BasketPrice tracker](https://www.basketprice.com/p/hyperx-cloud-iii-s-wireless-gaming-headset-multi-platform) |
 | HyperX Cloud II | US$59.99, reported by tracker as of 16 Nov 2026 | [BasketPrice tracker](https://www.basketprice.com/p/hyperx-cloud-ii-gaming-headset-7-1-surround-sound-memory) |
 | Govee 16.4 ft RGBIC strip | US$14.99, observed 5 Nov 2026 | [ParseShelf ASIN snapshot](https://app.parseshelf.com/best-sellers/asin/B0991Q94KP/) |
+| GameSir G7 Pro | US$79.99, tracker reported checked 5 hours ago on 20 Nov 2026 | [BasketPrice ASIN record](https://www.basketprice.com/p/gamesir-g7-pro-wired-controller-for-xbox-series-x-s-xbox) |
+| HyperX Cloud III | US$69.39, Amazon price reported last checked 7 hours ago on 20 Nov 2026 | [SoundGuys review/price reference](https://www.soundguys.com/hyperx-cloud-iii-review-93195/) |
+| Logitech G305 LIGHTSPEED | US$28.48 on Logitech's own US store at time of lookup (not an Amazon price) | [Logitech G305 official store page](https://www.logitechg.com/en-us/shop/p/g305-lightspeed-wireless-gaming-mouse) |
 
 These prices are volatile and may differ by seller, marketplace, variant, coupon and destination. **Do not copy these snapshots into product cards as current Amazon prices.** Keep the website price-free and let the buyer see the live offer on Amazon until the owner has permitted Amazon data access.
 
@@ -108,7 +111,7 @@ Amazon's official Creators API onboarding says the Associates account must have 
 ## Owner actions that cannot safely be completed from repository code alone
 
 1. Sign in to Associates Central and confirm final acceptance, active US tracking ID and marketplace.
-2. Open the 20 Amazon product links in the owner's Amazon.com session. Confirm seller, exact colour/package/model, stock, delivery region and destination.
+2. Open the 19 ASIN-specific Amazon product links, plus the G502 X PLUS model search and the two category searches, in the owner's Amazon.com session. Confirm seller, exact colour/package/model, stock, delivery region and destination.
 3. Once eligible, register the Creators API and keep its credentials in a secure secret store—not in GitHub source or chat.
 4. Provide creator/manufacturer permission records or licensed assets for real product photos and UGC videos.
 5. Verify the domain in Google Search Console and submit `https://progamefinds.online/sitemap.xml`.
