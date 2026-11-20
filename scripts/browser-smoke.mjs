@@ -1,6 +1,7 @@
 import { chromium } from "playwright";
 
 const baseURL = process.env.PREVIEW_URL || "https://421a421b.progamefinds-online.pages.dev";
+const canonicalURL = process.env.CANONICAL_URL || (baseURL === "https://progamefinds.online" ? "https://progamefinds.online" : "");
 const failures = [];
 const metrics = {};
 const check = (condition, message) => {
@@ -20,7 +21,7 @@ try {
 
   const response = await page.goto(baseURL, { waitUntil: "networkidle", timeout: 45000 });
   check(Boolean(response && response.ok()), "Preview homepage returns a successful HTTP response");
-  if (baseURL === "https://progamefinds.online") {
+  if (canonicalURL) {
     const wwwResponse = await page.request.get("https://www.progamefinds.online", { maxRedirects: 0 });
     const wwwLocation = wwwResponse.headers()["location"] || "";
     const wwwTarget = wwwLocation ? new URL(wwwLocation, "https://www.progamefinds.online") : null;
