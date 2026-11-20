@@ -16,7 +16,7 @@ Audit terms:
 |---:|---|---|---|---|
 | 1 | Logitech G305 LIGHTSPEED | B07CMS5Q6P | Logitech specs; Amazon.ca and device record link ASIN to G305 / model 910-005280 | Amazon.com live offer, seller, colour/package |
 | 2 | Logitech G502 HERO | B07GBZ4Q68 | Logitech G502 HERO page; device record maps model 910-005469 to this ASIN | Amazon.com live offer, seller, variant |
-| 3 | Logitech G502 X Plus Wireless | B092CB69Q4 | Logitech G502 X PLUS page; device record maps model 910-006160 to G502 X PLUS | Amazon.com live offer, seller, exact colour |
+| 3 | Logitech G502 X Plus Wireless | No confirmed ASIN | Logitech official page and product sheet confirm G502 X PLUS model/part 910-006160 | Prior candidate B092CB69Q4 not independently confirmed; card now uses model-specific Amazon search; seller/variant still not checked |
 | 4 | Logitech G502 LIGHTSPEED (HERO 25K) | B07L4BM851 | Logitech G502 LIGHTSPEED page; independent price-history record identifies this ASIN/model | Amazon.com live offer, seller, variant |
 | 5 | HyperX Cloud III (Black) | B0C3BSZ56D | HyperX Cloud III official specs; Amazon.ie listing shows part 727A8AA / Black | Amazon.com live offer, seller, bundle |
 | 6 | Razer BlackShark V2 X | B086PKMZ21 | Razer product/support pages; Amazon.co.uk listing identifies model RZ04-03240100-R3M1 | Amazon.com live offer, seller, colour/connection variant |
@@ -92,7 +92,7 @@ Amazon's official Creators API onboarding says the Associates account must have 
 | Area | Status |
 |---|---|
 | 22 catalogue cards and affiliate CTAs | Present; tag `progamefinds-20` and link-level paid-link disclosure retained |
-| Product-to-ASIN cross-reference | 20 candidate mappings cross-referenced; live Amazon US offer/seller not confirmed |
+| Product-to-ASIN cross-reference | 19 candidate mappings cross-referenced; 1 named mouse item and 2 category cards use search-only links; live Amazon US offer/seller not confirmed |
 | Prices / availability / review counts | Not displayed (safe until permitted data access) |
 | Product photography / UGC | Category illustrations only; licensed media still outstanding |
 | Associates acceptance | Owner must verify in Associates Central; project notice remains pending |
