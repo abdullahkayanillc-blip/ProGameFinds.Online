@@ -31,4 +31,5 @@ jobs:
       - name: Test deployed preview
         env:
           PREVIEW_URL: ${{ github.ref == 'refs/heads/main' && 'https://progamefinds.online' || (github.ref == 'refs/heads/preview/product-verification-2026-11-20' && 'https://preview-product-verification.progamefinds-online.pages.dev' || 'https://9000908e.progamefinds-online.pages.dev') }}
+          CANONICAL_URL: https://progamefinds.online
         run: node scripts/browser-smoke.mjs
