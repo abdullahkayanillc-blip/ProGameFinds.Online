@@ -62,7 +62,7 @@ try {
       httpWwwFinal.pathname === deepPath &&
       httpWwwFinal.search === deepQuery,
       "HTTP www redirect chain ends at canonical HTTPS URL with path and query preserved" +
-      " (hops: " + httpWwwHops.map(item => item.status + " " + new URL(item.url).host).join(" -> ") + ")");
+      " (hops: " + httpWwwHops.map(item => item.status + " " + item.url + " Location=" + item.location).join(" || ") + "; final=" + httpWwwFinal.href + "; terminal=" + (httpWwwTerminalResponse?.status() ?? "none") + ")");
   }
   check((await page.title()).includes("ProGameFinds"), "Homepage title identifies ProGameFinds");
   check(await page.locator('meta[name="description"]').count() === 1, "Homepage has exactly one meta description");
