@@ -39,10 +39,29 @@ try {
     const httpTarget = httpLocation ? new URL(httpLocation, "http://progamefinds.online") : null;
     check([301, 308].includes(httpResponse.status()) && httpTarget?.origin === "https://progamefinds.online" && httpTarget.pathname === "/", "HTTP root redirects to HTTPS");
 
-    // Follow the complete HTTP www redirect chain and verify its final destination.
-    const httpWwwResponse = await page.request.get("http://www.progamefinds.online" + deepPath + deepQuery, { maxRedirects: 10 });
-    const httpWwwFinal = new URL(httpWwwResponse.url());
-    check(httpWwwResponse.ok() && httpWwwFinal.origin === "https://progamefinds.online" && httpWwwFinal.pathname === deepPath && httpWwwFinal.search === deepQuery, "HTTP www redirect chain ends at canonical HTTPS URL with path and query preserved");
+    // Follow each redirect explicitly so the test validates the final Location target
+    // rather than relying on APIResponse.url(), which may expose the initial request URL.
+    let httpWwwNextUrl = "http://www.progamefinds.online" + deepPath + deepQuery;
+    let httpWwwTerminalResponse = null;
+    const httpWwwHops = [];
+    for (let hop = 0; hop < 10; hop++) {
+      const hopResponse = await page.request.get(httpWwwNextUrl, { maxRedirects: 0 });
+      const location = hopResponse.headers()["location"] || "";
+      httpWwwHops.push({ status: hopResponse.status(), url: httpWwwNextUrl, location });
+      if ([301, 302, 303, 307, 308].includes(hopResponse.status()) && location) {
+        httpWwwNextUrl = new URL(location, httpWwwNextUrl).toString();
+        continue;
+      }
+      httpWwwTerminalResponse = hopResponse;
+      break;
+    }
+    const httpWwwFinal = new URL(httpWwwNextUrl);
+    check(Boolean(httpWwwTerminalResponse && httpWwwTerminalResponse.ok()) &&
+      httpWwwFinal.origin === "https://progamefinds.online" &&
+      httpWwwFinal.pathname === deepPath &&
+      httpWwwFinal.search === deepQuery,
+      "HTTP www redirect chain ends at canonical HTTPS URL with path and query preserved" +
+      " (hops: " + httpWwwHops.map(item => item.status + " " + new URL(item.url).host).join(" -> ") + ")");
   }
   check((await page.title()).includes("ProGameFinds"), "Homepage title identifies ProGameFinds");
   check(await page.locator('meta[name="description"]').count() === 1, "Homepage has exactly one meta description");
