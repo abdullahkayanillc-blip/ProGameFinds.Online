@@ -200,7 +200,15 @@
       "evidence_sources": [
         "https://www.amazon.co.uk/Razer-BlackShark-V2-Gaming-Headset/dp/B086PKMZ21",
         "https://mysupport.razer.com/app/answers/detail/a_id/3540/kw/usb%20connection"
-      ]
+      ],
+      "video_review": {
+        "type": "independent_creator_review",
+        "url": "https://www.youtube.com/watch?v=DdwkFQbiVR8",
+        "title": "Razer Blackshark V2 X Full Review",
+        "publisher": "Ribby Trivia",
+        "published": "2026-02-13",
+        "rights_note": "External YouTube link only; no video file or thumbnail copied."
+      }
     },
     {
       "product_name": "HyperX Cloud III S Wireless",
@@ -231,7 +239,15 @@
       "evidence_sources": [
         "https://www.amazon.com.tr/HyperX-Wireless-Headset-Kablosuz-Kulakl%C4%B1%C4%9F%C4%B1/dp/B0F6NZWPTC",
         "https://www.basketprice.com/p/hyperx-cloud-iii-s-wireless-gaming-headset-multi-platform"
-      ]
+      ],
+      "video_review": {
+        "type": "official_manufacturer_video",
+        "url": "https://www.youtube.com/watch?v=L_3Az37qKH0",
+        "title": "Introducing: Cloud III S Wireless",
+        "publisher": "HyperX",
+        "published": "2025-05-08",
+        "rights_note": "Link to YouTube playback only; not downloaded or rehosted."
+      }
     },
     {
       "product_name": "HyperX Cloud II",
@@ -353,7 +369,15 @@
       "evidence_sources": [
         "https://device.report/steelseries/12167",
         "https://support.steelseries.com/hc/en-us/article_attachments/39646209161229"
-      ]
+      ],
+      "video_review": {
+        "type": "independent_creator_review",
+        "url": "https://www.youtube.com/watch?v=qmoZB1vmNWg",
+        "title": "Steelseries Apex 3 TKL Gaming Keyboard Review",
+        "publisher": "ECPU",
+        "published": "2021-12-16",
+        "rights_note": "External YouTube link only; review is older and should be treated as supplementary."
+      }
     },
     {
       "product_name": "GameSir G7 Pro Tri-Mode Controller",
@@ -385,7 +409,14 @@
         "https://pricehistory.app/p/gamesir-g7-pro-wired-controller-xbox-series-oSx6lESj",
         "https://www.sellersnooper.com/GameSir%20Official%20Store%20US/productsByRevenue",
         "https://gamesir.com/pages/tutorials-how-to-connect-g7-pro"
-      ]
+      ],
+      "video_review": {
+        "type": "official_manufacturer_tutorials",
+        "url": "https://gamesir.com/pages/tutorials-how-to-connect-g7-pro",
+        "title": "Tutorials: How to Use G7 Pro",
+        "publisher": "GameSir",
+        "rights_note": "Official GameSir support page with embedded tutorials; external link only."
+      }
     },
     {
       "product_name": "GameSir G7 SE",
@@ -510,7 +541,15 @@
       "evidence_sources": [
         "https://app.parseshelf.com/best-sellers/asin/B0991Q94KP/",
         "https://manuals.plus/m/892b402de22be2e54e7939e444c55614825150ac21fcb8c84f777e5c575e3806"
-      ]
+      ],
+      "video_review": {
+        "type": "independent_creator_comparison",
+        "url": "https://www.youtube.com/watch?v=9ORv8J7vLb0",
+        "title": "Govee LED Strip Lights | In-Depth Review and Comparison",
+        "publisher": "Brandon Veza",
+        "published": "2025-06-20",
+        "rights_note": "Description includes H617A among several models; not a dedicated single-product UGC review. External YouTube link only."
+      }
     },
     {
       "product_name": "KSIPZE 100ft RGB Strip",
@@ -707,6 +746,10 @@
       "Obtain written creator/manufacturer asset licences before publishing UGC or product photography",
       "Complete Search Console ownership and sitemap submission",
       "Choose and configure a secure server-side contact form provider before enabling form submissions"
-    ]
+    ],
+    "creator_video_links_found": 3,
+    "official_product_video_or_tutorial_links_found": 2,
+    "video_files_downloaded_or_rehosted": 0,
+    "ugc_photos_supplied": 0
   }
 }
