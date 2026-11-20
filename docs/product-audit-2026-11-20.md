@@ -45,6 +45,23 @@ Audit terms:
 4. Expanded the Govee name to identify the H617A product family.
 5. The HBOWMDJIA ASIN was initially doubtful, but the follow-up cross-check found two independent records for B0DFYBYPZM / 200 ft. The candidate link is therefore retained, while the live offer and seller remain unchecked.
 
+
+## Video review and official tutorial links found
+
+I found and added outbound links (not copies or embeds) for a small set of specific catalogue products:
+
+| Product | Video | Publisher | Published | Type / note |
+|---|---|---|---|---|
+| Razer BlackShark V2 X | [Razer Blackshark V2 X Full Review](https://www.youtube.com/watch?v=DdwkFQbiVR8) | Ribby Trivia | 13 Feb 2026 | Independent creator review |
+| SteelSeries Apex 3 TKL | [Steelseries Apex 3 TKL Gaming Keyboard Review](https://www.youtube.com/watch?v=qmoZB1vmNWg) | ECPU | 16 Dec 2021 | Independent creator review; older footage |
+| Govee RGBIC LED strip | [Govee LED Strip Lights — In-Depth Review and Comparison](https://www.youtube.com/watch?v=9ORv8J7vLb0) | Brandon Veza | 20 Jun 2025 | Creator comparison includes H617A among multiple LED models; not a single-product review |
+| HyperX Cloud III S Wireless | [Introducing: Cloud III S Wireless](https://www.youtube.com/watch?v=L_3Az37qKH0) | HyperX (verified channel) | 8 May 2025 | Official manufacturer product video; not UGC |
+| GameSir G7 Pro | [Official G7 Pro connection/tutorial page](https://gamesir.com/pages/tutorials-how-to-connect-g7-pro) | GameSir | — | Official support page with embedded tutorials; not UGC |
+
+These are **5 relevant video references: 3 independent creator reviews/comparisons and 2 official manufacturer resources**. They have been added as plain outbound links on the matching cards. No YouTube video or thumbnail was downloaded, copied, or rehosted. A public creator video is not a licence to download or redistribute its footage; obtain written usage permission before reusing clips or images. See [YouTube Terms](https://www.youtube.com/t/terms).
+
+No licensed UGC product photographs were supplied or found with verified commercial reuse permission. Existing SVGs therefore remain clearly labelled category illustrations. Official product pages with manufacturer specifications and gallery content are linked from matching cards, but the site does not copy or host those photos.
+
 ## Prices: what could be established
 
 No Amazon price is approved for display on the website yet. A few external trackers have recent snapshots, but those are **research references, not Amazon-authorized site data**:
