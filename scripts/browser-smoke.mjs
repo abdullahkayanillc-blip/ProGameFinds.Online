@@ -23,10 +23,12 @@ try {
   if (baseURL === "https://progamefinds.online") {
     const wwwResponse = await page.request.get("https://www.progamefinds.online", { maxRedirects: 0 });
     const wwwLocation = wwwResponse.headers()["location"] || "";
-    check(wwwResponse.status() === 301 && wwwLocation.startsWith("https://progamefinds.online/"), "www hostname redirects permanently to canonical root domain");
+    const wwwTarget = wwwLocation ? new URL(wwwLocation, "https://www.progamefinds.online") : null;
+    check([301, 308].includes(wwwResponse.status()) && wwwTarget?.origin === "https://progamefinds.online" && wwwTarget.pathname === "/", "www hostname redirects permanently to canonical root domain");
     const httpResponse = await page.request.get("http://progamefinds.online", { maxRedirects: 0 });
     const httpLocation = httpResponse.headers()["location"] || "";
-    check([301, 308].includes(httpResponse.status()) && httpLocation.startsWith("https://progamefinds.online/"), "HTTP root redirects to HTTPS");
+    const httpTarget = httpLocation ? new URL(httpLocation, "http://progamefinds.online") : null;
+    check([301, 308].includes(httpResponse.status()) && httpTarget?.origin === "https://progamefinds.online" && httpTarget.pathname === "/", "HTTP root redirects to HTTPS");
   }
   check((await page.title()).includes("ProGameFinds"), "Homepage title identifies ProGameFinds");
   check(await page.locator('meta[name="description"]').count() === 1, "Homepage has exactly one meta description");
@@ -103,7 +105,19 @@ try {
   check(metrics.mobile.documentWidth <= metrics.mobile.viewportWidth, "390px mobile viewport has no horizontal overflow");
   check(metrics.mobile.menuVisible, "Mobile navigation menu is present");
 
-  check(consoleErrors.length === 0, "Browser console has no errors" + (consoleErrors.length ? ": " + consoleErrors.join(" | ") : ""));
+  // Cloudflare injects this optional Web Analytics beacon at the edge. The site's
+  // strict script-src 'self' policy intentionally blocks it; treat that expected
+  // CSP refusal as a pass, while still failing on all other browser console errors.
+  const expectedBlockedAnalytics = consoleErrors.filter(message =>
+    message.includes("static.cloudflareinsights.com/beacon.min.js") &&
+    message.includes("Content Security Policy") &&
+    message.includes("script-src 'self'")
+  );
+  const unexpectedConsoleErrors = consoleErrors.filter(message => !expectedBlockedAnalytics.includes(message));
+  check(unexpectedConsoleErrors.length === 0, "Browser console has no unexpected errors" + (unexpectedConsoleErrors.length ? ": " + unexpectedConsoleErrors.join(" | ") : ""));
+  if (expectedBlockedAnalytics.length) {
+    console.log("PASS Cloudflare analytics beacon is blocked by the site's strict CSP as intended");
+  }
   check(pageErrors.length === 0, "Browser runtime has no uncaught page errors" + (pageErrors.length ? ": " + pageErrors.join(" | ") : ""));
   const sameOriginFailures = failedRequests.filter((url) => url.startsWith(baseURL));
   check(sameOriginFailures.length === 0, "No failed same-origin asset requests" + (sameOriginFailures.length ? ": " + sameOriginFailures.join(" | ") : ""));
