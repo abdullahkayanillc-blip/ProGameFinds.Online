@@ -64,17 +64,15 @@ No licensed UGC product photographs were supplied or found with verified commerc
 
 ## Prices: what could be established
 
-No Amazon price is approved for display on the website yet. A few external trackers have recent snapshots, but those are **research references, not Amazon-authorized site data**:
+No Amazon price is approved for display on the website yet. The following are third-party tracker observations that cite Amazon offers; they are **not live API output, may be outdated or variant-dependent, and are not approved for website display**:
 
 | Product | External tracker observation | Source |
 |---|---:|---|
-| Logitech G305 | US$29.49, observed 19 Nov 2026 | [ParseShelf ASIN snapshot](https://app.parseshelf.com/best-sellers/asin/B07CMS5Q6P/) |
-| HyperX Cloud III S Wireless | US$135.37, reported by tracker as of 16 Nov 2026 | [BasketPrice tracker](https://www.basketprice.com/p/hyperx-cloud-iii-s-wireless-gaming-headset-multi-platform) |
-| HyperX Cloud II | US$59.99, reported by tracker as of 16 Nov 2026 | [BasketPrice tracker](https://www.basketprice.com/p/hyperx-cloud-ii-gaming-headset-7-1-surround-sound-memory) |
-| Govee 16.4 ft RGBIC strip | US$14.99, observed 5 Nov 2026 | [ParseShelf ASIN snapshot](https://app.parseshelf.com/best-sellers/asin/B0991Q94KP/) |
-| GameSir G7 Pro | US$79.99, tracker reported checked 5 hours ago on 20 Nov 2026 | [BasketPrice ASIN record](https://www.basketprice.com/p/gamesir-g7-pro-wired-controller-for-xbox-series-x-s-xbox) |
-| HyperX Cloud III | US$69.39, Amazon price reported last checked 7 hours ago on 20 Nov 2026 | [SoundGuys review/price reference](https://www.soundguys.com/hyperx-cloud-iii-review-93195/) |
-| Logitech G305 LIGHTSPEED | US$28.48 on Logitech's own US store at time of lookup (not an Amazon price) | [Logitech G305 official store page](https://www.logitechg.com/en-us/shop/p/g305-lightspeed-wireless-gaming-mouse) |
+| Logitech G305 LIGHTSPEED | US$29.49, tracker showed Amazon price checked about 8 hours before lookup on 20 Nov 2026 | [BasketPrice tracker](https://www.basketprice.com/p/logitech-g305-lightspeed-wireless-gaming-mouse-black) |
+| Logitech G502 HERO | US$37.99, BasketPrice recorded this as an Amazon price verified 29 Oct 2026; record notes price was from a third-party seller | [BasketPrice tracker](https://www.basketprice.com/p/logitech-g502-hero-wired-gaming-mouse-black) |
+| HyperX Cloud III S Wireless (Black, ASIN B0F6NZWPTC) | US$104.99, 15 Nov 2026; Slickdeals reported shipped and sold by Amazon | [Slickdeals deal record](https://slickdeals.net/f/20311485-hyperx-cloud-iii-s-wireless-gaming-headset-black-104-99-free-shipping) |
+| GameSir G7 Pro (ASIN B0FHHFBDNQ) | US$79.99, tracker checked 18 Nov 2026; official GameSir store / Fulfilled by Amazon offer shown | [TrackPin tracker](https://trackpin.co/p/B0FHHFBDNQ) |
+| Govee 16.4 ft RGBIC strip (ASIN B0991Q94KP) | US$14.99, tracker checked about 10 hours before lookup; model H617A | [BasketPrice tracker](https://www.basketprice.com/p/govee-16-4ft-rgbic-led-strip-lights-led-lights-for-bedroom) |
 
 These prices are volatile and may differ by seller, marketplace, variant, coupon and destination. **Do not copy these snapshots into product cards as current Amazon prices.** Keep the website price-free and let the buyer see the live offer on Amazon until the owner has permitted Amazon data access.
 
