@@ -26,7 +26,6 @@ try {
     const wwwTarget = wwwLocation ? new URL(wwwLocation, "https://www.progamefinds.online") : null;
     check([301, 308].includes(wwwResponse.status()) && wwwTarget?.origin === "https://progamefinds.online" && wwwTarget.pathname === "/", "www hostname redirects permanently to canonical root domain");
 
-    // Verify a non-root route and query string survive the canonical redirect.
     const deepPath = "/guides/choosing-a-gaming-mouse.html";
     const deepQuery = "?source=qa&campaign=canonical-redirect";
     const deepResponse = await page.request.get("https://www.progamefinds.online" + deepPath + deepQuery, { maxRedirects: 0 });
@@ -39,10 +38,31 @@ try {
     const httpTarget = httpLocation ? new URL(httpLocation, "http://progamefinds.online") : null;
     check([301, 308].includes(httpResponse.status()) && httpTarget?.origin === "https://progamefinds.online" && httpTarget.pathname === "/", "HTTP root redirects to HTTPS");
 
-    // Follow the complete HTTP www redirect chain and verify its final destination.
-    const httpWwwResponse = await page.request.get("http://www.progamefinds.online" + deepPath + deepQuery, { maxRedirects: 10 });
-    const httpWwwFinal = new URL(httpWwwResponse.url());
-    check(httpWwwResponse.ok() && httpWwwFinal.origin === "https://progamefinds.online" && httpWwwFinal.pathname === deepPath && httpWwwFinal.search === deepQuery, "HTTP www redirect chain ends at canonical HTTPS URL with path and query preserved");
+    // Trace each redirect hop explicitly. This identifies whether a failure is
+    // in HTTP www, HTTP-to-HTTPS, www-to-root, or the final deep-page response.
+    const expectedFinal = new URL("https://progamefinds.online" + deepPath + deepQuery);
+    let nextURL = new URL("http://www.progamefinds.online" + deepPath + deepQuery);
+    const redirectTrace = [];
+    let finalResponse;
+    for (let hop = 0; hop <= 10; hop++) {
+      const hopResponse = await page.request.get(nextURL.toString(), { maxRedirects: 0 });
+      const location = hopResponse.headers()["location"] || "";
+      redirectTrace.push({ status: hopResponse.status(), url: nextURL.toString(), location: location || null });
+      if (![301, 302, 303, 307, 308].includes(hopResponse.status()) || !location) {
+        finalResponse = hopResponse;
+        break;
+      }
+      nextURL = new URL(location, nextURL);
+    }
+
+    const traceSummary = JSON.stringify(redirectTrace);
+    const redirectHops = redirectTrace.slice(0, -1);
+    const chainIsPermanent = redirectHops.every(hop => [301, 308].includes(hop.status));
+    const finalURL = new URL(redirectTrace.at(-1).url);
+    const chainPasses = Boolean(finalResponse && finalResponse.ok() && chainIsPermanent &&
+      finalURL.origin === expectedFinal.origin && finalURL.pathname === expectedFinal.pathname &&
+      finalURL.search === expectedFinal.search);
+    check(chainPasses, "HTTP www redirect chain ends at canonical HTTPS URL with path and query preserved" + (chainPasses ? "" : ": " + traceSummary));
   }
   check((await page.title()).includes("ProGameFinds"), "Homepage title identifies ProGameFinds");
   check(await page.locator('meta[name="description"]').count() === 1, "Homepage has exactly one meta description");
@@ -119,9 +139,6 @@ try {
   check(metrics.mobile.documentWidth <= metrics.mobile.viewportWidth, "390px mobile viewport has no horizontal overflow");
   check(metrics.mobile.menuVisible, "Mobile navigation menu is present");
 
-  // Cloudflare injects this optional Web Analytics beacon at the edge. The site's
-  // strict script-src 'self' policy intentionally blocks it; treat that expected
-  // CSP refusal as a pass, while still failing on all other browser console errors.
   const expectedBlockedAnalytics = consoleErrors.filter(message =>
     message.includes("static.cloudflareinsights.com/beacon.min.js") &&
     message.includes("Content Security Policy") &&
