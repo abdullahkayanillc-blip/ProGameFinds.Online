@@ -25,10 +25,24 @@ try {
     const wwwLocation = wwwResponse.headers()["location"] || "";
     const wwwTarget = wwwLocation ? new URL(wwwLocation, "https://www.progamefinds.online") : null;
     check([301, 308].includes(wwwResponse.status()) && wwwTarget?.origin === "https://progamefinds.online" && wwwTarget.pathname === "/", "www hostname redirects permanently to canonical root domain");
+
+    // Verify a non-root route and query string survive the canonical redirect.
+    const deepPath = "/guides/choosing-a-gaming-mouse.html";
+    const deepQuery = "?source=qa&campaign=canonical-redirect";
+    const deepResponse = await page.request.get("https://www.progamefinds.online" + deepPath + deepQuery, { maxRedirects: 0 });
+    const deepLocation = deepResponse.headers()["location"] || "";
+    const deepTarget = deepLocation ? new URL(deepLocation, "https://www.progamefinds.online") : null;
+    check([301, 308].includes(deepResponse.status()) && deepTarget?.origin === "https://progamefinds.online" && deepTarget.pathname === deepPath && deepTarget.search === deepQuery, "www redirect preserves a deep guide path and query string");
+
     const httpResponse = await page.request.get("http://progamefinds.online", { maxRedirects: 0 });
     const httpLocation = httpResponse.headers()["location"] || "";
     const httpTarget = httpLocation ? new URL(httpLocation, "http://progamefinds.online") : null;
     check([301, 308].includes(httpResponse.status()) && httpTarget?.origin === "https://progamefinds.online" && httpTarget.pathname === "/", "HTTP root redirects to HTTPS");
+
+    // Follow the complete HTTP www redirect chain and verify its final destination.
+    const httpWwwResponse = await page.request.get("http://www.progamefinds.online" + deepPath + deepQuery, { maxRedirects: 10 });
+    const httpWwwFinal = new URL(httpWwwResponse.url());
+    check(httpWwwResponse.ok() && httpWwwFinal.origin === "https://progamefinds.online" && httpWwwFinal.pathname === deepPath && httpWwwFinal.search === deepQuery, "HTTP www redirect chain ends at canonical HTTPS URL with path and query preserved");
   }
   check((await page.title()).includes("ProGameFinds"), "Homepage title identifies ProGameFinds");
   check(await page.locator('meta[name="description"]').count() === 1, "Homepage has exactly one meta description");
