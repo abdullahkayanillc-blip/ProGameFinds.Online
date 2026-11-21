@@ -40,7 +40,9 @@ try {
 
     // Trace each redirect hop explicitly. This identifies whether a failure is
     // in HTTP www, HTTP-to-HTTPS, www-to-root, or the final deep-page response.
-    const expectedFinal = new URL("https://progamefinds.online" + deepPath + deepQuery);
+    // Pages intentionally removes the .html suffix after the hostname redirect.
+    // Compare the final canonical clean URL while still requiring the query string.
+    const expectedFinal = new URL("https://progamefinds.online" + deepPath.replace(/\.html$/, "") + deepQuery);
     let nextURL = new URL("http://www.progamefinds.online" + deepPath + deepQuery);
     const redirectTrace = [];
     let finalResponse;
