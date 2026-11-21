@@ -1,18 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
-<title id="title">ProGameFinds premium PGF gaming mark</title>
-<desc id="desc">A metallic PGF monogram with a gamepad control detail and electric blue cyan violet accents.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+<title id="title">ProGameFinds crowned PGF gaming emblem</title>
+<desc id="desc">A premium chrome PGF monogram with crown and controller-inspired controls, framed by electric cyan, blue and violet light.</desc>
 <defs>
- <linearGradient id="frame" x1="10" y1="8" x2="118" y2="120" gradientUnits="userSpaceOnUse"><stop stop-color="#39E5F4"/><stop offset=".48" stop-color="#327CFF"/><stop offset="1" stop-color="#B65CFF"/></linearGradient>
- <linearGradient id="metal" x1="24" y1="20" x2="105" y2="108" gradientUnits="userSpaceOnUse"><stop stop-color="#FFFFFF"/><stop offset=".48" stop-color="#C8D8EA"/><stop offset="1" stop-color="#6D91B9"/></linearGradient>
- <linearGradient id="blue" x1="38" y1="24" x2="106" y2="106" gradientUnits="userSpaceOnUse"><stop stop-color="#42E8F4"/><stop offset=".55" stop-color="#188DFF"/><stop offset="1" stop-color="#6B4DFF"/></linearGradient>
- <linearGradient id="bg" x1="12" y1="8" x2="116" y2="120" gradientUnits="userSpaceOnUse"><stop stop-color="#142B4B"/><stop offset="1" stop-color="#050B17"/></linearGradient>
- <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <linearGradient id="frame" x1="20" y1="12" x2="232" y2="244" gradientUnits="userSpaceOnUse"><stop stop-color="#7DF7FF"/><stop offset=".42" stop-color="#268BFF"/><stop offset="1" stop-color="#B65CFF"/></linearGradient>
+ <linearGradient id="chrome" x1="55" y1="55" x2="198" y2="204" gradientUnits="userSpaceOnUse"><stop stop-color="#FFF"/><stop offset=".25" stop-color="#DCEBFF"/><stop offset=".52" stop-color="#7896BC"/><stop offset=".72" stop-color="#F8FCFF"/><stop offset="1" stop-color="#8CA8CE"/></linearGradient>
+ <linearGradient id="neon" x1="80" y1="35" x2="220" y2="220" gradientUnits="userSpaceOnUse"><stop stop-color="#42F3FF"/><stop offset=".5" stop-color="#267DFF"/><stop offset="1" stop-color="#B44EFF"/></linearGradient>
+ <radialGradient id="bg" cx="25%" cy="10%" r="95%"><stop stop-color="#18365D"/><stop offset=".55" stop-color="#09172C"/><stop offset="1" stop-color="#030814"/></radialGradient>
+ <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 </defs>
-<rect x="4" y="4" width="120" height="120" rx="31" fill="#030814"/>
-<rect x="8" y="8" width="112" height="112" rx="27" fill="url(#bg)" stroke="url(#frame)" stroke-width="3"/>
-<path d="M20 98V31h25c17 0 26 8 26 23S62 77 45 77H34" fill="none" stroke="url(#metal)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M104 49c-5-10-13-15-23-15-16 0-26 12-26 30s10 29 26 29c13 0 22-7 24-19V63H84" fill="none" stroke="url(#blue)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M85 69h15M92.5 61.5v15" stroke="#F6FCFF" stroke-width="4.5" stroke-linecap="round" filter="url(#glow)"/>
-<path d="M18 105c20 15 50 18 76 5 8-4 15-10 20-17" fill="none" stroke="url(#frame)" stroke-width="4" stroke-linecap="round" filter="url(#glow)"/>
-<path d="M100 22h9v9" fill="none" stroke="#6BE8F4" stroke-width="2" stroke-linecap="round" opacity=".85"/>
+<rect x="5" y="5" width="246" height="246" rx="58" fill="#020713"/>
+<rect x="11" y="11" width="234" height="234" rx="52" fill="url(#bg)" stroke="url(#frame)" stroke-width="5"/>
+<path d="M70 64l18-24 18 20 22-34 22 34 18-20 18 24-11 18H81Z" fill="url(#chrome)" stroke="url(#neon)" stroke-width="3" stroke-linejoin="round" filter="url(#glow)"/>
+<path d="M124 48l4-9 5 9-5 8Z" fill="#A7F8FF"/>
+<path d="M64 191V91h40c24 0 37 12 37 34s-13 35-37 35H84" fill="none" stroke="url(#chrome)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M203 119c-8-17-21-25-39-25-27 0-44 20-44 51s17 50 44 50c22 0 37-12 41-33v-17h-37" fill="none" stroke="url(#neon)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+<path d="M161 145h24m-12-12v24" stroke="#F4FEFF" stroke-width="7" stroke-linecap="round"/>
+<circle cx="204" cy="160" r="5" fill="#F6F8FF"/><circle cx="216" cy="148" r="5" fill="#72F5FF"/>
+<path d="M39 213c48 27 119 31 175-2" fill="none" stroke="url(#frame)" stroke-width="5" stroke-linecap="round" opacity=".9" filter="url(#glow)"/>
 </svg>
