@@ -1,19 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-<title id="title">ProGameFinds — Gaming Gear Discovery Studio</title><desc id="desc">Premium dark blue social preview for gaming gear buying guides.</desc>
+<title id="title">ProGameFinds — Discover, compare, buy smarter</title>
+<desc id="desc">Premium ProGameFinds PGF gaming emblem and brand identity for gaming gear guides.</desc>
 <defs>
- <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07111F"/><stop offset="1" stop-color="#142B49"/></linearGradient>
- <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8CB8FF"/><stop offset=".55" stop-color="#49DCE7"/><stop offset="1" stop-color="#B9F3E8"/></linearGradient>
- <radialGradient id="glow"><stop stop-color="#3F8BFF" stop-opacity=".36"/><stop offset="1" stop-color="#3F8BFF" stop-opacity="0"/></radialGradient>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#030814"/><stop offset=".55" stop-color="#09172B"/><stop offset="1" stop-color="#101A3B"/></linearGradient>
+ <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#39E5F4"/><stop offset=".48" stop-color="#327CFF"/><stop offset="1" stop-color="#B65CFF"/></linearGradient>
+ <linearGradient id="silver" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#9FB4D1"/></linearGradient>
+ <radialGradient id="halo"><stop stop-color="#167EFF" stop-opacity=".38"/><stop offset="1" stop-color="#167EFF" stop-opacity="0"/></radialGradient>
 </defs>
-<rect width="1200" height="630" fill="url(#bg)"/><circle cx="1000" cy="160" r="370" fill="url(#glow)"/>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<circle cx="930" cy="170" r="440" fill="url(#halo)"/>
 <g opacity=".12" stroke="#8AA9D3"><path d="M0 110H1200M0 210H1200M0 310H1200M0 410H1200M0 510H1200"/><path d="M100 0V630M200 0V630M300 0V630M400 0V630M500 0V630M600 0V630M700 0V630M800 0V630M900 0V630M1000 0V630M1100 0V630"/></g>
-<rect x="76" y="76" width="76" height="76" rx="22" fill="#07111F" stroke="url(#accent)" stroke-width="3"/>
-<path d="M96 132V96h15c10 0 14 5 14 13s-4 13-14 13h-7" fill="none" stroke="#F7FBFF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M139 106c-3-5-7-8-13-8-9 0-15 7-15 17s6 17 15 17c7 0 12-4 14-11v-6h-10" fill="none" stroke="url(#accent)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="174" y="128" fill="#F7FBFF" font-family="Arial,sans-serif" font-size="35" font-weight="700" letter-spacing="-1">ProGameFinds</text>
-<text x="78" y="282" fill="#8DEAF0" font-family="Arial,sans-serif" font-size="19" font-weight="700" letter-spacing="5">THE GAMING GEAR DISCOVERY STUDIO</text>
-<text x="76" y="374" fill="#F7FBFF" font-family="Arial,sans-serif" font-size="67" font-weight="700">Build a setup</text>
-<text x="76" y="452" fill="#F7FBFF" font-family="Arial,sans-serif" font-size="67" font-weight="700">that feels like yours.</text>
-<text x="80" y="528" fill="#B7C7DD" font-family="Arial,sans-serif" font-size="24">Buying guides · Compatibility tips · Gaming gear picks</text>
-<path d="M76 566H1124" stroke="url(#accent)" stroke-width="2" opacity=".7"/>
+<rect x="75" y="78" width="112" height="112" rx="27" fill="#07111F" stroke="url(#accent)" stroke-width="3"/>
+<path d="M95 166V101h24c16 0 24 8 24 22s-8 22-24 22h-10" fill="none" stroke="url(#silver)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M169 119c-5-9-12-14-22-14-15 0-24 11-24 28s9 28 24 28c12 0 20-7 22-18v-10h-20" fill="none" stroke="url(#accent)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M146 135h15m-7.5-7.5v15" stroke="#F7FBFF" stroke-width="4" stroke-linecap="round"/>
+<text x="215" y="153" fill="#F7FBFF" font-family="Arial,sans-serif" font-size="66" font-weight="800" letter-spacing="-2">ProGame<tspan fill="#35DDF0">Finds</tspan></text>
+<path d="M218 180H1090" stroke="url(#accent)" stroke-width="3"/>
+<text x="80" y="315" fill="#7DEAF2" font-family="Arial,sans-serif" font-size="21" font-weight="700" letter-spacing="7">THE GAMING GEAR DISCOVERY STUDIO</text>
+<text x="76" y="405" fill="#FFFFFF" font-family="Arial,sans-serif" font-size="67" font-weight="800">DISCOVER. COMPARE.</text>
+<text x="76" y="486" fill="url(#accent)" font-family="Arial,sans-serif" font-size="67" font-weight="800">BUY SMARTER.</text>
+<text x="80" y="548" fill="#B7C7DD" font-family="Arial,sans-serif" font-size="24">Gaming gear · Practical guides · Smarter setup choices</text>
+<path d="M76 582H1124" stroke="url(#accent)" stroke-width="2" opacity=".8"/>
 </svg>
