@@ -24,3 +24,5 @@ jobs:
         run: node scripts/validate-site.mjs
       - name: Run professional quality audit
         run: node scripts/quality-audit.mjs
+      - name: Run copyright-safe product image release audit
+        run: node scripts/audit-product-image-rights.mjs
