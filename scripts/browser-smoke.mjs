@@ -86,7 +86,7 @@ try {
   check(await aboutLinks.count() === 1, "Primary navigation contains one About link (no duplicate)");
 
   check(await page.locator('a[href^="mailto:support@progamefinds.online"]').count() === 1, "Direct support email link is present");
-  const productArt = page.locator("img.product-art");
+  const productArt = page.locator(".card img.card-ic");
   check(await productArt.count() === 22, "All 22 catalogue cards include illustrative artwork");
   await productArt.evaluateAll(images => images.forEach(image => { image.loading = "eager"; }));
   await page.waitForFunction(() => [...document.querySelectorAll("img.product-art")].every(image => image.complete), null, { timeout: 15000 });
