@@ -55,9 +55,10 @@ for (const path of requiredPages) {
 }
 
 const sitemap = read("sitemap.xml");
-for (const path of ["about.html","affiliate-disclosure.html","privacy.html","terms.html"]) {
-  check(sitemap.includes(`https://progamefinds.online/${path}`), `Sitemap missing ${path}`);
+for (const path of ["about","affiliate-disclosure","privacy","terms"]) {
+  check(sitemap.includes(`https://progamefinds.online/${path}</loc>`), `Sitemap missing clean canonical URL ${path}`);
 }
+check(!/https:\/\/progamefinds\.online\/[^<]*\.html<\/loc>/i.test(sitemap), "Sitemap must not list .html redirect URLs.");
 check(existsSync(resolve(root,"robots.txt")), "robots.txt missing");
 check(existsSync(resolve(root,"_headers")), "Cloudflare Pages security headers file missing");
 const headerRules = read("_headers");
