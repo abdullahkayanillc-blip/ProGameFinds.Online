@@ -50,12 +50,20 @@ for (const path of requiredPages) {
   if (existsSync(resolve(root,path)) && path.endsWith(".html")) {
     const page = read(path);
     check(/<title>[^<]+<\/title>/i.test(page), `Missing title: ${path}`);
-    check(/rel="canonical"/i.test(page), `Missing canonical: ${path}`);
+    const cleanCanonical = "https://progamefinds.online/" + path.replace(/\\.html$/, "");
+    check(page.includes('<link rel="canonical" href="' + cleanCanonical + '">'), `Missing or non-canonical clean URL: ${path}`);
   }
 }
 
 const sitemap = read("sitemap.xml");
-for (const path of ["about","affiliate-disclosure","privacy","terms"]) {
+for (const path of [
+  "about","affiliate-disclosure","privacy","terms",
+  "guides/choosing-a-gaming-mouse","guides/gaming-keyboard-layouts-and-switches",
+  "guides/choosing-a-gaming-headset","guides/controller-compatibility-checklist",
+  "guides/gaming-desk-sizing-guide","guides/gaming-chair-fit-and-ergonomics",
+  "guides/gaming-room-lighting","guides/building-a-balanced-gaming-setup",
+  "guides/wired-vs-wireless-gaming-gear","guides/how-to-check-an-online-product-listing"
+]) {
   check(sitemap.includes(`https://progamefinds.online/${path}</loc>`), `Sitemap missing clean canonical URL ${path}`);
 }
 check(!/https:\/\/progamefinds\.online\/[^<]*\.html<\/loc>/i.test(sitemap), "Sitemap must not list .html redirect URLs.");
