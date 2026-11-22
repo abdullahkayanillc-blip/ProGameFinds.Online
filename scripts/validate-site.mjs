@@ -50,7 +50,7 @@ for (const path of requiredPages) {
   if (existsSync(resolve(root,path)) && path.endsWith(".html")) {
     const page = read(path);
     check(/<title>[^<]+<\/title>/i.test(page), `Missing title: ${path}`);
-    const cleanCanonical = "https://progamefinds.online/" + path.replace(/\\.html$/, "");
+    const cleanCanonical = "https://progamefinds.online/" + path.replace(/\.html$/, "");
     check(page.includes('<link rel="canonical" href="' + cleanCanonical + '">'), `Missing or non-canonical clean URL: ${path}`);
   }
 }
