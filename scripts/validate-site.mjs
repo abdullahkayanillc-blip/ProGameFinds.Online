@@ -15,6 +15,7 @@ check(/<link rel="canonical" href="https:\/\/progamefinds\.online\/?">/i.test(ht
 check(/property="og:title"/i.test(html) && /property="og:description"/i.test(html), "Open Graph metadata missing");
 check(/property="og:image"/i.test(html) && existsSync(resolve(root,"assets/social-preview.svg")), "Social share artwork missing");
 check(/application\/ld\+json/i.test(html), "WebSite structured data missing");
+check(!/<[a-z][^>]*\sstyle=/i.test(html), "Inline style attributes violate the strict site CSP");
 check(/Amazon Associates application pending/i.test(html), "Homepage must clearly state the current pending-application notice");
 check(/Product buttons are ordinary retailer search links and do not currently earn commissions/i.test(html), "Homepage must accurately state that current product links are non-affiliate");
 check(!html.includes("As an Amazon Associate I earn from qualifying purchases."), "Unapproved site must not claim Amazon Associate status");
