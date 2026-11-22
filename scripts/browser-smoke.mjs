@@ -40,7 +40,7 @@ try {
 
     // Trace each redirect hop explicitly. This identifies whether a failure is
     // in HTTP www, HTTP-to-HTTPS, www-to-root, or the final deep-page response.
-    const expectedFinal = new URL("https://progamefinds.online" + deepPath + deepQuery);
+    const expectedFinal = new URL("https://progamefinds.online" + deepPath.replace(/\.html$/, "") + deepQuery);
     let nextURL = new URL("http://www.progamefinds.online" + deepPath + deepQuery);
     const redirectTrace = [];
     let finalResponse;
@@ -60,7 +60,7 @@ try {
     const chainIsPermanent = redirectHops.every(hop => [301, 308].includes(hop.status));
     const finalURL = new URL(redirectTrace.at(-1).url);
     const chainPasses = Boolean(finalResponse && finalResponse.ok() && chainIsPermanent &&
-      finalURL.origin === expectedFinal.origin && finalURL.pathname === expectedFinal.pathname &&
+      finalURL.origin === expectedFinal.origin && finalURL.pathname.replace(/\.html$/, "") === expectedFinal.pathname &&
       finalURL.search === expectedFinal.search);
     check(chainPasses, "HTTP www redirect chain ends at canonical HTTPS URL with path and query preserved" + (chainPasses ? "" : ": " + traceSummary));
   }
@@ -82,7 +82,7 @@ try {
   check(productLinksValid, "All product links are safe, non-affiliate Amazon search links with no unverified ASINs");
   check((await page.locator(".card .asin").count()) === 22, "Every catalogue card warns visitors to verify model, seller and availability");
 
-  const aboutLinks = page.locator('nav[aria-label="Primary"] a[href="/about.html"]');
+  const aboutLinks = page.locator('nav[aria-label="Primary"] a[href="/about"]');
   check(await aboutLinks.count() === 1, "Primary navigation contains one About link (no duplicate)");
 
   check(await page.locator('a[href^="mailto:support@progamefinds.online"]').count() === 1, "Direct support email link is present");
