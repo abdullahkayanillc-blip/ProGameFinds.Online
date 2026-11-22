@@ -19,7 +19,7 @@ check(/Amazon Associates application pending/i.test(html), "Homepage must clearl
 check(/Product buttons are ordinary retailer search links and do not currently earn commissions/i.test(html), "Homepage must accurately state that current product links are non-affiliate");
 check(!html.includes("As an Amazon Associate I earn from qualifying purchases."), "Unapproved site must not claim Amazon Associate status");
 check(/href="\/assets\/site\.css"/i.test(html) && existsSync(resolve(root,"assets/site.css")), "Local stylesheet missing");
-check(/src="\/assets\/site\.js"/i.test(html) && existsSync(resolve(root,"assets/site.js")), "Local JavaScript file missing");
+check(/src="\/assets\/site\.js(?:\?[^"]*)?"/i.test(html) && existsSync(resolve(root,"assets/site.js")), "Local JavaScript file missing");
 check(!/fonts\.googleapis\.com|fonts\.gstatic\.com/i.test(html), "Remote Google Fonts request remains");
 check(!/Google Fonts|Web3Forms/i.test(html), "Homepage contains a stale third-party font/form provider claim");
 check(!/Use the contact form on this page\\. Include your email address so we can reply\\./i.test(html), "FAQ claims the disabled contact form can receive messages");
