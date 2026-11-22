@@ -67,24 +67,26 @@ try {
   check((await page.title()).includes("ProGameFinds"), "Homepage title identifies ProGameFinds");
   check(await page.locator('meta[name="description"]').count() === 1, "Homepage has exactly one meta description");
 
-  const amazonLinks = page.locator('a[href*="amazon.com/"]');
-  const amazonCount = await amazonLinks.count();
-  check(amazonCount === 22, "All 22 existing Amazon outbound links are present");
-  let affiliateLinksValid = true;
-  for (let i = 0; i < amazonCount; i++) {
-    const link = amazonLinks.nth(i);
+  const productLinks = page.locator("a.product-retailer-link");
+  const productLinkCount = await productLinks.count();
+  check(productLinkCount === 22, "All 22 catalogue products have a retailer search link");
+  let productLinksValid = true;
+  for (let i = 0; i < productLinkCount; i++) {
+    const link = productLinks.nth(i);
     const href = await link.getAttribute("href") || "";
     const rel = await link.getAttribute("rel") || "";
-    const text = await link.innerText();
-    if (!href.includes("tag=progamefinds-20") || !rel.includes("sponsored") || !rel.includes("noopener") || !text.includes("paid link")) affiliateLinksValid = false;
+    const target = await link.getAttribute("target");
+    const label = await link.innerText();
+    if (!href.startsWith("https://www.amazon.com/s?k=") || href.includes("tag=") || !rel.includes("noopener") || !rel.includes("nofollow") || target !== "_blank" || label !== "Search Amazon listings") productLinksValid = false;
   }
-  check(affiliateLinksValid, "Every Amazon CTA retains affiliate tag, sponsored/noopener rel and paid-link disclosure");
+  check(productLinksValid, "All product links are safe, non-affiliate Amazon search links with no unverified ASINs");
+  check((await page.locator(".card .asin").count()) === 22, "Every catalogue card warns visitors to verify model, seller and availability");
 
   const aboutLinks = page.locator('nav[aria-label="Primary"] a[href="/about.html"]');
   check(await aboutLinks.count() === 1, "Primary navigation contains one About link (no duplicate)");
 
   check(await page.locator('a[href^="mailto:support@progamefinds.online"]').count() === 1, "Direct support email link is present");
-  const productArt = page.locator("img.product-art");
+  const productArt = page.locator(".card img.card-ic");
   check(await productArt.count() === 22, "All 22 catalogue cards include illustrative artwork");
   await productArt.evaluateAll(images => images.forEach(image => { image.loading = "eager"; }));
   await page.waitForFunction(() => [...document.querySelectorAll("img.product-art")].every(image => image.complete), null, { timeout: 15000 });
@@ -104,6 +106,7 @@ try {
   check(await page.locator('[data-filter="mice"]').getAttribute("aria-pressed") === "true", "Active category filter exposes aria-pressed state");
   await page.locator('[data-filter="all"]').click();
   check(await page.locator(".card:visible").count() === 22, "All gear filter restores all 22 catalogue cards, including category searches");
+  check(await page.locator("a.product-retailer-link:visible").count() === 22, "All 22 product search links remain visible after clearing filters");
 
   for (const path of ["/about.html", "/affiliate-disclosure.html", "/privacy.html", "/terms.html"]) {
     const pageResponse = await page.request.get(new URL(path, baseURL).toString());

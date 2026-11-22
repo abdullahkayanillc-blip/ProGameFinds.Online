@@ -49,8 +49,20 @@
     }
     var note = document.createElement("p");
     note.className = "asin";
-    note.textContent = "Retailer listing, seller and variant not yet verified.";
+    note.textContent = "Search results only. Confirm the exact model, seller, regional version, price and availability before choosing.";
     card.append(top, title, maker, details, note);
+
+    // Product-name searches avoid promoting unverified ASIN-to-model mappings.
+    // These are ordinary non-affiliate links and do not generate commissions.
+    var retailerLink = document.createElement("a");
+    retailerLink.className = "btn btn-primary product-retailer-link";
+    retailerLink.href = "https://www.amazon.com/s?k=" + encodeURIComponent(product.product_name || "gaming gear");
+    retailerLink.target = "_blank";
+    retailerLink.rel = "nofollow noopener noreferrer";
+    retailerLink.textContent = "Search Amazon listings";
+    retailerLink.setAttribute("aria-label", "Search Amazon for " + (product.product_name || "gaming gear") + "; verify the exact listing before purchase");
+    card.append(retailerLink);
+
     if (product.manufacturer_source) {
       var link = document.createElement("a");
       link.className = "btn btn-ghost";
@@ -94,7 +106,7 @@
       if (count) groups++;
     });
     if (status) status.textContent = shown
-      ? "Showing " + shown + " catalogue candidates across " + groups + " categor" + (groups === 1 ? "y." : "ies.") + " Retailer matches are not yet verified."
+      ? "Showing " + shown + " catalogue candidates across " + groups + " categor" + (groups === 1 ? "y." : "ies.") + " Retailer search links are available; exact matches are not yet verified."
       : "No listings match that search. Try another term or choose All gear.";
   }
 
@@ -134,7 +146,7 @@
     })
     .catch(function () {
       // Keep the bundled catalogue visible; do not turn a route/cache issue into an empty catalogue.
-      if (status && products.length) status.textContent = "Showing " + products.length + " locally bundled catalogue candidates. Retailer matches are not yet verified.";
+      if (status && products.length) status.textContent = "Showing " + products.length + " locally bundled catalogue candidates. Retailer search links are available; exact matches are not yet verified.";
     });
   Array.prototype.slice.call(document.querySelectorAll("[data-current-year]")).forEach(function (el) { el.textContent = String(new Date().getFullYear()); });
 })();

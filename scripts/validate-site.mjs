@@ -15,28 +15,26 @@ check(/<link rel="canonical" href="https:\/\/progamefinds\.online\/?">/i.test(ht
 check(/property="og:title"/i.test(html) && /property="og:description"/i.test(html), "Open Graph metadata missing");
 check(/property="og:image"/i.test(html) && existsSync(resolve(root,"assets/social-preview.svg")), "Social share artwork missing");
 check(/application\/ld\+json/i.test(html), "WebSite structured data missing");
+check(!/<[a-z][^>]*\sstyle=/i.test(html), "Inline style attributes violate the strict site CSP");
 check(/Amazon Associates application pending/i.test(html), "Homepage must clearly state the current pending-application notice");
-check(html.includes("As an Amazon Associate I earn from qualifying purchases."), "Exact Amazon Associate disclosure missing");
+check(/Product buttons are ordinary retailer search links and do not currently earn commissions/i.test(html), "Homepage must accurately state that current product links are non-affiliate");
+check(!html.includes("As an Amazon Associate I earn from qualifying purchases."), "Unapproved site must not claim Amazon Associate status");
 check(/href="\/assets\/site\.css"/i.test(html) && existsSync(resolve(root,"assets/site.css")), "Local stylesheet missing");
-check(/src="\/assets\/site\.js"/i.test(html) && existsSync(resolve(root,"assets/site.js")), "Local JavaScript file missing");
+check(/src="\/assets\/site\.js(?:\?[^"]*)?"/i.test(html) && existsSync(resolve(root,"assets/site.js")), "Local JavaScript file missing");
 check(!/fonts\.googleapis\.com|fonts\.gstatic\.com/i.test(html), "Remote Google Fonts request remains");
 check(!/Google Fonts|Web3Forms/i.test(html), "Homepage contains a stale third-party font/form provider claim");
 check(!/Use the contact form on this page\\. Include your email address so we can reply\\./i.test(html), "FAQ claims the disabled contact form can receive messages");
-check(/Last updated November 19, 2026/i.test(html), "Homepage policy update date is stale");
+check(/Last updated November 23, 2026/i.test(html), "Homepage policy update date is stale");
 check(/data-filter="mice"/.test(html) && /id="gear-search"/.test(html), "Accessible product search/filter controls missing");
 check(/On-page form submissions are not active/.test(html) && /type="submit" disabled/.test(html), "Inactive contact form must be clearly and safely disabled");
 check(!/REPLACE_WITH_WEB3FORMS_ACCESS_KEY|OWNER_EMAIL_ADDRESS/.test(html), "Contact form placeholder configuration remains in homepage");
 
-// Validate every Amazon link without fetching or scraping Amazon pages.
-const amazonAnchors = [...html.matchAll(/<a\b([^>]*href="https?:\/\/www\.amazon\.com\/[^"]+"[^>]*)>([\s\S]*?)<\/a>/gi)];
-check(amazonAnchors.length === 22, `Expected 22 existing Amazon outbound links, found ${amazonAnchors.length}`);
-for (const [i, match] of amazonAnchors.entries()) {
-  const attrs = match[1], body = match[2];
-  check(/tag=progamefinds-20/i.test(attrs), `Amazon link ${i+1} missing the existing progamefinds-20 tag`);
-  check(/rel="[^"]*sponsored[^"]*"/i.test(attrs), `Amazon link ${i+1} missing rel=sponsored`);
-  check(/rel="[^"]*noopener[^"]*"/i.test(attrs), `Amazon link ${i+1} opens in a new tab without noopener`);
-  check(/\(paid link\)/i.test(body), `Amazon link ${i+1} missing adjacent (paid link) disclosure`);
-}
+// Product links are ordinary non-affiliate Amazon search links until approval and exact listing mappings are verified.
+const productRegister = JSON.parse(read("data/product-verification.json"));
+check(productRegister.products.length === 22, "Expected 22 catalogue candidates in the evidence register");
+check(/product-retailer-link/.test(read("assets/site.js")), "Dynamic product cards must include a retailer search link");
+check(!/tag=progamefinds-20/i.test(html + read("assets/site.js")), "Unapproved site must not publish affiliate tracking tags");
+check(/Amazon Associates approval has not been confirmed/i.test(read("affiliate-disclosure.html")), "Affiliate disclosure must accurately state pending approval");
 
 // Verify all guide pages and dedicated information pages.
 const requiredPages = [
@@ -73,7 +71,7 @@ const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]));
 for (const match of html.matchAll(/href="#([^"]+)"/g)) check(ids.has(match[1]), `Broken in-page anchor #${match[1]}`);
 
 // The following items cannot be confirmed from public source code.
-warnings.push("OWNER CHECK: Confirm in Associates Central that the account is accepted/pending and that progamefinds-20 is the active tracking ID before public promotion.");
+warnings.push("OWNER CHECK: Do not publish affiliate tracking links or commission claims until the account owner confirms legal eligibility and written program approval.");
 warnings.push("OWNER CHECK: Verify each ASIN-to-product match, model revision, seller, compatibility and warranty with manufacturer and live retailer sources.");
 warnings.push("OWNER CHECK: On-page contact form remains disabled pending a delivery backend; direct email link is available at support@progamefinds.online.");
 warnings.push("OWNER CHECK: Verify root/www DNS, HTTPS certificate and canonical redirects after nameserver propagation.");
@@ -84,5 +82,5 @@ if (errors.length) {
   for (const error of errors) console.error("- " + error);
   process.exit(1);
 }
-console.log(`PASS: ${amazonAnchors.length} Amazon links have the existing tag, sponsored rel, noopener and paid-link disclosure; SEO, pending notice, ${requiredPages.length} editorial/legal pages, sitemap, robots and security headers are present.`);
+console.log(`PASS: ${productRegister.products.length} product candidates have evidence-register entries; non-affiliate search-link controls, SEO, pending notice, ${requiredPages.length} editorial/legal pages, sitemap, robots and security headers are present.`);
 for (const warning of warnings) console.warn("OWNER ACTION:", warning);
