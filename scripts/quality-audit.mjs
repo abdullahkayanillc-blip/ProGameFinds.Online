@@ -39,7 +39,13 @@ for (const file of htmlFiles) {
     if (/^(?:https?:|mailto:|tel:|data:|javascript:|\/\/)/i.test(ref)) continue;
     const clean = decodeURIComponent(ref.split(/[?#]/)[0]);
     if (!clean || clean === "/") continue;
-    const target = clean.startsWith("/") ? join(root, clean.slice(1)) : resolve(dirname(file), clean);
+    let target = clean.startsWith("/") ? join(root, clean.slice(1)) : resolve(dirname(file), clean);
+    if (!existsSync(target) && !extname(target)) {
+      const htmlTarget = target + ".html";
+      const indexTarget = join(target, "index.html");
+      if (existsSync(htmlTarget)) target = htmlTarget;
+      else if (existsSync(indexTarget)) target = indexTarget;
+    }
     checkedLocalRefs++;
     check(existsSync(target), page + ": broken local reference " + ref);
     if (/<img\b/i.test(tag)) {
@@ -72,6 +78,11 @@ if (existsSync(css)) check(bytes(css) <= 100 * 1024, "CSS exceeds the 100 KB raw
 if (existsSync(js)) check(bytes(js) <= 60 * 1024, "JavaScript exceeds the 60 KB raw-size budget.");
 
 const home = read("index.html");
+const sitemap = read("sitemap.xml");
+check(!/https:\/\/progamefinds\.online\/[^<]*\.html<\/loc>/i.test(sitemap), "Sitemap must use extensionless canonical URLs.");
+for (const canonical of ["about", "affiliate-disclosure", "privacy", "terms", "guides/choosing-a-gaming-mouse", "guides/gaming-keyboard-layouts-and-switches", "guides/choosing-a-gaming-headset", "guides/controller-compatibility-checklist", "guides/gaming-desk-sizing-guide"]) {
+  check(sitemap.includes("https://progamefinds.online/" + canonical + "</loc>"), "Sitemap missing clean canonical URL: " + canonical);
+}
 const catalogueJS = read("assets/site.js");
 check(manifest.products.length === manifest.catalogue_count, "Product evidence register count does not match its declared catalogue count.");
 check(/function makeCard/.test(catalogueJS) && /product-retailer-link/.test(catalogueJS), "Dynamic product-card renderer or retailer search links are missing.");
