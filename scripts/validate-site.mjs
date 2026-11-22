@@ -16,7 +16,8 @@ check(/property="og:title"/i.test(html) && /property="og:description"/i.test(htm
 check(/property="og:image"/i.test(html) && existsSync(resolve(root,"assets/social-preview.svg")), "Social share artwork missing");
 check(/application\/ld\+json/i.test(html), "WebSite structured data missing");
 check(/Amazon Associates application pending/i.test(html), "Homepage must clearly state the current pending-application notice");
-check(html.includes("As an Amazon Associate I earn from qualifying purchases."), "Exact Amazon Associate disclosure missing");
+check(/Product buttons are ordinary retailer search links and do not currently earn commissions/i.test(html), "Homepage must accurately state that current product links are non-affiliate");
+check(!html.includes("As an Amazon Associate I earn from qualifying purchases."), "Unapproved site must not claim Amazon Associate status");
 check(/href="\/assets\/site\.css"/i.test(html) && existsSync(resolve(root,"assets/site.css")), "Local stylesheet missing");
 check(/src="\/assets\/site\.js"/i.test(html) && existsSync(resolve(root,"assets/site.js")), "Local JavaScript file missing");
 check(!/fonts\.googleapis\.com|fonts\.gstatic\.com/i.test(html), "Remote Google Fonts request remains");
@@ -27,16 +28,12 @@ check(/data-filter="mice"/.test(html) && /id="gear-search"/.test(html), "Accessi
 check(/On-page form submissions are not active/.test(html) && /type="submit" disabled/.test(html), "Inactive contact form must be clearly and safely disabled");
 check(!/REPLACE_WITH_WEB3FORMS_ACCESS_KEY|OWNER_EMAIL_ADDRESS/.test(html), "Contact form placeholder configuration remains in homepage");
 
-// Validate every Amazon link without fetching or scraping Amazon pages.
-const amazonAnchors = [...html.matchAll(/<a\b([^>]*href="https?:\/\/www\.amazon\.com\/[^"]+"[^>]*)>([\s\S]*?)<\/a>/gi)];
-check(amazonAnchors.length === 22, `Expected 22 existing Amazon outbound links, found ${amazonAnchors.length}`);
-for (const [i, match] of amazonAnchors.entries()) {
-  const attrs = match[1], body = match[2];
-  check(/tag=progamefinds-20/i.test(attrs), `Amazon link ${i+1} missing the existing progamefinds-20 tag`);
-  check(/rel="[^"]*sponsored[^"]*"/i.test(attrs), `Amazon link ${i+1} missing rel=sponsored`);
-  check(/rel="[^"]*noopener[^"]*"/i.test(attrs), `Amazon link ${i+1} opens in a new tab without noopener`);
-  check(/\(paid link\)/i.test(body), `Amazon link ${i+1} missing adjacent (paid link) disclosure`);
-}
+// Product links are ordinary non-affiliate Amazon search links until approval and exact listing mappings are verified.
+const productRegister = JSON.parse(read("data/product-verification.json"));
+check(productRegister.products.length === 22, "Expected 22 catalogue candidates in the evidence register");
+check(/product-retailer-link/.test(read("assets/site.js")), "Dynamic product cards must include a retailer search link");
+check(!/tag=progamefinds-20/i.test(html + read("assets/site.js")), "Unapproved site must not publish affiliate tracking tags");
+check(/Amazon Associates approval has not been confirmed/i.test(read("affiliate-disclosure.html")), "Affiliate disclosure must accurately state pending approval");
 
 // Verify all guide pages and dedicated information pages.
 const requiredPages = [
