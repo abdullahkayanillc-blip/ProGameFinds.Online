@@ -271,3 +271,7 @@ body{background-color:#000007!important;background-image:radial-gradient(950px 5
 .btn-primary:hover{background:linear-gradient(120deg,#412B9B 0%,#8A3FFC 100%)!important}
 .grad{background-image:linear-gradient(100deg,#8A3FFC 0%,#46D7FF 52%,#8A3FFC 100%)!important}
 .brand .logo-mark{width:36px;height:36px;object-fit:contain;filter:drop-shadow(0 0 10px rgba(70,215,255,.24))}
+
+/* CSP-safe brand wordmark sizing */
+.brand-wordmark{display:block;width:220px;height:auto;max-width:42vw}
+@media(max-width:600px){.brand-wordmark{width:180px;max-width:42vw}}
