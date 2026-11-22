@@ -70,7 +70,7 @@ const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]));
 for (const match of html.matchAll(/href="#([^"]+)"/g)) check(ids.has(match[1]), `Broken in-page anchor #${match[1]}`);
 
 // The following items cannot be confirmed from public source code.
-warnings.push("OWNER CHECK: Confirm in Associates Central that the account is accepted/pending and that progamefinds-20 is the active tracking ID before public promotion.");
+warnings.push("OWNER CHECK: Do not publish affiliate tracking links or commission claims until the account owner confirms legal eligibility and written program approval.");
 warnings.push("OWNER CHECK: Verify each ASIN-to-product match, model revision, seller, compatibility and warranty with manufacturer and live retailer sources.");
 warnings.push("OWNER CHECK: On-page contact form remains disabled pending a delivery backend; direct email link is available at support@progamefinds.online.");
 warnings.push("OWNER CHECK: Verify root/www DNS, HTTPS certificate and canonical redirects after nameserver propagation.");
@@ -81,5 +81,5 @@ if (errors.length) {
   for (const error of errors) console.error("- " + error);
   process.exit(1);
 }
-console.log(`PASS: ${amazonAnchors.length} Amazon links have the existing tag, sponsored rel, noopener and paid-link disclosure; SEO, pending notice, ${requiredPages.length} editorial/legal pages, sitemap, robots and security headers are present.`);
+console.log(`PASS: ${productRegister.products.length} product candidates have evidence-register entries; non-affiliate search-link controls, SEO, pending notice, ${requiredPages.length} editorial/legal pages, sitemap, robots and security headers are present.`);
 for (const warning of warnings) console.warn("OWNER ACTION:", warning);
