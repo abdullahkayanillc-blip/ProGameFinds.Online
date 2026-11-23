@@ -40,7 +40,8 @@ try {
 
     // Trace each redirect hop explicitly. This identifies whether a failure is
     // in HTTP www, HTTP-to-HTTPS, www-to-root, or the final deep-page response.
-    const expectedFinal = new URL("https://progamefinds.online" + deepPath + deepQuery);
+    // Cloudflare Pages normalizes legacy .html routes to clean extensionless URLs after the host redirect.
+    const expectedFinal = new URL("https://progamefinds.online" + deepPath.replace(/\.html$/, "") + deepQuery);
     let nextURL = new URL("http://www.progamefinds.online" + deepPath + deepQuery);
     const redirectTrace = [];
     let finalResponse;
