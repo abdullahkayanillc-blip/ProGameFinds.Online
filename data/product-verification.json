@@ -395,9 +395,15 @@
     {
       "product_name": "Govee RGBIC LED Strip",
       "manufacturer": "Govee",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
-      "manufacturer_facts": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://community.govee.com/support/faqs/specs",
+      "manufacturer_facts": {
+        "model_number": "H617A",
+        "strip_length": "5 m / 16.4 ft",
+        "lighting_technology": "RGBIC",
+        "connectivity": "Bluetooth",
+        "power_input": "24V / 0.5A"
+      },
       "retailer_listing": {
         "retailer": "Amazon US",
         "asin": "B0991Q94KP",
@@ -415,7 +421,7 @@
         "publish_exact_product_photo": false,
         "publish_illustration": true
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official Govee specifications table identifies H617A as a single 5 m / 16.4 ft Bluetooth strip with a 24V / 0.5A adapter. A secondary catalogue source associates candidate ASIN B0991Q94KP with H617A, but the exact Amazon US detail page, seller, live listing and selected variant have not been independently verified. Do not mark the ASIN-to-model mapping verified."
     },
     {
       "product_name": "KSIPZE 100ft RGB Strip",
@@ -610,12 +616,11 @@
     ],
     "evidence_register_snapshot": {
       "snapshot_date": "2026-11-23",
-      "source_commit": "df8ec3e887d6ecc820ed4e569fa7317b2e89106b",
+      "source_commit": "pending-evidence-branch-merge",
       "catalogue_entries": 22,
       "candidate_asins": 20,
-      "manufacturer_source_pages_recorded": 17,
+      "manufacturer_source_pages_recorded": 18,
       "entries_without_manufacturer_source": [
-        "Govee RGBIC LED Strip",
         "HBOWMDJIA LED Lights 200 ft",
         "Leeleberd LED Lights 100 ft",
         "Gaming chairs",
@@ -625,7 +630,7 @@
       "live_listing_verified": 0,
       "seller_verified": 0,
       "variant_verified": 0,
-      "note": "A recorded manufacturer source page is not proof that the retailer ASIN maps to the exact model, variant, seller, or live listing."
+      "note": "A recorded manufacturer source page is not proof that a retailer ASIN matches the exact model, variant, seller, or live listing."
     },
     "automated_browser_qa": {
       "workflow_run_id": 45141088461,
