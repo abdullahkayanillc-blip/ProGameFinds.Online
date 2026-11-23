@@ -607,8 +607,7 @@
       "activation": "not enabled"
     },
     "limitations": [
-      "Automated Chromium run 45141088461 failed two retailer-link assertions; the underlying DOM/runtime discrepancy remains unresolved.",
-      "Independent live browser audit previously reported 22 cards and 22 retailer links; automated and independent observations must be reconciled.",
+      "A separate post-merge browser run against the canonical production domain has not yet been captured; the latest preview Chromium run passed.",
       "Retailer seller, live listing, variant and region remain unverified for all 20 candidate ASINs.",
       "No live price, stock, review or rating claims are published.",
       "Support form remains disabled pending a tested secure message-delivery backend.",
@@ -640,7 +639,33 @@
         "All 22 catalogue products have a retailer search link",
         "All 22 product search links remain visible after clearing filters"
       ],
-      "note": "The run also logged a contradictory PASS for link-safety validation. Root cause remains unresolved pending diagnostic rerun."
+      "note": "The run also logged a contradictory PASS for link-safety validation. Root cause remains unresolved pending diagnostic rerun.",
+      "historical": true,
+      "superseded_by_preview_run": 45183075569
+    },
+    "latest_preview_verification": {
+      "workflow_run_id": 45183075569,
+      "commit_sha": "ebbdeff424a12e189513308771ad78e72a41e330",
+      "status": "passed",
+      "checks": [
+        "22 Amazon search links found",
+        "Exactly one retailer link per catalogue card",
+        "All 22 links remain visible after clearing filters",
+        "Search and category filters pass",
+        "Desktop and 390px mobile layout pass",
+        "No unexpected browser console or runtime errors"
+      ],
+      "note": "This was a Cloudflare Pages PR preview verification, not a separate post-merge production-domain browser run."
+    },
+    "latest_production_deployment": {
+      "deployment_id": "af3a29a0-d697-4cfd-b923-ee6d80aa9909",
+      "deployment_url": "https://af3a29a0.progamefinds-online.pages.dev",
+      "commit_sha": "f8b24e0cab2783c86d9f64c9545e9aae2156974e",
+      "status": "success",
+      "canonical_aliases": [
+        "https://progamefinds.online",
+        "https://www.progamefinds.online"
+      ]
     }
   }
 }
