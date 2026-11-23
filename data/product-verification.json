@@ -616,7 +616,7 @@
     ],
     "evidence_register_snapshot": {
       "snapshot_date": "2026-11-23",
-      "source_commit": "pending-evidence-branch-merge",
+      "source_commit": "4a87c78339e01fe7fb100e233da4e7482fba2124",
       "catalogue_entries": 22,
       "candidate_asins": 20,
       "manufacturer_source_pages_recorded": 18,
