@@ -77,7 +77,7 @@ check(manifest.products.length === manifest.catalogue_count, "Product evidence r
 check(/function makeCard/.test(catalogueJS) && /product-retailer-link/.test(catalogueJS), "Dynamic product-card renderer or retailer search links are missing.");
 check(!/tag=progamefinds-20/i.test(home + catalogueJS), "Unapproved site must not publish an affiliate tracking tag.");
 check(!home.includes("As an Amazon Associate I earn from qualifying purchases."), "Pending site must not claim Amazon Associate membership.");
-check(/Amazon Associates application pending/i.test(home), "Amazon application status notice missing.");
+check(/Amazon Associates approval has not been confirmed/i.test(home), "Amazon Associates approval status notice missing.");
 check(/ordinary retailer search links and do not currently earn commissions/i.test(home), "Homepage must disclose the current non-affiliate link status.");
 check(!/fonts\.googleapis\.com|fonts\.gstatic\.com/i.test(home), "Remote Google Fonts dependency detected.");
 check(/data-filter=["']mice["']/i.test(home) && /id=["']gear-search["']/i.test(home), "Search and category-filter controls are missing.");
