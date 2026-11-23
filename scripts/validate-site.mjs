@@ -16,7 +16,7 @@ check(/property="og:title"/i.test(html) && /property="og:description"/i.test(htm
 check(/property="og:image"/i.test(html) && existsSync(resolve(root,"assets/social-preview.svg")), "Social share artwork missing");
 check(/application\/ld\+json/i.test(html), "WebSite structured data missing");
 check(!/<[a-z][^>]*\sstyle=/i.test(html), "Inline style attributes violate the strict site CSP");
-check(/Amazon Associates application pending/i.test(html), "Homepage must clearly state the current pending-application notice");
+check(/Amazon Associates approval has not been confirmed/i.test(html), "Homepage must clearly state that Amazon Associates approval is unconfirmed");
 check(/Product buttons are ordinary retailer search links and do not currently earn commissions/i.test(html), "Homepage must accurately state that current product links are non-affiliate");
 check(!html.includes("As an Amazon Associate I earn from qualifying purchases."), "Unapproved site must not claim Amazon Associate status");
 check(/href="\/assets\/site\.css"/i.test(html) && existsSync(resolve(root,"assets/site.css")), "Local stylesheet missing");
@@ -39,6 +39,8 @@ check(/Amazon Associates approval has not been confirmed/i.test(read("affiliate-
 // Verify all guide pages and dedicated information pages.
 const requiredPages = [
   "about.html","affiliate-disclosure.html","privacy.html","terms.html",
+  "gaming-mice.html","gaming-keyboards.html","gaming-headsets.html","gaming-controllers.html",
+  "gaming-chairs-desks.html","gaming-room-setup.html","collections.html","guides.html","support.html",
   "guides/choosing-a-gaming-mouse.html","guides/gaming-keyboard-layouts-and-switches.html",
   "guides/choosing-a-gaming-headset.html","guides/controller-compatibility-checklist.html",
   "guides/gaming-desk-sizing-guide.html","guides/gaming-chair-fit-and-ergonomics.html",
@@ -55,7 +57,7 @@ for (const path of requiredPages) {
 }
 
 const sitemap = read("sitemap.xml");
-for (const path of ["about.html","affiliate-disclosure.html","privacy.html","terms.html"]) {
+for (const path of ["about.html","affiliate-disclosure.html","privacy.html","terms.html","gaming-mice.html","gaming-keyboards.html","gaming-headsets.html","gaming-controllers.html","gaming-chairs-desks.html","gaming-room-setup.html","collections.html","guides.html","support.html"]) {
   check(sitemap.includes(`https://progamefinds.online/${path}`), `Sitemap missing ${path}`);
 }
 check(existsSync(resolve(root,"robots.txt")), "robots.txt missing");
@@ -70,6 +72,10 @@ check(/Sitemap: https:\/\/progamefinds\.online\/sitemap\.xml/.test(read("robots.
 const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]));
 for (const match of html.matchAll(/href="#([^"]+)"/g)) check(ids.has(match[1]), `Broken in-page anchor #${match[1]}`);
 
+for (const path of requiredPages.filter((item) => item.startsWith("guides/"))) {
+  if (existsSync(resolve(root,path))) check(!read(path).includes("As an Amazon Associate I earn from qualifying purchases."), `Unapproved affiliate earnings claim must not appear in ${path}`);
+}
+
 // The following items cannot be confirmed from public source code.
 warnings.push("OWNER CHECK: Do not publish affiliate tracking links or commission claims until the account owner confirms legal eligibility and written program approval.");
 warnings.push("OWNER CHECK: Verify each ASIN-to-product match, model revision, seller, compatibility and warranty with manufacturer and live retailer sources.");
@@ -82,5 +88,5 @@ if (errors.length) {
   for (const error of errors) console.error("- " + error);
   process.exit(1);
 }
-console.log(`PASS: ${productRegister.products.length} product candidates have evidence-register entries; non-affiliate search-link controls, SEO, pending notice, ${requiredPages.length} editorial/legal pages, sitemap, robots and security headers are present.`);
+console.log(`PASS: ${productRegister.products.length} product candidates have evidence-register entries; non-affiliate search-link controls, SEO, unconfirmed approval notice, ${requiredPages.length} editorial/legal pages, sitemap, robots and security headers are present.`);
 for (const warning of warnings) console.warn("OWNER ACTION:", warning);
