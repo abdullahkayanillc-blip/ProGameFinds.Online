@@ -68,10 +68,18 @@ try {
   check((await page.title()).includes("ProGameFinds"), "Homepage title identifies ProGameFinds");
   check(await page.locator('meta[name="description"]').count() === 1, "Homepage has exactly one meta description");
 
-  const productLinks = page.locator("a.product-retailer-link");
+  // Assert the user-visible retailer destination, not an implementation-only CSS class.
+  // This also works with server-rendered cards and dynamically rendered cards.
+  const productLinks = page.locator('.card a[href^="https://www.amazon.com/s?k="]');
   const productLinkCount = await productLinks.count();
   check(productLinkCount === 22, "All 22 catalogue products have a retailer search link");
-  let productLinksValid = true;
+  const everyCardHasExactlyOneRetailerLink = await page.locator(".card").evaluateAll(cards =>
+    cards.length === 22 && cards.every(card =>
+      card.querySelectorAll('a[href^="https://www.amazon.com/s?k="]').length === 1
+    )
+  );
+  check(everyCardHasExactlyOneRetailerLink, "Every catalogue card has exactly one retailer search link");
+  let productLinksValid = productLinkCount === 22;
   for (let i = 0; i < productLinkCount; i++) {
     const link = productLinks.nth(i);
     const href = await link.getAttribute("href") || "";
@@ -107,7 +115,7 @@ try {
   check(await page.locator('[data-filter="mice"]').getAttribute("aria-pressed") === "true", "Active category filter exposes aria-pressed state");
   await page.locator('[data-filter="all"]').click();
   check(await page.locator(".card:visible").count() === 22, "All gear filter restores all 22 catalogue cards, including category searches");
-  check(await page.locator("a.product-retailer-link:visible").count() === 22, "All 22 product search links remain visible after clearing filters");
+  check(await page.locator('.card:visible a[href^="https://www.amazon.com/s?k="]').count() === 22, "All 22 product search links remain visible after clearing filters");
 
   for (const path of ["/about.html", "/affiliate-disclosure.html", "/privacy.html", "/terms.html"]) {
     const pageResponse = await page.request.get(new URL(path, baseURL).toString());
