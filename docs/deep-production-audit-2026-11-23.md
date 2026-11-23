@@ -7,7 +7,7 @@
 
 ## Executive result
 
-The public site is live and its main navigation, editorial pages, internal links, image assets and catalogue search passed the browser checks below. The product catalogue is **not ready to be described as fully verified**: the site contains 22 catalogue candidates, only one has a recorded manufacturer source, and none of the 20 candidate ASINs has a verified ASIN-to-model mapping.
+The public site is live and its main navigation, editorial pages, internal links, image assets and catalogue search passed the browser checks below. The product catalogue is **not ready to be described as fully verified**: the register contains 22 candidates, 17 with recorded manufacturer source pages, and none of the 20 candidate ASINs has a verified ASIN-to-model mapping. A manufacturer source page is not proof that a retailer ASIN matches the exact model or variant.
 
 The site currently uses ordinary Amazon search links generated dynamically by `assets/site.js`. They are not direct ASIN links, do not carry an Associates tracking ID, and do not earn commissions.
 
@@ -29,23 +29,31 @@ The browser agent's summary said no product outbound links were visible on the c
 
 ## Product evidence status
 
+**Evidence-register update:** commit `df8ec3e887d6ecc820ed4e569fa7317b2e89106b` recorded 17 manufacturer source pages. This updates the earlier audit count; it does not change the zero verified ASIN-to-model mappings.
+
 | Evidence item | Count |
 |---|---:|
 | Catalogue entries | 22 |
 | Candidate ASINs recorded | 20 |
-| Manufacturer source checked | 1 |
-| Manufacturer source not checked | 19 |
+| Manufacturer source page recorded | 17 |
+| Entries without a manufacturer source page | 5 (3 branded ASIN candidates + 2 category-only entries) |
 | Category-level entries without ASIN (chairs, desks) | 2 |
 | ASIN-to-model mappings verified | 0 |
 
-- Logitech G305 LIGHTSPEED is the only entry with a manufacturer source and recorded manufacturer facts.
-- The remaining 19 ASIN-bearing candidates have no recorded manufacturer source and remain unchecked.
+- 17 entries now have official manufacturer source pages recorded in the evidence register.
+- Three ASIN-bearing candidates still have no recorded manufacturer source: Govee RGBIC LED Strip, HBOWMDJIA LED Lights 200 ft, and Leeleberd LED Lights 100 ft.
+- Logitech G305 LIGHTSPEED is the only entry with manufacturer facts populated; the other source pages are recorded as evidence references, not as complete specification verification.
+- All 20 candidate ASIN-to-model mappings, live listing states, seller identities and variants remain unverified.
 - The second HyperX Cloud III entry is a possible duplicate. It is retained as a candidate but must not be represented as a confirmed variant.
 - The chairs and desks entries are category-level ideas, not exact product models.
 - All published product visuals remain original category illustrations, not exact product photography or customer UGC.
 - No prices, stock, review counts or ratings are claimed.
 
 An attempted direct Amazon page inspection of the 20 candidate ASINs timed out before completion. Therefore no ASIN-to-model mapping has been promoted to verified. Seller, live listing, variant, regional version and compatibility checks remain outstanding.
+
+## Browser QA discrepancy — release gate
+
+The two failed assertions in run `45141088461` are not waived. A diagnostic-only PR [#19](https://github.com/abdullahkayanillc-blip/ProGameFinds.Online/pull/19) adds per-card anchor counts, retailer href details, and loaded script URLs to the Chromium output while retaining the existing assertions. Production has not been changed by that PR.
 
 ## SEO and technical source review
 
@@ -58,7 +66,7 @@ The current repository includes:
 - a professional HTML/local-reference/evidence-register quality audit;
 - a product-image-rights audit.
 
-The latest production push's GitHub Actions preview-browser QA run completed successfully. The live browser audit independently confirmed the pages and navigation listed above.
+The recorded Chromium workflow run [45141088461](https://github.com/abdullahkayanillc-blip/ProGameFinds.Online/actions/runs/45141088461) **failed two retailer-link assertions**: the initial count of 22 Amazon search links and the count after clearing filters. Other logged checks passed, including the 22 catalogue cards, search, category filter, artwork, internal pages, desktop/mobile overflow and runtime-error checks. A separate live-browser audit previously reported 22 cards and 22 retailer links. These observations conflict and must be reconciled before browser QA can be marked green.
 
 ## Affiliate and operational readiness
 
