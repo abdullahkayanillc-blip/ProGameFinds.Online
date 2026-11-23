@@ -72,7 +72,24 @@ try {
   // This also works with server-rendered cards and dynamically rendered cards.
   const productLinks = page.locator('.card a[href^="https://www.amazon.com/s?k="]');
   const productLinkCount = await productLinks.count();
-  check(productLinkCount === 22, "All 22 catalogue products have a retailer search link");
+  const catalogueLinkDiagnostics = await page.locator(".card").evaluateAll(cards => ({
+    cardCount: cards.length,
+    retailerLinks: cards.reduce((sum, card) => sum + card.querySelectorAll('a[href^="https://www.amazon.com/s?k="]').length, 0),
+    perCard: cards.map((card, index) => ({
+      index,
+      heading: card.querySelector("h3")?.textContent?.trim() || "",
+      retailerAnchors: [...card.querySelectorAll("a")].map(anchor => ({
+        text: anchor.textContent.trim(),
+        href: anchor.getAttribute("href")
+      }))
+    }))
+  }));
+  console.log("CATALOGUE LINK DIAGNOSTICS BEFORE FILTERS " + JSON.stringify({
+    locatorCount: productLinkCount,
+    ...catalogueLinkDiagnostics,
+    scripts: [...document.querySelectorAll("script[src]")].map(script => script.src)
+  }));
+  check(productLinkCount === 22, "All 22 catalogue products have a retailer search link (observed " + productLinkCount + ")");
   const everyCardHasExactlyOneRetailerLink = await page.locator(".card").evaluateAll(cards =>
     cards.length === 22 && cards.every(card =>
       card.querySelectorAll('a[href^="https://www.amazon.com/s?k="]').length === 1
@@ -115,7 +132,13 @@ try {
   check(await page.locator('[data-filter="mice"]').getAttribute("aria-pressed") === "true", "Active category filter exposes aria-pressed state");
   await page.locator('[data-filter="all"]').click();
   check(await page.locator(".card:visible").count() === 22, "All gear filter restores all 22 catalogue cards, including category searches");
-  check(await page.locator('.card:visible a[href^="https://www.amazon.com/s?k="]').count() === 22, "All 22 product search links remain visible after clearing filters");
+  const linksAfterClear = await page.locator('.card:visible a[href^="https://www.amazon.com/s?k="]').count();
+  console.log("CATALOGUE LINK DIAGNOSTICS AFTER CLEAR " + JSON.stringify({
+    visibleCards: await page.locator(".card:visible").count(),
+    visibleRetailerLinks: linksAfterClear,
+    allRetailerLinks: await page.locator('.card a[href^="https://www.amazon.com/s?k="]').count()
+  }));
+  check(linksAfterClear === 22, "All 22 product search links remain visible after clearing filters (observed " + linksAfterClear + ")");
 
   for (const path of ["/about.html", "/affiliate-disclosure.html", "/privacy.html", "/terms.html"]) {
     const pageResponse = await page.request.get(new URL(path, baseURL).toString());
