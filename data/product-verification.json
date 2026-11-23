@@ -601,11 +601,41 @@
       "activation": "not enabled"
     },
     "limitations": [
-      "Amazon direct-ASIN browser validation attempt timed out before all 20 candidates could be inspected; no candidate mapping was promoted to verified.",
+      "Automated Chromium run 45141088461 failed two retailer-link assertions; the underlying DOM/runtime discrepancy remains unresolved.",
+      "Independent live browser audit previously reported 22 cards and 22 retailer links; automated and independent observations must be reconciled.",
       "Retailer seller, live listing, variant and region remain unverified for all 20 candidate ASINs.",
       "No live price, stock, review or rating claims are published.",
       "Support form remains disabled pending a tested secure message-delivery backend.",
       "Search Console ownership and Lighthouse/Core Web Vitals measurements are not confirmed by this audit."
-    ]
+    ],
+    "evidence_register_snapshot": {
+      "snapshot_date": "2026-11-23",
+      "source_commit": "df8ec3e887d6ecc820ed4e569fa7317b2e89106b",
+      "catalogue_entries": 22,
+      "candidate_asins": 20,
+      "manufacturer_source_pages_recorded": 17,
+      "entries_without_manufacturer_source": [
+        "Govee RGBIC LED Strip",
+        "HBOWMDJIA LED Lights 200 ft",
+        "Leeleberd LED Lights 100 ft",
+        "Gaming chairs",
+        "Gaming desks"
+      ],
+      "verified_asin_to_model_mappings": 0,
+      "live_listing_verified": 0,
+      "seller_verified": 0,
+      "variant_verified": 0,
+      "note": "A recorded manufacturer source page is not proof that the retailer ASIN maps to the exact model, variant, seller, or live listing."
+    },
+    "automated_browser_qa": {
+      "workflow_run_id": 45141088461,
+      "job_id": 137578977208,
+      "status": "failed",
+      "failed_checks": [
+        "All 22 catalogue products have a retailer search link",
+        "All 22 product search links remain visible after clearing filters"
+      ],
+      "note": "The run also logged a contradictory PASS for link-safety validation. Root cause remains unresolved pending diagnostic rerun."
+    }
   }
 }
