@@ -45,8 +45,8 @@
     {
       "product_name": "Logitech G502 HERO",
       "manufacturer": "Logitech",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://www.logitechg.com/en-us/shop/p/g502-hero-gaming-mouse",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
@@ -65,13 +65,13 @@
         "publish_exact_product_photo": false,
         "publish_illustration": true
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official Logitech G product page checked for the G502 HERO model. Candidate ASIN-to-model mapping, live Amazon US listing, seller and variant remain unverified."
     },
     {
       "product_name": "Logitech G502 X Plus Wireless",
       "manufacturer": "Logitech",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://www.logitechg.com/en-us/shop/p/g502-x-plus-wireless-lightforce",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
@@ -90,13 +90,13 @@
         "publish_exact_product_photo": false,
         "publish_illustration": true
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official Logitech G product page checked for G502 X PLUS. The current page describes its current product configuration; the candidate ASIN may refer to a different revision or variant. ASIN mapping, live Amazon US listing, seller and variant remain unverified."
     },
     {
       "product_name": "Logitech G502 Lightspeed (HERO 25K)",
       "manufacturer": "Logitech",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://www.logitechg.com/en-us/shop/p/g502-lightspeed-wireless-gaming-mouse",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
@@ -115,13 +115,13 @@
         "publish_exact_product_photo": false,
         "publish_illustration": true
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official Logitech G product page checked for G502 LIGHTSPEED. Candidate ASIN-to-model mapping, live Amazon US listing, seller and exact revision remain unverified."
     },
     {
       "product_name": "HyperX Cloud III",
       "manufacturer": "HyperX",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://hyperx.com/products/hyperx-cloud-iii-wired-gaming-headset",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
@@ -140,13 +140,13 @@
         "publish_exact_product_photo": false,
         "publish_illustration": true
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official HyperX product page checked for the wired Cloud III model. Candidate ASIN-to-model mapping, live Amazon US listing, seller and colour/variant remain unverified."
     },
     {
       "product_name": "Razer BlackShark V2 X",
       "manufacturer": "Razer",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://www.razer.com/gaming-headsets/razer-blackshark-v2-x",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
@@ -165,13 +165,13 @@
         "publish_exact_product_photo": false,
         "publish_illustration": true
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official Razer product page checked for BlackShark V2 X. Candidate ASIN-to-model mapping, live Amazon US listing, seller and platform/colour variant remain unverified."
     },
     {
       "product_name": "HyperX Cloud III S Wireless",
       "manufacturer": "HyperX",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://hyperx.com/products/hyperx-cloud-iii-s-wireless-gaming-headset",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
@@ -190,13 +190,13 @@
         "publish_exact_product_photo": false,
         "publish_illustration": true
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official HyperX product page checked for Cloud III S Wireless. Candidate ASIN-to-model mapping, live Amazon US listing, seller and colour/variant remain unverified."
     },
     {
       "product_name": "HyperX Cloud II",
       "manufacturer": "HyperX",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://hyperx.com/products/hyperx-cloud-ii",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
@@ -215,13 +215,13 @@
         "publish_exact_product_photo": false,
         "publish_illustration": true
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official HyperX product page checked for Cloud II. Candidate ASIN-to-model mapping, live Amazon US listing, seller and colour/connection variant remain unverified."
     },
     {
       "product_name": "HyperX Cloud III (second listing)",
       "manufacturer": "HyperX",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://hyperx.com/products/hyperx-cloud-iii-wired-gaming-headset",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
@@ -240,13 +240,13 @@
         "publish_exact_product_photo": false,
         "publish_illustration": true
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official HyperX page confirms the base wired Cloud III model only. It does not verify candidate ASIN B0C3BV19Q3 as a distinct model or variant; possible duplicate status remains unresolved. ASIN mapping, live listing and seller remain unverified."
     },
     {
       "product_name": "Logitech G213 Prodigy",
       "manufacturer": "Logitech",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://www.logitechg.com/en-us/shop/p/g213-rgb-gaming-keyboard",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
@@ -265,13 +265,13 @@
         "publish_exact_product_photo": false,
         "publish_illustration": true
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official Logitech G product page checked for G213 Prodigy. Candidate ASIN-to-model mapping, live Amazon US listing, seller, regional keyboard layout and variant remain unverified."
     },
     {
       "product_name": "SteelSeries Apex 3 TKL RGB",
       "manufacturer": "SteelSeries",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://steelseries.com/gaming-keyboards/apex-3?keyboardSize=tkl",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
@@ -290,13 +290,13 @@
         "publish_exact_product_photo": false,
         "publish_illustration": true
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official SteelSeries product page checked for Apex 3 TKL. Candidate ASIN-to-model mapping, live Amazon US listing, seller, regional layout and exact SKU remain unverified."
     },
     {
       "product_name": "GameSir G7 Pro",
       "manufacturer": "GameSir",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://gamesir.com/pages/tutorials-how-to-connect-g7-pro",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
@@ -315,13 +315,13 @@
         "publish_exact_product_photo": false,
         "publish_illustration": true
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official GameSir support/tutorial page checked for G7 Pro. The family has multiple connection/edition variants; candidate ASIN-to-model mapping, exact edition, live Amazon US listing and seller remain unverified."
     },
     {
       "product_name": "GameSir G7 SE",
       "manufacturer": "GameSir",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://gamesir.com/support/manuals/gamesir-g7-se",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
@@ -340,13 +340,13 @@
         "publish_exact_product_photo": false,
         "publish_illustration": true
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official GameSir manual checked for G7 SE and its wired Xbox/Windows support. Candidate ASIN-to-model mapping, live Amazon US listing, seller and variant remain unverified."
     },
     {
       "product_name": "GameSir G7 SE (licensed edition)",
       "manufacturer": "GameSir",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://gamesir.com/support/manuals/gamesir-g7-se",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
@@ -365,13 +365,13 @@
         "publish_exact_product_photo": false,
         "publish_illustration": true
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official GameSir manual confirms the base G7 SE model and Xbox licensing, but does not independently confirm the candidate's claimed special/licensed edition variant. ASIN mapping, live Amazon US listing and seller remain unverified."
     },
     {
       "product_name": "GameSir Nova Lite 2 Wireless",
       "manufacturer": "GameSir",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://gamesir.com/products/gamesir-nova-lite2",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
@@ -390,7 +390,7 @@
         "publish_exact_product_photo": false,
         "publish_illustration": true
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official GameSir product page checked for Nova Lite 2. Candidate ASIN-to-model mapping, live Amazon US listing, seller, colour and exact connection bundle remain unverified."
     },
     {
       "product_name": "Govee RGBIC LED Strip",
@@ -420,8 +420,8 @@
     {
       "product_name": "KSIPZE 100ft RGB Strip",
       "manufacturer": "KSIPZE",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://www.ksipze.com/products/ksipze-100ft-led-strip-lights",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
@@ -440,13 +440,13 @@
         "publish_exact_product_photo": false,
         "publish_illustration": true
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official KSIPZE 100ft product page checked. The candidate ASIN's exact model/revision is not established by this page; ASIN mapping, live Amazon US listing, seller and bundle variant remain unverified."
     },
     {
       "product_name": "DAYBETTER LED Strip 32.8 ft",
       "manufacturer": "DAYBETTER",
-      "model_identity_status": "not_checked",
-      "manufacturer_source": null,
+      "model_identity_status": "manufacturer_source_checked",
+      "manufacturer_source": "https://www.daybetter.com/products/32-8-ft-led-strip-lights-daybetter-rgb-color-changing-lights-strip",
       "manufacturer_facts": null,
       "retailer_listing": {
         "retailer": "Amazon US",
@@ -465,7 +465,7 @@
         "publish_exact_product_photo": false,
         "publish_illustration": true
       },
-      "verification_notes": "Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."
+      "verification_notes": "Official DAYBETTER 32.8 ft RGB strip page checked. Candidate ASIN-to-SKU mapping, live Amazon US listing, seller and remote/controller bundle variant remain unverified."
     },
     {
       "product_name": "HBOWMDJIA LED Lights 200 ft",
