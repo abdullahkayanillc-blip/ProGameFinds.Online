@@ -39,6 +39,8 @@ check(/Amazon Associates approval has not been confirmed/i.test(read("affiliate-
 // Verify all guide pages and dedicated information pages.
 const requiredPages = [
   "about.html","affiliate-disclosure.html","privacy.html","terms.html",
+  "gaming-mice.html","gaming-keyboards.html","gaming-headsets.html","gaming-controllers.html",
+  "gaming-chairs-desks.html","gaming-room-setup.html","collections.html","guides.html","support.html",
   "guides/choosing-a-gaming-mouse.html","guides/gaming-keyboard-layouts-and-switches.html",
   "guides/choosing-a-gaming-headset.html","guides/controller-compatibility-checklist.html",
   "guides/gaming-desk-sizing-guide.html","guides/gaming-chair-fit-and-ergonomics.html",
@@ -55,7 +57,7 @@ for (const path of requiredPages) {
 }
 
 const sitemap = read("sitemap.xml");
-for (const path of ["about.html","affiliate-disclosure.html","privacy.html","terms.html"]) {
+for (const path of ["about.html","affiliate-disclosure.html","privacy.html","terms.html","gaming-mice.html","gaming-keyboards.html","gaming-headsets.html","gaming-controllers.html","gaming-chairs-desks.html","gaming-room-setup.html","collections.html","guides.html","support.html"]) {
   check(sitemap.includes(`https://progamefinds.online/${path}`), `Sitemap missing ${path}`);
 }
 check(existsSync(resolve(root,"robots.txt")), "robots.txt missing");
@@ -69,6 +71,10 @@ check(/Sitemap: https:\/\/progamefinds\.online\/sitemap\.xml/.test(read("robots.
 // Check in-page anchors.
 const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]));
 for (const match of html.matchAll(/href="#([^"]+)"/g)) check(ids.has(match[1]), `Broken in-page anchor #${match[1]}`);
+
+for (const path of requiredPages.filter((item) => item.startsWith("guides/"))) {
+  if (existsSync(resolve(root,path))) check(!read(path).includes("As an Amazon Associate I earn from qualifying purchases."), `Unapproved affiliate earnings claim must not appear in ${path}`);
+}
 
 // The following items cannot be confirmed from public source code.
 warnings.push("OWNER CHECK: Do not publish affiliate tracking links or commission claims until the account owner confirms legal eligibility and written program approval.");
