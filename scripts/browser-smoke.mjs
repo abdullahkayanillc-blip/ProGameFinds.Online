@@ -87,7 +87,7 @@ try {
   console.log("CATALOGUE LINK DIAGNOSTICS BEFORE FILTERS " + JSON.stringify({
     locatorCount: productLinkCount,
     ...catalogueLinkDiagnostics,
-    scripts: [...document.querySelectorAll("script[src]")].map(script => script.src)
+    scripts: await page.locator('script[src]').evaluateAll(scripts => scripts.map(script => script.src))
   }));
   check(productLinkCount === 22, "All 22 catalogue products have a retailer search link (observed " + productLinkCount + ")");
   const everyCardHasExactlyOneRetailerLink = await page.locator(".card").evaluateAll(cards =>
