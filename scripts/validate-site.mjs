@@ -16,7 +16,7 @@ check(/property="og:title"/i.test(html) && /property="og:description"/i.test(htm
 check(/property="og:image"/i.test(html) && existsSync(resolve(root,"assets/social-preview.svg")), "Social share artwork missing");
 check(/application\/ld\+json/i.test(html), "WebSite structured data missing");
 check(!/<[a-z][^>]*\sstyle=/i.test(html), "Inline style attributes violate the strict site CSP");
-check(/Amazon Associates application pending/i.test(html), "Homepage must clearly state the current pending-application notice");
+check(/Amazon Associates approval has not been confirmed/i.test(html), "Homepage must clearly state that Amazon Associates approval is unconfirmed");
 check(/Product buttons are ordinary retailer search links and do not currently earn commissions/i.test(html), "Homepage must accurately state that current product links are non-affiliate");
 check(!html.includes("As an Amazon Associate I earn from qualifying purchases."), "Unapproved site must not claim Amazon Associate status");
 check(/href="\/assets\/site\.css"/i.test(html) && existsSync(resolve(root,"assets/site.css")), "Local stylesheet missing");
@@ -88,5 +88,5 @@ if (errors.length) {
   for (const error of errors) console.error("- " + error);
   process.exit(1);
 }
-console.log(`PASS: ${productRegister.products.length} product candidates have evidence-register entries; non-affiliate search-link controls, SEO, pending notice, ${requiredPages.length} editorial/legal pages, sitemap, robots and security headers are present.`);
+console.log(`PASS: ${productRegister.products.length} product candidates have evidence-register entries; non-affiliate search-link controls, SEO, unconfirmed approval notice, ${requiredPages.length} editorial/legal pages, sitemap, robots and security headers are present.`);
 for (const warning of warnings) console.warn("OWNER ACTION:", warning);
