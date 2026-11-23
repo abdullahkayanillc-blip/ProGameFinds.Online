@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "purpose": "Catalogue-wide evidence register distinguishing checked manufacturer facts, unverified retailer candidates, licensed UGC, and original illustrative artwork.",
-  "last_reviewed": "2026-11-20",
+  "last_reviewed": "2026-11-23",
   "policy": {
     "never_infer_asin_mapping_from_model_name": true,
     "never_invent_reviews_ratings_prices_or_stock": true,
@@ -567,5 +567,45 @@
       },
       "verification_notes": "Category-level candidate; no retailer ASIN supplied. Artwork is illustrative, not a product photo or customer UGC."
     }
-  ]
+  ],
+  "latest_production_audit": {
+    "audit_date": "2026-11-23",
+    "production_commit": "edf5a8285b8e6fa938f59dc559e74ea1151b6dc6",
+    "browser_audit": {
+      "pages_visited": 14,
+      "internal_links_checked": 23,
+      "broken_internal_links": 0,
+      "broken_images": 0,
+      "browser_runtime_errors_reported": 0,
+      "search_test": "Logitech G305 returns one matching catalogue candidate",
+      "product_cards": 22
+    },
+    "source_code_link_check": {
+      "retailer_cta": "assets/site.js creates an ordinary Amazon US search URL for every product card using the exact product name",
+      "direct_asin_links": false,
+      "affiliate_tracking": false,
+      "commission_status": "No commissions earned from current search links"
+    },
+    "catalogue_evidence": {
+      "entries": 22,
+      "candidate_asins": 20,
+      "manufacturer_source_checked": 1,
+      "manufacturer_source_not_checked": 19,
+      "category_only_entries_without_asin": 2,
+      "verified_asin_to_model_mappings": 0,
+      "possible_duplicate": "HyperX Cloud III appears twice; second candidate retained but not treated as a confirmed variant"
+    },
+    "amazon_associates": {
+      "approval": "not_confirmed",
+      "tracking_id_present": false,
+      "activation": "not enabled"
+    },
+    "limitations": [
+      "Amazon direct-ASIN browser validation attempt timed out before all 20 candidates could be inspected; no candidate mapping was promoted to verified.",
+      "Retailer seller, live listing, variant and region remain unverified for all 20 candidate ASINs.",
+      "No live price, stock, review or rating claims are published.",
+      "Support form remains disabled pending a tested secure message-delivery backend.",
+      "Search Console ownership and Lighthouse/Core Web Vitals measurements are not confirmed by this audit."
+    ]
+  }
 }
