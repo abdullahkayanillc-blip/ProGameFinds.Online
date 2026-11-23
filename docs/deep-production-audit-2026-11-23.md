@@ -7,7 +7,7 @@
 
 ## Executive result
 
-The public site is live and its main navigation, editorial pages, internal links, image assets and catalogue search passed the browser checks below. The product catalogue is **not ready to be described as fully verified**: the register contains 22 candidates, 17 with recorded manufacturer source pages, and none of the 20 candidate ASINs has a verified ASIN-to-model mapping. A manufacturer source page is not proof that a retailer ASIN matches the exact model or variant.
+The public site is live and its main navigation, editorial pages, internal links, image assets and catalogue search passed the browser checks below. The product catalogue is **not ready to be described as fully verified**: the register contains 22 candidates, 18 with recorded manufacturer source pages, and none of the 20 candidate ASINs has a verified ASIN-to-model mapping. A manufacturer source page is not proof that a retailer ASIN matches the exact model or variant.
 
 The site currently uses ordinary Amazon search links generated dynamically by `assets/site.js`. They are not direct ASIN links, do not carry an Associates tracking ID, and do not earn commissions.
 
@@ -29,19 +29,20 @@ The browser agent's summary said no product outbound links were visible on the c
 
 ## Product evidence status
 
-**Evidence-register update:** commit `df8ec3e887d6ecc820ed4e569fa7317b2e89106b` recorded 17 manufacturer source pages. This updates the earlier audit count; it does not change the zero verified ASIN-to-model mappings.
+**Evidence-register updates:** commit `df8ec3e887d6ecc820ed4e569fa7317b2e89106b` recorded 17 manufacturer source pages. A later Govee evidence update (`4a87c78339e01fe7fb100e233da4e7482fba2124`) added the official Govee H617A specifications reference, bringing the current register to 18 source pages. These updates do not change the zero verified ASIN-to-model mappings.
 
 | Evidence item | Count |
 |---|---:|
 | Catalogue entries | 22 |
 | Candidate ASINs recorded | 20 |
-| Manufacturer source page recorded | 17 |
-| Entries without a manufacturer source page | 5 (3 branded ASIN candidates + 2 category-only entries) |
+| Manufacturer source page recorded | 18 |
+| Entries without a manufacturer source page | 4 (2 branded ASIN candidates + 2 category-only entries) |
 | Category-level entries without ASIN (chairs, desks) | 2 |
 | ASIN-to-model mappings verified | 0 |
 
-- 17 entries now have official manufacturer source pages recorded in the evidence register.
-- Three ASIN-bearing candidates still have no recorded manufacturer source: Govee RGBIC LED Strip, HBOWMDJIA LED Lights 200 ft, and Leeleberd LED Lights 100 ft.
+- 18 entries now have manufacturer source pages recorded in the evidence register.
+- Govee H617A now has an official Govee specifications reference. A secondary catalogue source associates candidate ASIN B0991Q94KP with H617A, but the exact Amazon US detail page, seller and selected variant remain unverified.
+- Two ASIN-bearing candidates still have no recorded manufacturer source: HBOWMDJIA LED Lights 200 ft and Leeleberd LED Lights 100 ft.
 - Logitech G305 LIGHTSPEED is the only entry with manufacturer facts populated; the other source pages are recorded as evidence references, not as complete specification verification.
 - All 20 candidate ASIN-to-model mappings, live listing states, seller identities and variants remain unverified.
 - The second HyperX Cloud III entry is a possible duplicate. It is retained as a candidate but must not be represented as a confirmed variant.
@@ -53,7 +54,7 @@ An attempted direct Amazon page inspection of the 20 candidate ASINs timed out b
 
 ## Browser QA discrepancy — release gate
 
-The two failed assertions in run `45141088461` are not waived. A diagnostic-only PR [#19](https://github.com/abdullahkayanillc-blip/ProGameFinds.Online/pull/19) adds per-card anchor counts, retailer href details, and loaded script URLs to the Chromium output while retaining the existing assertions. Production has not been changed by that PR.
+The two failed assertions in run `45141088461` were from before the later selector correction in commit `42f6fc494aafea875626b88b5f599c79eab8fe66`. The diagnostic-only PR [#19](https://github.com/abdullahkayanillc-blip/ProGameFinds.Online/pull/19) was closed as obsolete. Subsequent preview run [45183075569](https://github.com/abdullahkayanillc-blip/ProGameFinds.Online/actions/runs/45183075569) passed the 22-link, one-link-per-card, and post-filter visibility checks, along with the rest of the Chromium suite.
 
 ## SEO and technical source review
 
@@ -66,7 +67,7 @@ The current repository includes:
 - a professional HTML/local-reference/evidence-register quality audit;
 - a product-image-rights audit.
 
-The recorded Chromium workflow run [45141088461](https://github.com/abdullahkayanillc-blip/ProGameFinds.Online/actions/runs/45141088461) **failed two retailer-link assertions**: the initial count of 22 Amazon search links and the count after clearing filters. Other logged checks passed, including the 22 catalogue cards, search, category filter, artwork, internal pages, desktop/mobile overflow and runtime-error checks. A separate live-browser audit previously reported 22 cards and 22 retailer links. These observations conflict and must be reconciled before browser QA can be marked green.
+The recorded Chromium workflow run [45141088461](https://github.com/abdullahkayanillc-blip/ProGameFinds.Online/actions/runs/45141088461) **failed two retailer-link assertions**: the initial count of 22 Amazon search links and the count after clearing filters. Other logged checks passed, including the 22 catalogue cards, search, category filter, artwork, internal pages, desktop/mobile overflow and runtime-error checks. A separate live-browser audit previously reported 22 cards and 22 retailer links. This historical failure is superseded by the later passing preview run; a fresh post-merge production-domain browser run remains a separate verification item.
 
 ## Affiliate and operational readiness
 
