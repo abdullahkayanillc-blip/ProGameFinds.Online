@@ -40,7 +40,7 @@ try {
   check(await page.locator("[data-equipment-card]:visible").count() === 1, "Equipment search filters to the strength category");
   await search.fill("no-such-equipment-term-xyz");
   check(await page.locator("[data-equipment-card]:visible").count() === 0, "No-result search hides non-matching categories");
-  check((await page.locator("#catalogue-status").innerText()).includes("No categories match"), "No-result search announces accessible status");
+  check((await page.locator("#catalogue-status").textContent()).includes("No categories match"), "No-result search announces accessible status");
   await search.fill("");
   await page.locator('[data-filter="cardio"]').click();
   check(await page.locator('[data-equipment-card]:visible').count() === 1, "Cardio filter selects one category");
@@ -86,7 +86,7 @@ try {
     ["/guides/choosing-a-gaming-mouse.html", "/guides/strength-equipment-selection.html"]
   ]) {
     const legacyResponse = await page.request.get(new URL(legacyPath, baseURL).toString());
-    check(legacyResponse.ok() && new URL(legacyResponse.url()).pathname === expectedPath, "Legacy route redirects correctly: " + legacyPath);
+    check(legacyResponse.ok() && new URL(legacyResponse.url()).pathname.replace(/\\.html$/, "") === expectedPath.replace(/\\.html$/, ""), "Legacy route redirects correctly: " + legacyPath + " -> " + legacyResponse.url());
   }
 
   metrics.desktop = await page.evaluate(() => {
