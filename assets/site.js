@@ -1,152 +1,28 @@
-(function () {
-  "use strict";
-  var search = document.getElementById("gear-search");
-  var sections = Array.prototype.slice.call(document.querySelectorAll(".cat[data-category]"));
-  var buttons = Array.prototype.slice.call(document.querySelectorAll("[data-filter]"));
-  var status = document.getElementById("gear-status");
-  var active = "all";
-  // Bundled fallback keeps the catalogue usable if the static JSON route is misrouted or cached incorrectly.
-  var products = [{"product_name":"Logitech G305 LIGHTSPEED","manufacturer":"Logitech","model_identity_status":"manufacturer_source_checked","manufacturer_source":"https://www.logitechg.com/en-us/products/gaming-mice/g305-lightspeed-wireless-gaming-mouse.html","manufacturer_facts":{"wireless_technology":"LIGHTSPEED","sensor_dpi_range":"200–12,000 DPI","battery_life_claim":"Up to 250 hours","battery_type":"1 AA","programmable_buttons":6},"retailer_listing":{"retailer":"Amazon US","asin":"B07CMS5Q6P","asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/mouse.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."},{"product_name":"Logitech G502 HERO","manufacturer":"Logitech","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":"Amazon US","asin":"B07GBZ4Q68","asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/mouse.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."},{"product_name":"Logitech G502 X Plus Wireless","manufacturer":"Logitech","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":"Amazon US","asin":"B092CB69Q4","asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/mouse.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."},{"product_name":"Logitech G502 Lightspeed (HERO 25K)","manufacturer":"Logitech","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":"Amazon US","asin":"B07L4BM851","asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/mouse.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."},{"product_name":"HyperX Cloud III","manufacturer":"HyperX","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":"Amazon US","asin":"B0C3BSZ56D","asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/headset.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."},{"product_name":"Razer BlackShark V2 X","manufacturer":"Razer","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":"Amazon US","asin":"B086PKMZ21","asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/headset.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."},{"product_name":"HyperX Cloud III S Wireless","manufacturer":"HyperX","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":"Amazon US","asin":"B0F6NZWPTC","asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/headset.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."},{"product_name":"HyperX Cloud II","manufacturer":"HyperX","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":"Amazon US","asin":"B00SAYCXWG","asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/headset.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."},{"product_name":"HyperX Cloud III (second listing)","manufacturer":"HyperX","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":"Amazon US","asin":"B0C3BV19Q3","asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/headset.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."},{"product_name":"Logitech G213 Prodigy","manufacturer":"Logitech","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":"Amazon US","asin":"B07QGHK6Q8","asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/keyboard.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."},{"product_name":"SteelSeries Apex 3 TKL RGB","manufacturer":"SteelSeries","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":"Amazon US","asin":"B09FTNMT84","asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/keyboard.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."},{"product_name":"GameSir G7 Pro","manufacturer":"GameSir","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":"Amazon US","asin":"B0FD41XC3P","asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/controller.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."},{"product_name":"GameSir G7 SE","manufacturer":"GameSir","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":"Amazon US","asin":"B0C7GW9F88","asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/controller.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."},{"product_name":"GameSir G7 SE (licensed edition)","manufacturer":"GameSir","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":"Amazon US","asin":"B0CT3BXRLS","asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/controller.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."},{"product_name":"GameSir Nova Lite 2 Wireless","manufacturer":"GameSir","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":"Amazon US","asin":"B0F3D25PD3","asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/controller.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."},{"product_name":"Govee RGBIC LED Strip","manufacturer":"Govee","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":"Amazon US","asin":"B0991Q94KP","asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/lighting.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."},{"product_name":"KSIPZE 100ft RGB Strip","manufacturer":"KSIPZE","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":"Amazon US","asin":"B09V366BDY","asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/lighting.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."},{"product_name":"DAYBETTER LED Strip 32.8 ft","manufacturer":"DAYBETTER","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":"Amazon US","asin":"B08D99TWQJ","asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/lighting.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."},{"product_name":"HBOWMDJIA LED Lights 200 ft","manufacturer":"HBOWMDJIA","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":"Amazon US","asin":"B0DFYBYPZM","asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/lighting.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."},{"product_name":"Leeleberd LED Lights 100 ft","manufacturer":"Leeleberd","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":"Amazon US","asin":"B0C2MHG632","asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/lighting.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Candidate ASIN mapping, seller and variant remain unverified. This is original category artwork, not an exact product photo or customer UGC."},{"product_name":"Gaming chairs","manufacturer":"Unspecified","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":null,"asin":null,"asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/chair.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Category-level candidate; no retailer ASIN supplied. Artwork is illustrative, not a product photo or customer UGC."},{"product_name":"Gaming desks","manufacturer":"Unspecified","model_identity_status":"not_checked","manufacturer_source":null,"manufacturer_facts":null,"retailer_listing":{"retailer":null,"asin":null,"asin_to_model_mapping_status":"not_verified","live_listing_status":"not_checked","seller_status":"not_checked","variant_status":"not_checked"},"image_rights":{"manufacturer_asset_permission":"not_confirmed","licensed_ugc":"not_supplied","illustration_asset":"/assets/products/chair.svg","illustration_rights":"original artwork created for this site","illustration_only":true,"publish_exact_product_photo":false,"publish_illustration":true},"verification_notes":"Category-level candidate; no retailer ASIN supplied. Artwork is illustrative, not a product photo or customer UGC."}];
-
-  function categoryFor(asset) {
-    if (/mouse/.test(asset || "")) return "mice";
-    if (/headset/.test(asset || "")) return "headsets";
-    if (/keyboard/.test(asset || "")) return "keyboards";
-    if (/controller/.test(asset || "")) return "controllers";
-    if (/chair/.test(asset || "")) return "chairs";
-    return "setup";
-  }
-
-  function makeCard(product) {
-    var card = document.createElement("article");
-    card.className = "card";
-    card.setAttribute("data-product", "");
-    var top = document.createElement("div");
-    top.className = "card-top";
-    var image = document.createElement("img");
-    image.className = "card-ic";
-    image.src = product.image_rights && product.image_rights.illustration_asset || "/assets/products/setup.svg";
-    image.alt = "";
-    image.width = 64;
-    image.height = 64;
-    image.loading = "lazy";
-    var badge = document.createElement("span");
-    badge.className = "tag-alt";
-    badge.textContent = product.model_identity_status === "manufacturer_source_checked" ? "Manufacturer checked" : "Candidate";
-    top.append(image, badge);
-    var title = document.createElement("h4");
-    title.textContent = product.product_name || "Gaming gear";
-    var maker = document.createElement("p");
-    maker.className = "pick";
-    maker.textContent = product.manufacturer && product.manufacturer !== "Unspecified" ? product.manufacturer : "Category guide";
-    var details = document.createElement("p");
-    details.className = "spec";
-    var facts = product.manufacturer_facts;
-    if (facts && Object.keys(facts).length) {
-      details.textContent = Object.entries(facts).map(function (entry) { return entry[0].replace(/_/g, " ") + ": " + entry[1]; }).join(" · ");
-    } else {
-      details.textContent = "Compare the exact model, platform compatibility, dimensions and warranty before choosing.";
-    }
-    var note = document.createElement("p");
-    note.className = "asin";
-    note.textContent = "Search results only. Confirm the exact model, seller, regional version, price and availability before choosing.";
-    card.append(top, title, maker, details, note);
-
-    // Product-name searches avoid promoting unverified ASIN-to-model mappings.
-    // These are ordinary non-affiliate links and do not generate commissions.
-    var retailerLink = document.createElement("a");
-    retailerLink.className = "btn btn-primary product-retailer-link";
-    retailerLink.href = "https://www.amazon.com/s?k=" + encodeURIComponent(product.product_name || "gaming gear");
-    retailerLink.target = "_blank";
-    retailerLink.rel = "nofollow noopener noreferrer";
-    retailerLink.textContent = "Search Amazon listings";
-    retailerLink.setAttribute("aria-label", "Search Amazon for " + (product.product_name || "gaming gear") + "; verify the exact listing before purchase");
-    card.append(retailerLink);
-
-    if (product.manufacturer_source) {
-      var link = document.createElement("a");
-      link.className = "btn btn-ghost";
-      link.href = product.manufacturer_source;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.textContent = "Manufacturer details";
-      card.append(link);
-    }
-    return card;
-  }
-
-  function render() {
-    sections.forEach(function (section) {
-      var grid = section.querySelector(".grid");
-      if (grid) grid.replaceChildren();
-    });
-    products.forEach(function (product) {
-      var category = categoryFor(product.image_rights && product.image_rights.illustration_asset);
-      var section = document.querySelector('.cat[data-category="' + category + '"]');
-      if (!section) section = document.querySelector('.cat[data-category="setup"]');
-      var grid = section && section.querySelector(".grid");
-      if (grid) grid.appendChild(makeCard(product));
-    });
-    refresh();
-  }
-
-  function refresh() {
-    if (!sections.length) return;
-    var q = search ? search.value.trim().toLowerCase() : "";
-    var shown = 0, groups = 0;
-    sections.forEach(function (section) {
-      var ok = active === "all" || section.getAttribute("data-category") === active;
-      var count = 0;
-      Array.prototype.slice.call(section.querySelectorAll(".card")).forEach(function (card) {
-        var match = ok && (!q || (card.textContent || "").toLowerCase().indexOf(q) !== -1);
-        card.hidden = !match;
-        if (match) { count++; shown++; }
-      });
-      section.hidden = count === 0;
-      if (count) groups++;
-    });
-    if (status) status.textContent = shown
-      ? "Showing " + shown + " catalogue candidates across " + groups + " categor" + (groups === 1 ? "y." : "ies.") + " Retailer search links are available; exact matches are not yet verified."
-      : "No listings match that search. Try another term or choose All gear.";
-  }
-
-  buttons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      active = button.getAttribute("data-filter") || "all";
-      buttons.forEach(function (other) {
-        var selected = other === button;
-        other.classList.toggle("is-active", selected);
-        other.setAttribute("aria-pressed", selected ? "true" : "false");
-      });
-      refresh();
-    });
-  });
-  if (search) {
-    search.addEventListener("input", refresh);
-    document.addEventListener("keydown", function (event) {
-      var t = event.target;
-      var editing = t && (/INPUT|TEXTAREA|SELECT/.test(t.tagName) || t.isContentEditable);
-      if (event.key === "/" && !event.ctrlKey && !event.metaKey && !event.altKey && !editing) { event.preventDefault(); search.focus(); }
-      if (event.key === "Escape" && document.activeElement === search) { search.value = ""; refresh(); }
-    });
-  }
-  // Render bundled, reviewed catalogue immediately; refresh from the evidence register when available.
-  render();
-  fetch("/data/product-verification.json", { credentials: "same-origin", cache: "no-cache" })
-    .then(function (response) {
-      if (!response.ok) throw new Error("Catalogue endpoint returned " + response.status);
-      var type = response.headers.get("content-type") || "";
-      if (type.indexOf("application/json") === -1) throw new Error("Catalogue endpoint did not return JSON");
-      return response.json();
-    })
-    .then(function (data) {
-      if (!data || !Array.isArray(data.products) || !data.products.length) throw new Error("Catalogue data is empty or invalid");
-      products = data.products;
-      render();
-    })
-    .catch(function () {
-      // Keep the bundled catalogue visible; do not turn a route/cache issue into an empty catalogue.
-      if (status && products.length) status.textContent = "Showing " + products.length + " locally bundled catalogue candidates. Retailer search links are available; exact matches are not yet verified.";
-    });
-  Array.prototype.slice.call(document.querySelectorAll("[data-current-year]")).forEach(function (el) { el.textContent = String(new Date().getFullYear()); });
+(function(){
+"use strict";
+var search=document.getElementById("equipment-search");
+var cards=Array.prototype.slice.call(document.querySelectorAll("[data-equipment-card]"));
+var buttons=Array.prototype.slice.call(document.querySelectorAll("[data-filter]"));
+var status=document.getElementById("catalogue-status");
+var active="all";
+function render(){
+ var q=search?search.value.trim().toLowerCase():"";
+ var visible=0;
+ cards.forEach(function(card){
+  var category=card.getAttribute("data-category")||"";
+  var words=(card.textContent+" "+(card.getAttribute("data-search")||"")).toLowerCase();
+  var matches=(active==="all"||category===active)&&(!q||words.indexOf(q)!==-1);
+  card.hidden=!matches;
+  if(matches)visible++;
+ });
+ if(status)status.textContent=visible?("Showing "+visible+" equipment research categories."):"No categories match that search. Try a broader term.";
+}
+buttons.forEach(function(button){button.addEventListener("click",function(){
+ active=button.getAttribute("data-filter")||"all";
+ buttons.forEach(function(other){var selected=other===button;other.setAttribute("aria-pressed",selected?"true":"false");});
+ render();
+});});
+if(search){search.addEventListener("input",render);search.addEventListener("keydown",function(event){if(event.key==="Escape"){search.value="";render();}});}
+Array.prototype.slice.call(document.querySelectorAll("[data-current-year]")).forEach(function(el){el.textContent=String(new Date().getFullYear());});
+render();
 })();

@@ -1,46 +1,70 @@
-# ProGameFinds — professional upgrade (preview branch)
+# ProGameFinds — Fitness Equipment Research Portal
 
-## Working branch
-`progamefinds-professional-upgrade-2026-11-19` is an isolated working branch based on `amazon-compliance-professional-setup`.
+## Current project direction
 
-Production `main` is unchanged. This branch is not merged or published to the production domain.
+ProGameFinds is being migrated from a gaming-gear catalogue to an independent fitness and home-gym equipment research portal.
 
-## Experience changes prepared
-- Premium responsive gaming-gear design with original vector illustration and local brand/social assets.
-- Local CSS and JavaScript assets; removed external Google Fonts dependency.
-- Accessible catalogue search and category filters; keyboard shortcut `/` focuses search and Escape clears it.
-- Clear owner-review notice around supplied product listings: verify ASIN/model mapping, seller, compatibility and current retailer details before purchase.
-- Preserved the 22 existing Amazon outbound links and the visible `(paid link)` disclosure, `rel=sponsored`, `noopener` and the current source tag. Tag ownership/activation is not verifiable from this repository.
-- Retained all 10 original editorial buying guides.
-- Added dedicated About, Affiliate Disclosure, Privacy and Terms pages.
-- Added sitemap entries, metadata and a vector social-preview image.
-- Added Cloudflare Pages response security headers and a Node-only site validator.
-- Disabled contact form controls until a real inbox and delivery provider are selected, configured and successfully tested.
+### Active editorial categories
+- Strength equipment
+- Cardio equipment
+- Home-gym planning
+- Fitness accessories
+- Gym flooring and storage
+- Mobility and recovery accessories
 
-## Amazon Associates controls
-The page must accurately describe the actual Associates Central application status. Current source content has a pending-application notice and the required exact disclosure statement. Do not say the account is approved unless Amazon confirms acceptance. Do not create clicks, sessions, orders, ratings or reviews artificially. Do not display prices, stock or Amazon reviews/ratings without permitted Amazon data access. Do not use Amazon Program Content or Special Links in model-training or machine-learning workflows without Amazon's prior written permission.
+### Editorial standards
+- Prioritise exact model identification and primary manufacturer documentation.
+- Distinguish manufacturer facts from retailer listing, seller, fulfilment and variant checks.
+- Do not publish unsupported prices, stock, ratings, customer reviews or compatibility claims.
+- Use age-appropriate safety language; this site is not a medical service or training-plan provider.
+- Do not scrape retailer pages or copy protected retailer content.
 
-Official references:
+## Retail-link and affiliate status
+
+**All external product-shopping links are currently disabled.** Distributor and manufacturer shopping links have been removed from active pages. The legacy gaming catalogue register is marked retired.
+
+The site is designed for an Amazon-only affiliate pathway in the future, but it currently displays:
+- no Amazon Special Links;
+- no Associates tracking ID;
+- no Amazon Associate earnings claim;
+- no commission or approval claim.
+
+Affiliate functionality must remain disabled until the actual legally eligible account holder independently verifies the Associates account's status, declared site, active approval and assigned Associate ID. Do not use another person's identity or credentials as a workaround, and do not operate an Associates account on behalf of a minor.
+
+Amazon policy links for the actual account holder to review:
+- https://affiliate-program.amazon.com/help/operating/agreement/
 - https://affiliate-program.amazon.com/help/operating/policies
-- https://affiliate-program.amazon.com/help/operating/participation/
 - https://affiliate-program.amazon.com/help/node/topic/G8TW5AE9XL2VX9VM
-- https://affiliate-program.amazon.com/help/node/topic/GPXFHVYZMTGPUMPE
+
+The Amazon agreement states that an Associate must be legally able to enter contracts and not be a minor. Special Links must use the Associate ID assigned by Amazon. See the current official documents above.
+
+## Website implementation
+
+- Static HTML/CSS/JavaScript hosted on Cloudflare Pages.
+- No external font requests, heavy client framework, checkout or product-purchase flow.
+- Local equipment search and category filters.
+- Responsive navigation, visible focus styles and reduced-motion support.
+- Security response headers remain configured through the Cloudflare Pages headers file.
+- Legacy gaming routes redirect to current fitness information pages.
+- Product evidence manifest contains no active products until exact model/source verification is complete.
+- Contact form is not enabled; the direct support email link is available.
 
 ## Validation
-GitHub Actions runs `node scripts/validate-site.mjs`. The validator does not fetch Amazon pages or verify product identity; it checks source-level affiliate formatting, disclosures, SEO assets, page inventory, sitemap, robots and security headers.
 
-## Owner-only activation checklist
-1. Check Associates Central and confirm the exact account status and tracking ID.
-2. Verify the 20 ASIN mappings and model descriptions using manufacturer sources and the live listings; do not scrape Amazon.
-3. Select and confirm the contact inbox and delivery provider, then configure its secret securely and test real delivery/failure handling.
-4. Confirm Cloudflare zone activation, root/www Pages custom domains, HTTPS certificate and redirects.
-5. Complete Search Console ownership verification and submit the sitemap.
-6. Review the preview on desktop and mobile; request any final changes.
-7. Only after explicit approval, merge the PR and publish production.
+GitHub Actions runs:
+- node scripts/validate-site.mjs
+- node scripts/quality-audit.mjs
+- node scripts/audit-product-image-rights.mjs
+- Playwright Chromium browser QA for desktop and mobile.
 
-## Privacy and analytics
-No analytics or ad-pixel code has been added. Cloudflare Web Analytics and Google Search Console have not been connected because they require account-level owner verification/configuration. The privacy policy describes the current inactive contact form and must be updated before any new data-collection service is enabled.
+The validators ensure the active portal contains no distributor/manufacturer/Amazon shopping links, no affiliate tags, no stale gaming product content, and no unverified product records.
 
+## Release process
 
-## Preview build
-The professional upgrade branch is allowlisted for Cloudflare Pages preview builds. Its preview build is isolated from production; the production branch remains `main`.
+1. Work on a separate feature branch.
+2. Run the static validators and browser QA on the Cloudflare Pages preview.
+3. Review all changed files and the preview.
+4. Merge only when all required checks pass.
+5. Confirm Cloudflare production deployment and verify the canonical domain.
+
+Do not mark a product, retailer listing, Associate approval, email delivery or domain ownership as verified without direct evidence.

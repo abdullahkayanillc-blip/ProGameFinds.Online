@@ -1,93 +1,39 @@
-import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
-import { dirname, extname, join, relative, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
-
-const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
-const errors = [];
-const warnings = [];
-const check = (condition, message) => condition ? null : errors.push(message);
-const walk = (dir) => readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
-  const path = join(dir, entry.name);
-  return entry.isDirectory() ? walk(path) : [path];
-});
-const files = walk(root).filter((path) => !path.includes("/.git/"));
-const htmlFiles = files.filter((path) => extname(path).toLowerCase() === ".html");
-const bytes = (path) => statSync(path).size;
-const read = (path) => readFileSync(path, "utf8");
-const relativePath = (path) => relative(root, path).replaceAll("\\", "/");
-
-check(htmlFiles.length >= 14, "Expected the homepage, legal pages and buying guides to exist.");
-check(existsSync(join(root, "data/product-verification.json")), "Product verification manifest is missing.");
-check(existsSync(join(root, "scripts/validate-site.mjs")), "Existing compliance validator is missing.");
-
-let checkedLocalRefs = 0;
-let checkedImages = 0;
-for (const file of htmlFiles) {
-  const html = read(file);
-  const page = relativePath(file);
-  check(/<html\b[^>]*lang=/i.test(html), page + ": missing document language.");
-  check(/<title>[^<]+<\/title>/i.test(html), page + ": missing page title.");
-  check(/<meta\s+name=["']description["']/i.test(html), page + ": missing meta description.");
-  check(/<meta\s+name=["']viewport["']/i.test(html), page + ": missing responsive viewport.");
-
-  const ids = [...html.matchAll(/\bid=["']([^"']+)["']/gi)].map((m) => m[1]);
-  check(new Set(ids).size === ids.length, page + ": duplicate element IDs found.");
-
-  for (const match of html.matchAll(/<(?:a|img|script|link)\b[^>]*?(?:href|src)=["']([^"'#]+)["'][^>]*>/gi)) {
-    const tag = match[0];
-    const ref = match[1];
-    if (/^(?:https?:|mailto:|tel:|data:|javascript:|\/\/)/i.test(ref)) continue;
-    const clean = decodeURIComponent(ref.split(/[?#]/)[0]);
-    if (!clean || clean === "/") continue;
-    const target = clean.startsWith("/") ? join(root, clean.slice(1)) : resolve(dirname(file), clean);
-    checkedLocalRefs++;
-    check(existsSync(target), page + ": broken local reference " + ref);
-    if (/<img\b/i.test(tag)) {
-      checkedImages++;
-      check(/\balt=["']/i.test(tag), page + ": image is missing alt text (" + ref + ").");
-      check(/\bwidth=["']\d+["']/i.test(tag) && /\bheight=["']\d+["']/i.test(tag), page + ": image should declare width and height (" + ref + ").");
-    }
-  }
+import { readFileSync, existsSync, statSync } from "node:fs";
+import { resolve } from "node:path";
+const root=process.cwd(),errors=[];
+const read=p=>readFileSync(resolve(root,p),"utf8");
+const check=(ok,msg)=>{if(!ok)errors.push(msg);};
+const pages=["index.html","strength-equipment.html","cardio-equipment.html","home-gym.html","fitness-accessories.html","gym-flooring-storage.html","mobility-recovery.html","guides.html","guides/planning-a-home-gym.html","guides/strength-equipment-selection.html","guides/cardio-equipment-buying-guide.html","guides/choosing-gym-flooring.html","guides/fitness-equipment-safety-checklist.html","guides/checking-an-amazon-product-listing.html","guides/cleaning-and-maintaining-equipment.html","collections.html","about.html","how-we-review.html","affiliate-disclosure.html","privacy.html","terms.html","support.html"];
+let refs=0;
+for(const p of pages){
+ const h=read(p);
+ check(/<title>[^<]+<\/title>/.test(h),p+": title missing");
+ check(/name="description"/.test(h),p+": description missing");
+ check(/rel="canonical"/.test(h),p+": canonical missing");
+ check(/name="viewport"/.test(h),p+": viewport missing");
+ check(!/href="https?:\/\/(?!progamefinds\.online)/i.test(h),p+": external shopping/source anchor found");
+ for(const m of h.matchAll(/(?:href|src)="([^"]+)"/g)){
+  const u=m[1];
+  if(/^(?:https?:|mailto:|tel:|data:|#)/i.test(u)||u==="/")continue;
+  const clean=decodeURIComponent(u.split(/[?#]/)[0]);
+  const target=resolve(root,clean.replace(/^\//,""));
+  refs++;
+  check(existsSync(target),p+": broken local asset or page "+u);
+ }
+ const ids=[...h.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
+ check(new Set(ids).size===ids.length,p+": duplicate element IDs");
 }
-
-const manifest = JSON.parse(read("data/product-verification.json"));
-check(manifest.schema_version === 1, "Product verification manifest schema is not supported.");
-check(Array.isArray(manifest.products) && manifest.products.length > 0, "No products are recorded in the verification manifest.");
-for (const product of manifest.products ?? []) {
-  if (product.model_identity_status === "manufacturer_source_checked") check(Boolean(product.manufacturer_source), product.product_name + ": checked manufacturer source missing.");
-  check(Boolean(product.image_rights?.illustration_asset), product.product_name + ": original category illustration missing.");
-  check(product.image_rights?.illustration_only === true && product.image_rights?.publish_exact_product_photo === false, product.product_name + ": illustration must not be represented as exact product photography.");
-  check(product.retailer_listing?.asin_to_model_mapping_status !== "verified" || product.retailer_listing?.live_listing_status === "checked", product.product_name + ": ASIN cannot be verified without a checked live listing.");
-  if (product.image_rights?.manufacturer_asset_permission !== "confirmed" && product.image_rights?.licensed_ugc !== "confirmed") {
-    warnings.push(product.product_name + ": no licensed customer UGC supplied; published artwork is illustrative only.");
-  }
-}
-
-for (const asset of ["assets/site.css", "assets/site.js", "_headers", "robots.txt", "sitemap.xml", "_redirects"]) {
-  check(existsSync(join(root, asset)), "Required site asset missing: " + asset);
-}
-const css = join(root, "assets/site.css");
-const js = join(root, "assets/site.js");
-if (existsSync(css)) check(bytes(css) <= 100 * 1024, "CSS exceeds the 100 KB raw-size budget.");
-if (existsSync(js)) check(bytes(js) <= 60 * 1024, "JavaScript exceeds the 60 KB raw-size budget.");
-
-const home = read("index.html");
-const catalogueJS = read("assets/site.js");
-check(manifest.products.length === manifest.catalogue_count, "Product evidence register count does not match its declared catalogue count.");
-check(/function makeCard/.test(catalogueJS) && /product-retailer-link/.test(catalogueJS), "Dynamic product-card renderer or retailer search links are missing.");
-check(!/tag=progamefinds-20/i.test(home + catalogueJS), "Unapproved site must not publish an affiliate tracking tag.");
-check(!home.includes("As an Amazon Associate I earn from qualifying purchases."), "Pending site must not claim Amazon Associate membership.");
-check(/Amazon Associates approval has not been confirmed/i.test(home), "Amazon Associates approval status notice missing.");
-check(/ordinary retailer search links and do not currently earn commissions/i.test(home), "Homepage must disclose the current non-affiliate link status.");
-check(!/fonts\.googleapis\.com|fonts\.gstatic\.com/i.test(home), "Remote Google Fonts dependency detected.");
-check(/data-filter=["']mice["']/i.test(home) && /id=["']gear-search["']/i.test(home), "Search and category-filter controls are missing.");
-
-if (errors.length) {
-  console.error("PROFESSIONAL QUALITY AUDIT: FAIL");
-  for (const error of errors) console.error("- " + error);
-  process.exit(1);
-}
-console.log("PROFESSIONAL QUALITY AUDIT: PASS");
-console.log("HTML pages: " + htmlFiles.length + "; local references checked: " + checkedLocalRefs + "; image elements checked: " + checkedImages);
-console.log("Raw CSS: " + (existsSync(css) ? bytes(css) : 0) + " bytes; raw JS: " + (existsSync(js) ? bytes(js) : 0) + " bytes");
-for (const warning of warnings) console.warn("REVIEW REQUIRED:", warning);
+const js=read("assets/site.js"),css=read("assets/fitness-portal.css");
+check(js.length<=8*1024,"JavaScript source exceeds 8 KB");
+check(css.length<=30*1024,"CSS source exceeds 30 KB");
+check(!/amazon\.com|manufacturer|retailer|distributor|tag=/i.test(js),"JavaScript must not generate external shopping links");
+check(/prefers-reduced-motion/.test(css),"Reduced-motion preference is missing");
+check(/:focus-visible/.test(css),"Visible keyboard focus style is missing");
+check(!/\\sstyle=["\x27]/i.test(pages.map(read).join("\\n")),"Inline styles violate the strict Content Security Policy");
+check(/aria-label="Primary"/.test(read("index.html")),"Primary navigation label missing");
+check(/role="status"/.test(read("index.html")),"Accessible search-result status missing");
+check(JSON.parse(read("data/fitness-equipment-evidence.json")).product_records.length===0,"Unverified product records were added");
+check(JSON.parse(read("data/product-verification.json")).active_product_records.length===0,"Legacy product records remain active");
+if(errors.length){console.error("FITNESS EDITORIAL QUALITY AUDIT: FAIL");for(const e of errors)console.error("- "+e);process.exit(1);}
+console.log("FITNESS EDITORIAL QUALITY AUDIT: PASS");
+console.log("Active pages: "+pages.length+"; local refs checked: "+refs+"; JS: "+js.length+" bytes; CSS: "+css.length+" bytes.");
