@@ -86,7 +86,7 @@ try {
     ["/guides/choosing-a-gaming-mouse.html", "/guides/strength-equipment-selection.html"]
   ]) {
     const legacyResponse = await page.request.get(new URL(legacyPath, baseURL).toString());
-    check(legacyResponse.ok() && new URL(legacyResponse.url()).pathname.replace(/\\.html$/, "") === expectedPath.replace(/\\.html$/, ""), "Legacy route redirects correctly: " + legacyPath + " -> " + legacyResponse.url());
+    check(legacyResponse.ok() && new URL(legacyResponse.url()).pathname.replace(/\.html$/, "") === expectedPath.replace(/\.html$/, ""), "Legacy route redirects correctly: " + legacyPath + " -> " + legacyResponse.url());
   }
 
   metrics.desktop = await page.evaluate(() => {
