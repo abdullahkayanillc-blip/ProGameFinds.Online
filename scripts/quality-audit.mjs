@@ -29,6 +29,7 @@ check(css.length<=30*1024,"CSS source exceeds 30 KB");
 check(!/amazon\.com|manufacturer|retailer|distributor|tag=/i.test(js),"JavaScript must not generate external shopping links");
 check(/prefers-reduced-motion/.test(css),"Reduced-motion preference is missing");
 check(/:focus-visible/.test(css),"Visible keyboard focus style is missing");
+check(!/\\sstyle=["\x27]/i.test(pages.map(read).join("\\n")),"Inline styles violate the strict Content Security Policy");
 check(/aria-label="Primary"/.test(read("index.html")),"Primary navigation label missing");
 check(/role="status"/.test(read("index.html")),"Accessible search-result status missing");
 check(JSON.parse(read("data/fitness-equipment-evidence.json")).product_records.length===0,"Unverified product records were added");
