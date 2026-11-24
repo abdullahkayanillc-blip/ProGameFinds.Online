@@ -1,92 +1,50 @@
-import { readFileSync, existsSync } from "node:fs";
-import { resolve } from "node:path";
-
-const root = process.cwd();
-const read = (path) => readFileSync(resolve(root, path), "utf8");
-const errors = [];
-const warnings = [];
-const check = (ok, message) => { if (!ok) errors.push(message); };
-
-const html = read("index.html");
-const title = /<title>[^<]+<\/title>/i.test(html);
-check(title, "Homepage title missing");
-check(/<meta name="description" content="[^"]{40,}">/i.test(html), "Homepage meta description missing or too short");
-check(/<link rel="canonical" href="https:\/\/progamefinds\.online\/?">/i.test(html), "Homepage canonical URL missing or incorrect");
-check(/property="og:title"/i.test(html) && /property="og:description"/i.test(html), "Open Graph metadata missing");
-check(/property="og:image"/i.test(html) && existsSync(resolve(root,"assets/social-preview.svg")), "Social share artwork missing");
-check(/application\/ld\+json/i.test(html), "WebSite structured data missing");
-check(!/<[a-z][^>]*\sstyle=/i.test(html), "Inline style attributes violate the strict site CSP");
-check(/Amazon Associates approval has not been confirmed/i.test(html), "Homepage must clearly state that Amazon Associates approval is unconfirmed");
-check(/Product buttons are ordinary retailer search links and do not currently earn commissions/i.test(html), "Homepage must accurately state that current product links are non-affiliate");
-check(!html.includes("As an Amazon Associate I earn from qualifying purchases."), "Unapproved site must not claim Amazon Associate status");
-check(/href="\/assets\/site\.css"/i.test(html) && existsSync(resolve(root,"assets/site.css")), "Local stylesheet missing");
-check(/src="\/assets\/site\.js(?:\?[^"]*)?"/i.test(html) && existsSync(resolve(root,"assets/site.js")), "Local JavaScript file missing");
-check(!/fonts\.googleapis\.com|fonts\.gstatic\.com/i.test(html), "Remote Google Fonts request remains");
-check(!/Google Fonts|Web3Forms/i.test(html), "Homepage contains a stale third-party font/form provider claim");
-check(!/Use the contact form on this page\\. Include your email address so we can reply\\./i.test(html), "FAQ claims the disabled contact form can receive messages");
-check(/Last updated November 23, 2026/i.test(html), "Homepage policy update date is stale");
-check(/data-filter="mice"/.test(html) && /id="gear-search"/.test(html), "Accessible product search/filter controls missing");
-check(/On-page form submissions are not active/.test(html) && /type="submit" disabled/.test(html), "Inactive contact form must be clearly and safely disabled");
-check(!/REPLACE_WITH_WEB3FORMS_ACCESS_KEY|OWNER_EMAIL_ADDRESS/.test(html), "Contact form placeholder configuration remains in homepage");
-
-// Product links are ordinary non-affiliate Amazon search links until approval and exact listing mappings are verified.
-const productRegister = JSON.parse(read("data/product-verification.json"));
-check(productRegister.products.length === 22, "Expected 22 catalogue candidates in the evidence register");
-check(/product-retailer-link/.test(read("assets/site.js")), "Dynamic product cards must include a retailer search link");
-check(!/tag=progamefinds-20/i.test(html + read("assets/site.js")), "Unapproved site must not publish affiliate tracking tags");
-check(/Amazon Associates approval has not been confirmed/i.test(read("affiliate-disclosure.html")), "Affiliate disclosure must accurately state pending approval");
-
-// Verify all guide pages and dedicated information pages.
-const requiredPages = [
-  "about.html","affiliate-disclosure.html","privacy.html","terms.html",
-  "gaming-mice.html","gaming-keyboards.html","gaming-headsets.html","gaming-controllers.html",
-  "gaming-chairs-desks.html","gaming-room-setup.html","collections.html","guides.html","support.html",
-  "guides/choosing-a-gaming-mouse.html","guides/gaming-keyboard-layouts-and-switches.html",
-  "guides/choosing-a-gaming-headset.html","guides/controller-compatibility-checklist.html",
-  "guides/gaming-desk-sizing-guide.html","guides/gaming-chair-fit-and-ergonomics.html",
-  "guides/gaming-room-lighting.html","guides/building-a-balanced-gaming-setup.html",
-  "guides/wired-vs-wireless-gaming-gear.html","guides/how-to-check-an-online-product-listing.html"
-];
-for (const path of requiredPages) {
-  check(existsSync(resolve(root,path)), `Missing required editorial/legal page: ${path}`);
-  if (existsSync(resolve(root,path)) && path.endsWith(".html")) {
-    const page = read(path);
-    check(/<title>[^<]+<\/title>/i.test(page), `Missing title: ${path}`);
-    check(/rel="canonical"/i.test(page), `Missing canonical: ${path}`);
-  }
+import { readFileSync, existsSync, readdirSync } from "node:fs";
+import { resolve, dirname } from "node:path";
+const root=process.cwd(), errors=[], warnings=[];
+const read=p=>readFileSync(resolve(root,p),"utf8");
+const check=(ok,msg)=>{if(!ok)errors.push(msg);};
+const activePages=["index.html","strength-equipment.html","cardio-equipment.html","home-gym.html","fitness-accessories.html","gym-flooring-storage.html","mobility-recovery.html","guides.html","guides/planning-a-home-gym.html","guides/strength-equipment-selection.html","guides/cardio-equipment-buying-guide.html","guides/choosing-gym-flooring.html","guides/fitness-equipment-safety-checklist.html","guides/checking-an-amazon-product-listing.html","guides/cleaning-and-maintaining-equipment.html","collections.html","about.html","how-we-review.html","affiliate-disclosure.html","privacy.html","terms.html","support.html"];
+for(const p of activePages){
+ check(existsSync(resolve(root,p)),"Missing active page: "+p);
+ if(!existsSync(resolve(root,p)))continue;
+ const h=read(p);
+ check(/<html\b[^>]*lang="en"/i.test(h),p+": document language missing");
+ check(/<title>[^<]+<\/title>/i.test(h),p+": title missing");
+ check(/<meta name="description" content="[^"]{35,}">/i.test(h),p+": meta description missing or too short");
+ check(/<link rel="canonical" href="https:\/\/progamefinds\.online/i.test(h),p+": canonical missing");
+ check(/name="viewport"/i.test(h),p+": responsive viewport missing");
+ check(!/fonts\.googleapis\.com|fonts\.gstatic\.com/i.test(h),p+": remote font dependency found");
+ check(!/href="https?:\/\/(?!progamefinds\.online)/i.test(h),p+": external outbound link found; external shopping links are disabled");
+ check(!/Amazon Associate I earn from qualifying purchases/i.test(h),p+": unapproved Associate earnings statement detected");
+ check(!/tag=[a-z0-9-]+/i.test(h),p+": affiliate tracking tag detected");
+ check(!/Logitech|Razer|HyperX|SteelSeries|GameSir|gaming mouse|gaming keyboard/i.test(h),p+": legacy gaming product content detected");
 }
-
-const sitemap = read("sitemap.xml");
-for (const path of ["about.html","affiliate-disclosure.html","privacy.html","terms.html","gaming-mice.html","gaming-keyboards.html","gaming-headsets.html","gaming-controllers.html","gaming-chairs-desks.html","gaming-room-setup.html","collections.html","guides.html","support.html"]) {
-  check(sitemap.includes(`https://progamefinds.online/${path}`), `Sitemap missing ${path}`);
-}
-check(existsSync(resolve(root,"robots.txt")), "robots.txt missing");
-check(existsSync(resolve(root,"_headers")), "Cloudflare Pages security headers file missing");
-const headerRules = read("_headers");
-for (const header of ["X-Content-Type-Options","Referrer-Policy","X-Frame-Options","Content-Security-Policy"]) {
-  check(headerRules.includes(header), `Security header missing: ${header}`);
-}
-check(/Sitemap: https:\/\/progamefinds\.online\/sitemap\.xml/.test(read("robots.txt")), "robots.txt sitemap pointer missing");
-
-// Check in-page anchors.
-const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]));
-for (const match of html.matchAll(/href="#([^"]+)"/g)) check(ids.has(match[1]), `Broken in-page anchor #${match[1]}`);
-
-for (const path of requiredPages.filter((item) => item.startsWith("guides/"))) {
-  if (existsSync(resolve(root,path))) check(!read(path).includes("As an Amazon Associate I earn from qualifying purchases."), `Unapproved affiliate earnings claim must not appear in ${path}`);
-}
-
-// The following items cannot be confirmed from public source code.
-warnings.push("OWNER CHECK: Do not publish affiliate tracking links or commission claims until the account owner confirms legal eligibility and written program approval.");
-warnings.push("OWNER CHECK: Verify each ASIN-to-product match, model revision, seller, compatibility and warranty with manufacturer and live retailer sources.");
-warnings.push("OWNER CHECK: On-page contact form remains disabled pending a delivery backend; direct email link is available at support@progamefinds.online.");
-warnings.push("OWNER CHECK: Verify root/www DNS, HTTPS certificate and canonical redirects after nameserver propagation.");
-warnings.push("OWNER CHECK: Complete Search Console ownership verification and submit sitemap after the canonical domain is live.");
-
-if (errors.length) {
-  console.error("FAIL");
-  for (const error of errors) console.error("- " + error);
-  process.exit(1);
-}
-console.log(`PASS: ${productRegister.products.length} product candidates have evidence-register entries; non-affiliate search-link controls, SEO, unconfirmed approval notice, ${requiredPages.length} editorial/legal pages, sitemap, robots and security headers are present.`);
-for (const warning of warnings) console.warn("OWNER ACTION:", warning);
+const home=read("index.html");
+check(/Fitness & Home Gym Equipment Research/i.test(home),"Homepage positioning is not fitness/home gym");
+check(/equipment-search/.test(home)&&/data-filter="strength"/.test(home),"Equipment search/filter controls missing");
+check(/no active Amazon Special Links/i.test(home),"Homepage must state affiliate integration is disabled");
+check(/data-equipment-card/.test(home),"Fitness category cards missing");
+const js=read("assets/site.js");
+check(!/amazon\.com|manufacturer|retailer|distributor|tag=/i.test(js),"Site JavaScript contains active outbound retailer/manufacturer logic");
+check(!/<script[^>]+src="https?:/i.test(home),"Remote script dependency found");
+const retired=JSON.parse(read("data/product-verification.json"));
+check(retired.status==="legacy_gaming_catalogue_retired","Legacy gaming product register not retired");
+check(Array.isArray(retired.active_product_records)&&retired.active_product_records.length===0,"Legacy product records must be inactive");
+check(Array.isArray(retired.outbound_retailer_links)&&retired.outbound_retailer_links.length===0,"Legacy retailer links must be empty");
+const evidence=JSON.parse(read("data/fitness-equipment-evidence.json"));
+check(evidence.status==="editorial_categories_only","Fitness evidence register status mismatch");
+check(evidence.product_records.length===0,"Unverified fitness product records must not be published");
+check(evidence.links.status==="all_external_product_links_disabled","External product links are not fully disabled");
+const sitemap=read("sitemap.xml");
+for(const p of activePages)check(sitemap.includes("https://progamefinds.online/"+p.replace(/^index\.html$/,"")),"Sitemap missing active route "+p);
+for(const legacy of ["/gaming-mice.html","/gaming-keyboards.html","/gaming-headsets.html","/gaming-controllers.html","/gaming-chairs-desks.html","/gaming-room-setup.html","/guides/choosing-a-gaming-mouse.html"])check(read("_redirects").includes(legacy),"Legacy route redirect missing: "+legacy);
+check(/Sitemap: https:\/\/progamefinds\.online\/sitemap\.xml/.test(read("robots.txt")),"robots.txt sitemap pointer missing");
+const headers=read("_headers");
+for(const name of ["X-Content-Type-Options","Referrer-Policy","X-Frame-Options","Content-Security-Policy"])check(headers.includes(name),"Security header missing: "+name);
+const css=read("assets/fitness-portal.css");
+check(css.length<=30*1024,"Fitness CSS exceeds 30 KB source budget");
+check(js.length<=8*1024,"Site JS exceeds 8 KB source budget");
+if(errors.length){console.error("FITNESS PORTAL VALIDATION: FAIL");for(const e of errors)console.error("- "+e);process.exit(1);}
+console.log("FITNESS PORTAL VALIDATION: PASS");
+console.log("Active pages checked: "+activePages.length+"; fitness categories: 6; guides: 7; external product links: 0; affiliate tags: 0.");
+for(const w of warnings)console.warn("REVIEW:",w);
