@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "status": "editorial_categories_only",
+  "last_updated": "2026-11-25",
+  "categories": [
+    "strength_equipment",
+    "cardio_equipment",
+    "home_gym_planning",
+    "fitness_accessories",
+    "gym_flooring_and_storage",
+    "mobility_and_recovery_accessories"
+  ],
+  "product_records": [],
+  "links": {
+    "distributor_links": [],
+    "manufacturer_shopping_links": [],
+    "amazon_special_links": [],
+    "status": "all_external_product_links_disabled"
+  },
+  "verification_rules": [
+    "Do not add a product until exact model and variant evidence are available.",
+    "Manufacturer documentation does not independently verify an Amazon listing or seller.",
+    "Seller, fulfilment, live listing and regional variant are separate checks.",
+    "Do not publish unsupported price, stock, ratings or review claims."
+  ],
+  "affiliate_gate": {
+    "enabled": false,
+    "reason": "Account eligibility, approval and assigned Associates ID are not independently confirmed by an eligible adult account holder.",
+    "allowed_future_retailer_scope": "Amazon only, after genuine eligibility and approval confirmation"
+  }
+}
