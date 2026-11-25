@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - progamefinds-professional-qa-2026-11-19
+      - feature/restore-gaming-portal-3d-20261125
   pull_request:
     branches:
       - main
