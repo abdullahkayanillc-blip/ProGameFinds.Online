@@ -2,6 +2,7 @@ name: ProGameFinds professional quality audit
 on:
   push:
     branches:
+      - main
       - progamefinds-professional-qa-2026-11-19
       - feature/restore-gaming-portal-3d-20261125
   pull_request:
@@ -25,5 +26,5 @@ jobs:
         run: node scripts/validate-site.mjs
       - name: Run professional quality audit
         run: node scripts/quality-audit.mjs
-      - name: Run copyright-safe product image release audit
+      - name: Run gaming portal asset and outbound-link safety audit
         run: node scripts/audit-product-image-rights.mjs

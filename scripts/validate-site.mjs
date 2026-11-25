@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 const root=process.cwd(), errors=[];
 const read=p=>readFileSync(resolve(root,p),"utf8");
 const check=(ok,msg)=>{if(!ok)errors.push(msg);};
-const pages=["index.html","gaming-products.html","about.html","how-we-review.html","affiliate-disclosure.html","privacy.html","terms.html","support.html"];
+const pages=["index.html","gaming-products.html","guides.html","about.html","how-we-review.html","affiliate-disclosure.html","privacy.html","terms.html","support.html"];
 for(const p of pages){
  check(existsSync(resolve(root,p)),"Missing required page: "+p);
  if(!existsSync(resolve(root,p)))continue;
@@ -33,6 +33,7 @@ check(register.candidate_products.length>=20,"Product evidence register missing 
 check(register.candidate_products.every(p=>p.status==="candidate_not_verified"&&p.asin===null&&p.retailer_url===null),"Unverified products incorrectly marked verified");
 check(register.outbound_link_policy.special_links_enabled===false,"Amazon Special Links must remain disabled");
 check(read("sitemap.xml").includes("https://progamefinds.online/gaming-products.html"),"Sitemap missing gaming catalogue");
+check(read("sitemap.xml").includes("https://progamefinds.online/guides.html"),"Sitemap missing public gaming guides index");
 for(const route of ["/gaming-mice.html","/gaming-keyboards.html","/gaming-headsets.html","/gaming-controllers.html","/gaming-chairs-desks.html","/gaming-room-setup.html"])check(read("_redirects").includes(route),"Legacy gaming route missing: "+route);
 check(/Sitemap: https:\/\/progamefinds\.online\/sitemap\.xml/.test(read("robots.txt")),"robots sitemap pointer missing");
 const headers=read("_headers");
