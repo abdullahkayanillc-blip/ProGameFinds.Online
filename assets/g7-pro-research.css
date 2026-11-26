@@ -23,6 +23,7 @@
 .research-band-card strong{display:block;color:#eaf5ff;font-size:1.02rem}
 .research-band-card span{display:block;margin-top:4px;color:var(--muted);font-size:.86rem}
 .research-section{padding:66px 0}
+.research-section-shaded{background:rgba(9,16,34,.58);border-block:1px solid var(--line)}
 .research-section-head{max-width:800px;margin-bottom:28px}
 .research-section-head h2{margin:10px 0}
 .research-section-head p:last-child{color:var(--muted)}
