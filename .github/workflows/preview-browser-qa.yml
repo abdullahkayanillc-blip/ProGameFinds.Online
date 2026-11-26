@@ -32,7 +32,7 @@ jobs:
           PREVIEW_BRANCH: ${{ github.head_ref || github.ref_name }}
         run: |
           if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
-            PREVIEW_SLUG=$(printf '%s' "$PREVIEW_BRANCH" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | cut -c1-28)
+            PREVIEW_SLUG=$(printf '%s' "$PREVIEW_BRANCH" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | cut -c1-28 | sed 's/-*$//')
             PREVIEW_URL="https://${PREVIEW_SLUG}.progamefinds-online.pages.dev"
           else
             PREVIEW_URL="https://progamefinds.online"

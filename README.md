@@ -68,3 +68,13 @@ The validators ensure the active portal contains no distributor/manufacturer/Ama
 5. Confirm Cloudflare production deployment and verify the canonical domain.
 
 Do not mark a product, retailer listing, Associate approval, email delivery or domain ownership as verified without direct evidence.
+
+
+## Historical product research archive
+
+- Public archive: `/product-research-archive.html`
+- Structured evidence register: `data/historical-22-product-research.json`
+- The archive preserves 22 historical candidates, including 20 unverified historical ASIN references and two category-only placeholders.
+- Manufacturer references are context only and do not validate an Amazon ASIN, seller, variant, region or live offer.
+- The archive contains no Amazon Special Links, affiliate tracking, retailer product-shopping URLs, prices, ratings, reviews or stock claims.
+- The site validator and quality audit enforce the record counts and non-affiliate state.

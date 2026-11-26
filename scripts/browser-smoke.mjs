@@ -26,11 +26,30 @@ try{
  const metrics=await page.evaluate(()=>({width:innerWidth,documentWidth:document.documentElement.scrollWidth,height:document.documentElement.scrollHeight}));
  check(metrics.documentWidth<=metrics.width,"Desktop layout has no horizontal overflow");
  await page.setViewportSize({width:390,height:844});await page.reload({waitUntil:"networkidle"});
- const mobile=await page.evaluate(()=>({width:innerWidth,documentWidth:document.documentElement.scrollWidth,menu:getComputedStyle(document.querySelector("details.mobile-nav")).display}));
+ const mobile=await page.evaluate(()=>{const menu=document.querySelector("details.mobile-nav");return {width:innerWidth,documentWidth:document.documentElement.scrollWidth,menu:menu?getComputedStyle(menu).display:"missing"};});
  check(mobile.documentWidth<=mobile.width,"Mobile layout has no horizontal overflow");
- check(mobile.menu!=="none","Mobile navigation is visible");
+ check(mobile.menu!=="none"&&mobile.menu!=="missing","Mobile navigation is visible");
+ const archiveResponse=await page.request.get(new URL("/product-research-archive.html",baseURL).toString());
+ check(archiveResponse.ok(),"Historical research archive responds successfully");
+ const a=await browser.newPage({viewport:{width:1440,height:1000}});
+ const archiveErrors=[];a.on("pageerror",e=>archiveErrors.push(e.message));
+ await a.goto(new URL("/product-research-archive.html",baseURL).toString(),{waitUntil:"networkidle",timeout:45000});
+ check((await a.title()).includes("22-Product Research Archive"),"Archive title and metadata render");
+ check(await a.locator(".archive-card").count()===22,"Exactly 22 historical product records render");
+ check(await a.locator(".archive-card code").count()===20,"20 historical ASIN candidates are displayed");
+ check(await a.locator('a[href*="amazon.com"]').count()===0,"Archive contains no Amazon shopping links");
+ check(await a.locator(".archive-card").filter({hasText:"Not verified"}).count()>=20,"ASIN candidates are marked unverified");
+ await a.locator("#archive-search").fill("Logitech");
+ check(await a.locator(".archive-card:visible").count()===5,"Archive search filters matching records");
+ await a.locator("#archive-search").fill("");
+ await a.locator('button[data-archive-filter="controllers"]').click();
+ check(await a.locator(".archive-card:visible").count()===4,"Archive category filter works");
+ await a.setViewportSize({width:390,height:844});
+ const archiveMobile=await a.evaluate(()=>({width:innerWidth,documentWidth:document.documentElement.scrollWidth}));
+ check(archiveMobile.documentWidth<=archiveMobile.width,"Archive mobile layout has no horizontal overflow");
+ check(archiveErrors.length===0,"Archive has no uncaught browser errors");
  check(errors.length===0,"No uncaught browser errors");
- console.log("BROWSER METRICS "+JSON.stringify({desktop:metrics,mobile}));
+ console.log("BROWSER METRICS "+JSON.stringify({desktop:metrics,mobile,archiveMobile}));
 }finally{await browser.close();}
 if(failures.length){console.error("PROGAMEFINDS BROWSER QA FAILED: "+failures.length);process.exit(1);}
 console.log("PROGAMEFINDS BROWSER QA PASSED");
