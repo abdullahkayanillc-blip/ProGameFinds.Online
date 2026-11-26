@@ -1,13 +1,15 @@
 # ProGameFinds Brand Kit
 
-Primary identity: crowned PGF monogram, chrome lettering, electric cyan/blue/violet accents on deep navy.
+Primary identity: crowned PG shield, metallic lettering and restrained cyan/blue/violet accents on deep navy.
 
-- `../favicon.svg`: website favicon and compact header mark.
-- `progamefinds-logo-horizontal.svg`: wide headers and email signatures.
+- `../favicon.svg`: website favicon and compact brand mark.
+- `progamefinds-logo-horizontal.svg`: primary website header and footer logo.
 - `progamefinds-logo-stacked.svg`: square promotional layouts.
-- `progamefinds-avatar.svg`: social profile avatar (export PNG 1024x1024 for platforms that do not accept SVG).
-- `progamefinds-monochrome.svg`: one-colour use.
+- `progamefinds-avatar.svg`: social profile avatar (export PNG 1024x1024 where SVG is not accepted).
+- `progamefinds-monochrome.svg`: one-colour applications.
 - `../social-preview.svg`: social sharing preview.
 
-Palette: #030814, #42F3FF, #268BFF, #B44EFF, #DCEBFF. Tagline: Discover • Compare • Buy Smarter.
-Keep proportions and clear space; use the emblem alone at small sizes. Social profiles still require owner signup and verification.
+Palette: #020713, #9CFBFF, #287DFF, #B56AFF and #CFE4FF.
+Brand line: Gaming Gear • Research • Guides.
+
+Maintain clear space around the emblem and preserve the original aspect ratio. Use the compact emblem at small sizes. Social profiles still require owner signup and verification.
