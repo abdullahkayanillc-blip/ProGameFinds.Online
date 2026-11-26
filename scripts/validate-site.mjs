@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 const root=process.cwd(), errors=[];
 const read=p=>readFileSync(resolve(root,p),"utf8");
 const check=(ok,msg)=>{if(!ok)errors.push(msg);};
-const pages=["index.html","gaming-products.html","guides.html","about.html","how-we-review.html","affiliate-disclosure.html","privacy.html","terms.html","support.html","product-research-archive.html"];
+const pages=["index.html","gaming-products.html","gamesir-g7-pro-research.html","guides.html","about.html","how-we-review.html","affiliate-disclosure.html","privacy.html","terms.html","support.html","product-research-archive.html"];
 for(const p of pages){
  check(existsSync(resolve(root,p)),"Missing required page: "+p);
  if(!existsSync(resolve(root,p)))continue;
@@ -59,6 +59,14 @@ const css=read("assets/gaming-3d.css");
 check(css.length<30*1024,"Gaming CSS exceeds 30KB");
 check(/prefers-reduced-motion/.test(css),"Reduced motion support missing");
 check(/:focus-visible/.test(css),"Visible focus style missing");
+const research=read("gamesir-g7-pro-research.html");
+check(/GameSir G7 Pro/.test(research),"GameSir G7 Pro research page content missing");
+check(/Manufacturer-confirmed specifications/.test(research),"Research page must distinguish manufacturer-confirmed specifications");
+check(/not a photograph/i.test(research),"Research illustration must be clearly labelled as non-photographic");
+check(/mailto:support@progamefinds\\.online/.test(research),"Community review email submission route missing");
+check(/youtube\\.com\\/watch\\?v=BeBWB_5k8DI/.test(research),"Official GameSir connection tutorial reference missing");
+check(!/amazon\\.com\\/dp\\/|linkCode=|tag=progamefinds-20/i.test(research),"Research profile must not publish an Amazon shopping or affiliate link");
+check(read("sitemap.xml").includes("https://progamefinds.online/gamesir-g7-pro-research.html"),"Sitemap missing GameSir research profile");
 if(errors.length){console.error("PROGAMEFINDS GAMING VALIDATION: FAIL");for(const e of errors)console.error("- "+e);process.exit(1);}
 console.log("PROGAMEFINDS GAMING VALIDATION: PASS");
 console.log("Required pages: "+pages.length+"; product candidates: "+register.candidate_products.length+"; active retailer shopping links: "+amazonLinks.length+".");
