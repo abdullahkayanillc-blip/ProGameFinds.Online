@@ -40,7 +40,7 @@ try{
  check(await a.locator('a[href*="amazon.com"]').count()===0,"Archive contains no Amazon shopping links");
  check(await a.locator(".archive-card").filter({hasText:"Not verified"}).count()>=20,"ASIN candidates are marked unverified");
  await a.locator("#archive-search").fill("Logitech");
- check(await a.locator(".archive-card:visible").count()===4,"Archive search filters matching records");
+ check(await a.locator(".archive-card:visible").count()===5,"Archive search filters matching records");
  await a.locator("#archive-search").fill("");
  await a.locator('button[data-archive-filter="controllers"]').click();
  check(await a.locator(".archive-card:visible").count()===4,"Archive category filter works");
