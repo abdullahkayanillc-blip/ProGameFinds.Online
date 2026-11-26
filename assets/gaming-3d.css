@@ -45,3 +45,11 @@
 @keyframes pf-ambient-turn{to{transform:rotate(360deg)}}
 @media(hover:none){.category-card:hover,.product-card:hover,.button:hover{transform:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero:before,.hero-copy,.hero-visual,.controller,.orbit-a,.orbit-b,.platform,.float-chip{animation:none!important}.button:after{display:none!important}*,*:before,*:after{transition:none!important}}
+
+/* Matching archive cards and preserving the compact mobile composition. */
+.archive-card{transform-style:preserve-3d;transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease}
+.archive-card:hover{transform:translateY(-5px) perspective(900px) rotateX(1deg);border-color:rgba(77,234,255,.46);box-shadow:0 20px 42px rgba(0,0,0,.34),0 0 22px rgba(52,120,255,.12)}
+@keyframes pf-visual-in-mobile{from{opacity:0;transform:translateY(16px) scale(.82)}to{opacity:1;transform:translateY(0) scale(.86)}}
+@media(max-width:560px){.hero-visual{animation:pf-visual-in-mobile 1s .08s cubic-bezier(.2,.7,.2,1) both}}
+@media(hover:none){.archive-card:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){.archive-card{transition:none!important}.archive-card:hover{transform:none}}
