@@ -24,7 +24,7 @@
 .archive-toolbar input{width:100%;min-height:48px;border:1px solid rgba(126,167,255,.35);border-radius:10px;background:#080f23;color:var(--text);padding:11px 14px;font:inherit}
 .archive-toolbar input:focus{outline:2px solid var(--cyan);outline-offset:2px}
 .archive-filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
-.archive-filters button{border:1px solid var(--archive-line);border-radius:999px;padding:8px 14px;background:#0b1630;color:#e4edff;font:700 .83rem/1.2 inherit;cursor:pointer}
+.archive-filters button{border:1px solid var(--archive-line);border-radius:999px;padding:8px 14px;background:#0b1630;color:#e4edff;font:700 .83rem/1.2 system-ui,sans-serif;cursor:pointer}
 .archive-filters button[aria-pressed=true]{background:linear-gradient(110deg,#246dff,#824bff);border-color:transparent;color:white}
 .archive-status{margin-top:12px;color:var(--archive-muted);font-size:.88rem}
 .archive-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
