@@ -60,3 +60,26 @@
 .variant-panel strong{display:block;margin-top:5px;color:#edf6ff;font-size:.98rem;overflow-wrap:anywhere}
 .variant-actions{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0 10px}
 @media(max-width:600px){.variant-panel{grid-template-columns:1fr}.variant-actions{align-items:stretch;flex-direction:column}.variant-actions .button{text-align:center}}
+
+/* Accessible, responsive troubleshooting and feature FAQ */
+.faq-list{display:grid;gap:12px}
+.faq-item{overflow:hidden;border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,rgba(18,37,73,.82),rgba(7,13,30,.94));box-shadow:0 10px 26px #0003}
+.faq-item summary{position:relative;display:flex;align-items:center;min-height:56px;padding:16px 52px 16px 18px;cursor:pointer;list-style:none;color:#e9f4ff;font-weight:800;line-height:1.45}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);font-size:1.5rem;color:#91dfff}
+.faq-item[open] summary:after{content:"−"}
+.faq-item summary:focus-visible{outline:2px solid var(--cyan);outline-offset:-3px;border-radius:12px}
+.faq-answer{padding:0 18px 18px;color:#c3d1e9}
+.faq-answer p{margin:0 0 12px}
+.faq-answer a{color:#8fdcff;text-decoration:underline;text-underline-offset:3px}
+.faq-answer a:hover{color:#fff}
+.faq-note{margin-top:13px;color:#9eb1d0;font-size:.84rem}
+.comparison-scroll{max-width:100%;overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:12px;overscroll-behavior-inline:contain}
+.comparison-table{width:100%;min-width:760px;border-collapse:separate;border-spacing:0;background:rgba(6,13,29,.8)}
+.comparison-table th,.comparison-table td{padding:11px 12px;text-align:left;vertical-align:top;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-size:.83rem}
+.comparison-table thead th{background:rgba(39,80,137,.48);color:#eff7ff;font-weight:850}
+.comparison-table tbody th{min-width:145px;background:rgba(25,48,86,.48);color:#cde7ff}
+.comparison-table td{color:#c7d4e9}
+.comparison-table tr:last-child th,.comparison-table tr:last-child td{border-bottom:0}
+.comparison-table th:last-child,.comparison-table td:last-child{border-right:0}
+@media(max-width:600px){.faq-item summary{padding:14px 45px 14px 14px;font-size:.94rem}.faq-answer{padding:0 14px 15px}.comparison-table th,.comparison-table td{padding:10px;font-size:.79rem}}
