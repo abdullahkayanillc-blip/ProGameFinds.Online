@@ -1,20 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
-<title id="title">ProGameFinds crowned PGF gaming emblem</title>
-<desc id="desc">A premium chrome PGF monogram with crown and controller-inspired controls, framed by electric cyan, blue and violet light.</desc>
-<defs>
- <linearGradient id="frame" x1="20" y1="12" x2="232" y2="244" gradientUnits="userSpaceOnUse"><stop stop-color="#7DF7FF"/><stop offset=".42" stop-color="#268BFF"/><stop offset="1" stop-color="#B65CFF"/></linearGradient>
- <linearGradient id="chrome" x1="55" y1="55" x2="198" y2="204" gradientUnits="userSpaceOnUse"><stop stop-color="#FFF"/><stop offset=".25" stop-color="#DCEBFF"/><stop offset=".52" stop-color="#7896BC"/><stop offset=".72" stop-color="#F8FCFF"/><stop offset="1" stop-color="#8CA8CE"/></linearGradient>
- <linearGradient id="neon" x1="80" y1="35" x2="220" y2="220" gradientUnits="userSpaceOnUse"><stop stop-color="#42F3FF"/><stop offset=".5" stop-color="#267DFF"/><stop offset="1" stop-color="#B44EFF"/></linearGradient>
- <radialGradient id="bg" cx="25%" cy="10%" r="95%"><stop stop-color="#18365D"/><stop offset=".55" stop-color="#09172C"/><stop offset="1" stop-color="#030814"/></radialGradient>
- <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-</defs>
-<rect x="5" y="5" width="246" height="246" rx="58" fill="#020713"/>
-<rect x="11" y="11" width="234" height="234" rx="52" fill="url(#bg)" stroke="url(#frame)" stroke-width="5"/>
-<path d="M70 64l18-24 18 20 22-34 22 34 18-20 18 24-11 18H81Z" fill="url(#chrome)" stroke="url(#neon)" stroke-width="3" stroke-linejoin="round" filter="url(#glow)"/>
-<path d="M124 48l4-9 5 9-5 8Z" fill="#A7F8FF"/>
-<path d="M64 191V91h40c24 0 37 12 37 34s-13 35-37 35H84" fill="none" stroke="url(#chrome)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M203 119c-8-17-21-25-39-25-27 0-44 20-44 51s17 50 44 50c22 0 37-12 41-33v-17h-37" fill="none" stroke="url(#neon)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
-<path d="M161 145h24m-12-12v24" stroke="#F4FEFF" stroke-width="7" stroke-linecap="round"/>
-<circle cx="204" cy="160" r="5" fill="#F6F8FF"/><circle cx="216" cy="148" r="5" fill="#72F5FF"/>
-<path d="M39 213c48 27 119 31 175-2" fill="none" stroke="url(#frame)" stroke-width="5" stroke-linecap="round" opacity=".9" filter="url(#glow)"/>
-</svg>
+<title id="title">ProGameFinds crowned PG emblem</title><desc id="desc">A premium crowned PG monogram in metallic silver, framed by electric cyan, blue and violet.</desc>
+<defs><linearGradient id="edge" x1="16" y1="12" x2="240" y2="244"><stop stop-color="#9CFBFF"/><stop offset=".48" stop-color="#287DFF"/><stop offset="1" stop-color="#B56AFF"/></linearGradient><linearGradient id="metal" x1="44" y1="36" x2="210" y2="218"><stop stop-color="#FFF"/><stop offset=".3" stop-color="#CFE4FF"/><stop offset=".58" stop-color="#7896BC"/><stop offset=".82" stop-color="#F8FCFF"/><stop offset="1" stop-color="#8CA8CE"/></linearGradient><radialGradient id="bg" cx="22%" cy="10%" r="100%"><stop stop-color="#17365E"/><stop offset="1" stop-color="#030814"/></radialGradient><filter id="glow" x="-40%" y="-40%" width="180%" height="190%"><feGaussianBlur in="SourceAlpha" stdDeviation="4" result="b"/><feOffset dy="4"/><feComponentTransfer><feFuncA type="linear" slope=".4"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<rect x="5" y="5" width="246" height="246" rx="58" fill="#020713"/><rect x="11" y="11" width="234" height="234" rx="52" fill="url(#bg)" stroke="url(#edge)" stroke-width="5"/>
+<g transform="translate(37 39) scale(.9)" filter="url(#glow)"><path d="M90 7 164 47V132L90 174 16 132V47Z" fill="#071329" stroke="url(#edge)" stroke-width="4"/><path d="M90 17 154 52V126L90 163 26 126V52Z" fill="#B6D8FF" fill-opacity=".06" stroke="#8AC8FF" stroke-opacity=".35" stroke-width="1.5"/><path d="M47 67 55 48 73 62 90 37 107 62 125 48 133 67 127 77H53Z" fill="url(#metal)" stroke="url(#edge)" stroke-width="2.5"/><path d="M90 48 94 58 90 64 86 58Z" fill="#A6F8FF"/><text x="90" y="132" text-anchor="middle" fill="url(#metal)" font-family="Arial,sans-serif" font-size="70" font-weight="900" letter-spacing="-9">PG</text><path d="M55 145H125" stroke="url(#edge)" stroke-width="3" stroke-linecap="round"/><circle cx="71" cy="153" r="3" fill="#6BF4FF"/><circle cx="90" cy="153" r="3" fill="#4A9EFF"/><circle cx="109" cy="153" r="3" fill="#B76BFF"/></g></svg>
