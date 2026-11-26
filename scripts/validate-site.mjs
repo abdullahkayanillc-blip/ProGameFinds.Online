@@ -31,7 +31,7 @@ check(!catalogue.includes(requiredDisclosure),"Catalogue must not display an act
 check(policy.special_links_enabled===false,"Amazon Special Links must be disabled");
 check(policy.affiliate_account_approval==="not_applicable_links_removed","Affiliate account must not be represented as active in the public-link manifest");
 check(policy.associate_tag===null,"Tracking ID must be removed from the active site manifest");
-check(typeof tag==="string"&&tag.length>0,"Assigned Associates Tracking ID missing");
+check(tag===null,"No Associates Tracking ID may remain in the site manifest");
 const amazonLinks=[...catalogue.matchAll(/href="(https?:\/\/[^"]*amazon\.[^"]+)"/gi)].map(m=>m[1]);
 check(amazonLinks.length===0,"No Amazon product-shopping links may remain in the catalogue");
 check(!/tag=progamefinds-20/i.test(catalogue),"Affiliate Tracking ID must be removed from the catalogue");
