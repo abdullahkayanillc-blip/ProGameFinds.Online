@@ -39,7 +39,7 @@ check(!/tag=progamefinds-20/i.test(catalogue),"Affiliate Tracking ID must not re
 check((archive.match(/class="archive-card"/g)||[]).length===22,"Historical archive card count must equal 22");
 check(archiveData.products.length===22&&archiveData.products.filter(p=>p.asin).length===20,"Historical archive dataset counts are incorrect");
 check(archiveData.products.every(p=>p.amazon_listing_status==="not_checked"&&p.affiliate_url===null),"Historical archive must retain unverified status and no affiliate URLs");
-check(!/amazon\\.com\\/(?:dp\\/|s\\?k=)|tag=progamefinds-20/i.test(archive),"Historical archive must not contain retailer or affiliate links");
+check(!/amazon\.com\/(?:dp\/|s\?k=)|tag=progamefinds-20/i.test(archive),"Historical archive must not contain retailer or affiliate links");
 check(!/affiliate-link-disclosure|\(affiliate link\)/i.test(catalogue),"Affiliate link labels must be removed");
 check(read("sitemap.xml").includes("https://progamefinds.online/guides.html"),"Public guides index missing from sitemap");
 if(errors.length){console.error("PROGAMEFINDS QUALITY AUDIT: FAIL");for(const error of errors)console.error("- "+error);process.exit(1);}
