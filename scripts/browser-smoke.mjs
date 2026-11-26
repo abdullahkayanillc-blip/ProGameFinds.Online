@@ -18,12 +18,11 @@ try{
  const p=await browser.newPage({viewport:{width:1365,height:900}});
  await p.goto(new URL("/gaming-products.html",baseURL).toString(),{waitUntil:"networkidle",timeout:45000});
  const cards=p.locator(".product-card");check(await cards.count()>=20,"At least 20 product candidate cards render");
- const links=p.locator('a[href*="amazon.com/s?k="]');check(await links.count()===30,"30 Amazon search links are present");
- const invalid=await links.evaluateAll(els=>els.some(a=>a.target!=="_blank"||!a.rel.includes("noopener")||new URL(a.href).searchParams.get("tag")!=="progamefinds-20"||!a.parentElement.querySelector(".affiliate-link-disclosure")));
- check(!invalid,"All Amazon links carry the assigned tracking ID, safe attributes and adjacent affiliate labels");
+ const links=p.locator('a[href*="amazon.com/s?k="]');check(await links.count()===0,"No Amazon product-shopping links are present");
  const body=await p.locator("body").innerText();
- check(body.includes("As an Amazon Associate I earn from qualifying purchases."),"Amazon Associates disclosure is clearly visible");
- check(body.includes("affiliate link"),"Affiliate link labels are visible");
+ check(body.includes("Retail link status:"),"Catalogue explains that retail links are disabled");
+ check(body.includes("Retail link currently unavailable."),"Product cards clearly show disabled retailer links");
+ check(!body.includes("(affiliate link)"),"No affiliate labels remain visible");
  const metrics=await page.evaluate(()=>({width:innerWidth,documentWidth:document.documentElement.scrollWidth,height:document.documentElement.scrollHeight}));
  check(metrics.documentWidth<=metrics.width,"Desktop layout has no horizontal overflow");
  await page.setViewportSize({width:390,height:844});await page.reload({waitUntil:"networkidle"});
