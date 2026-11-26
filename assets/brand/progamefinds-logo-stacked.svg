@@ -1,1 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" role="img" aria-labelledby="t"><title id="t">ProGameFinds premium logo</title><defs><linearGradient id="n"><stop stop-color="#7DF7FF"/><stop offset=".5" stop-color="#268BFF"/><stop offset="1" stop-color="#B65CFF"/></linearGradient><linearGradient id="s" x2="0" y2="1"><stop stop-color="#FFF"/><stop offset="1" stop-color="#7896BC"/></linearGradient></defs><rect width="600" height="600" rx="48" fill="#030814"/><g transform="translate(170 55) scale(1.0)"><path d="M70 64l18-24 18 20 22-34 22 34 18-20 18 24-11 18H81Z" fill="url(#s)" stroke="url(#n)" stroke-width="3"/><path d="M64 191V91h40c24 0 37 12 37 34s-13 35-37 35H84" fill="none" stroke="url(#s)" stroke-width="17" stroke-linecap="round"/><path d="M203 119c-8-17-21-25-39-25-27 0-44 20-44 51s17 50 44 50c22 0 37-12 41-33v-17h-37" fill="none" stroke="url(#n)" stroke-width="16" stroke-linecap="round"/><path d="M161 145h24m-12-12v24" stroke="#F4FEFF" stroke-width="7" stroke-linecap="round"/></g><text x="300" y="390" text-anchor="middle" fill="url(#s)" font-family="Arial,sans-serif" font-size="58" font-weight="800" letter-spacing="-4">ProGame<tspan fill="#55CFFF">Finds</tspan></text><path d="M100 425H500" stroke="url(#n)" stroke-width="4"/><text x="300" y="475" text-anchor="middle" fill="#B9C9DE" font-family="Arial,sans-serif" font-size="22" letter-spacing="5">DISCOVER • COMPARE • BUY SMARTER</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" role="img" aria-labelledby="title desc">
+<title id="title">ProGameFinds stacked brand mark</title><desc id="desc">The crowned PG emblem above the ProGameFinds gaming gear research wordmark.</desc>
+<defs>
+ <linearGradient id="edge" x1="120" y1="66" x2="485" y2="445"><stop stop-color="#9CFBFF"/><stop offset=".48" stop-color="#287DFF"/><stop offset="1" stop-color="#B56AFF"/></linearGradient>
+ <linearGradient id="metal" x1="190" y1="120" x2="410" y2="400"><stop stop-color="#FFFFFF"/><stop offset=".3" stop-color="#CFE4FF"/><stop offset=".58" stop-color="#7896BC"/><stop offset=".82" stop-color="#F8FCFF"/><stop offset="1" stop-color="#8CA8CE"/></linearGradient>
+ <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#64F5FF"/><stop offset=".52" stop-color="#398EFF"/><stop offset="1" stop-color="#B76BFF"/></linearGradient>
+ <radialGradient id="bg"><stop stop-color="#122B50"/><stop offset="1" stop-color="#030814"/></radialGradient>
+ <filter id="lift" x="-30%" y="-30%" width="160%" height="170%"><feGaussianBlur in="SourceAlpha" stdDeviation="6" result="b"/><feOffset dy="7"/><feComponentTransfer><feFuncA type="linear" slope=".5"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="600" height="600" rx="54" fill="url(#bg)"/>
+<g transform="translate(190 54) scale(1.22)" filter="url(#lift)">
+ <path d="M90 7 164 47V132L90 174 16 132V47Z" fill="#071329" stroke="url(#edge)" stroke-width="4"/>
+ <path d="M90 17 154 52V126L90 163 26 126V52Z" fill="#B6D8FF" fill-opacity=".055" stroke="#8AC8FF" stroke-opacity=".35" stroke-width="1.5"/>
+ <path d="M47 67 55 48 73 62 90 37 107 62 125 48 133 67 127 77H53Z" fill="url(#metal)" stroke="url(#edge)" stroke-width="2.5"/>
+ <path d="M90 48 94 58 90 64 86 58Z" fill="#A6F8FF"/>
+ <text x="90" y="132" text-anchor="middle" fill="url(#metal)" font-family="Arial,sans-serif" font-size="70" font-weight="900" letter-spacing="-9">PG</text>
+ <path d="M55 145H125" stroke="url(#accent)" stroke-width="3" stroke-linecap="round"/>
+ <circle cx="71" cy="153" r="3" fill="#6BF4FF"/><circle cx="90" cy="153" r="3" fill="#4A9EFF"/><circle cx="109" cy="153" r="3" fill="#B76BFF"/>
+</g>
+<text x="300" y="365" text-anchor="middle" fill="url(#metal)" font-family="Arial,sans-serif" font-size="55" font-weight="900" letter-spacing="-3">ProGame<tspan fill="#65DFFF">Finds</tspan></text>
+<path d="M105 394H495" stroke="url(#accent)" stroke-width="4" stroke-linecap="round"/>
+<text x="300" y="440" text-anchor="middle" fill="#C1D0E4" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="4">GAMING GEAR RESEARCH</text>
+<text x="300" y="482" text-anchor="middle" fill="#93A9C8" font-family="Arial,sans-serif" font-size="15" letter-spacing="3">DISCOVER  •  COMPARE  •  CHOOSE</text>
+</svg>
