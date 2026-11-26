@@ -52,3 +52,11 @@
 @media(max-width:900px){.spotlight-grid,.research-hero-grid{grid-template-columns:1fr}.spotlight-art{order:2}.research-art{max-width:720px}.research-band-grid{grid-template-columns:1fr}.community-panel{grid-template-columns:1fr}.research-cards{grid-template-columns:1fr}}
 @media(max-width:600px){.research-hero{padding:50px 0 36px}.research-section{padding:48px 0}.research-specs th,.research-specs td{padding:12px 10px;font-size:.88rem}.research-specs th{width:34%}.spotlight-section{padding:42px 0}.community-panel{padding:20px}.research-video-link{align-items:flex-start;flex-direction:column}}
 @media(prefers-reduced-motion:reduce){.research-video-link:hover{transform:none}}
+
+/* White-variant marketplace reference panel and plain retailer action */
+.variant-panel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:22px 0 14px}
+.variant-panel>div{padding:13px 15px;border:1px solid var(--line);border-radius:13px;background:linear-gradient(145deg,rgba(19,39,76,.82),rgba(7,13,30,.94))}
+.variant-panel span{display:block;color:#9fb2d0;font-size:.76rem;font-weight:750;text-transform:uppercase;letter-spacing:.04em}
+.variant-panel strong{display:block;margin-top:5px;color:#edf6ff;font-size:.98rem;overflow-wrap:anywhere}
+.variant-actions{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0 10px}
+@media(max-width:600px){.variant-panel{grid-template-columns:1fr}.variant-actions{align-items:stretch;flex-direction:column}.variant-actions .button{text-align:center}}
