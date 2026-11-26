@@ -53,6 +53,14 @@ check(/:focus-visible/.test(stylesheet),"Visible keyboard-focus treatment missin
 for(const asset of ["assets/brand/progamefinds-logo-horizontal.svg","assets/favicon.svg","assets/gaming-3d.css","assets/site.js"]){
  check(existsSync(resolve(root,asset)),"Required public asset missing: "+asset);
 }
+const research=read("gamesir-g7-pro-research.html");
+check(research.includes("/assets/research-controller.svg"),"GameSir page must use the original site illustration");
+check(/not a photograph/i.test(research),"Original illustration must not be represented as exact product photography");
+check(!/assets\/products\//i.test(research),"Research page must not reuse a generic catalogue product asset as exact product photography");
+check(!/amazon\.com\/dp\/|tag=progamefinds-20|linkCode=ll2/i.test(research),"Research page must not publish unapproved retailer or affiliate links");
+check(research.includes("youtube.com/watch?v=BeBWB_5k8DI"),"Official video reference must remain a source link, not a copied media asset");
+check(research.includes("mailto:support@progamefinds.online"),"Community review submissions must use the disclosed manual-review channel");
+check(existsSync(resolve(root,"assets/research-controller.svg")),"Original research illustration asset is missing");
 if(errors.length){
  console.error("GAMING PORTAL ASSET AND LINK-SAFETY AUDIT: FAIL");
  for(const error of errors)console.error("- "+error);
