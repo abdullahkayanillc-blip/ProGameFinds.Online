@@ -368,11 +368,14 @@
   ],
   "outbound_link_policy": {
     "destination": "amazon.com search results",
-    "link_type": "ordinary_non_tracking_search",
-    "associate_tag": null,
-    "special_links_enabled": false,
+    "link_type": "amazon_associate_special_links",
+    "associate_tag": "progamefinds-20",
+    "special_links_enabled": true,
     "commission_claims_enabled": false,
-    "affiliate_account_approval": "not verified"
+    "commission_disclosure_enabled": true,
+    "affiliate_account_approval": "adult_account_holder_confirmed",
+    "account_confirmation_date": "2026-11-26",
+    "account_confirmation_source": "Adult legal account holder confirmation relayed for this site update; not independently checked through Associates Central."
   },
   "verification_policy": {
     "exact_model_required": true,
