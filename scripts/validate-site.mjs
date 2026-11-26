@@ -47,7 +47,7 @@ check(archiveData.products.filter(p=>p.asin!==null).length===20,"Historical rese
 check(archiveData.products.every(p=>p.asin ? p.asin_status==="unverified_historical_candidate" : p.asin_status==="not_applicable_category_only"),"Historical ASIN evidence states are inconsistent");
 check(archiveData.products.every(p=>p.amazon_listing_status==="not_checked"&&p.seller_status==="not_checked"&&p.variant_status==="not_checked"),"Unverified marketplace evidence was incorrectly promoted");
 check(archiveData.affiliate_and_retail_policy.amazon_special_links===false&&archiveData.affiliate_and_retail_policy.affiliate_tracking===false,"Archive must not contain affiliate functionality");
-check(!/amazon\\.com\\/(?:dp\\/|s\\?k=)|tag=progamefinds-20/i.test(archive),"Archive must not publish retailer product or affiliate links");
+check(!/amazon\.com\/(?:dp\/|s\?k=)|tag=progamefinds-20/i.test(archive),"Archive must not publish retailer product or affiliate links");
 check(read("sitemap.xml").includes("https://progamefinds.online/product-research-archive.html"),"Sitemap missing historical research archive");
 check(read("sitemap.xml").includes("https://progamefinds.online/gaming-products.html"),"Sitemap missing gaming catalogue");
 check(read("sitemap.xml").includes("https://progamefinds.online/guides.html"),"Sitemap missing public gaming guides index");
