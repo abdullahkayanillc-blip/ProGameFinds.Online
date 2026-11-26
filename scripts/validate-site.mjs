@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 const root=process.cwd(), errors=[];
 const read=p=>readFileSync(resolve(root,p),"utf8");
 const check=(ok,msg)=>{if(!ok)errors.push(msg);};
-const pages=["index.html","gaming-products.html","guides.html","about.html","how-we-review.html","affiliate-disclosure.html","privacy.html","terms.html","support.html"];
+const pages=["index.html","gaming-products.html","guides.html","about.html","how-we-review.html","affiliate-disclosure.html","privacy.html","terms.html","support.html","product-research-archive.html"];
 for(const p of pages){
  check(existsSync(resolve(root,p)),"Missing required page: "+p);
  if(!existsSync(resolve(root,p)))continue;
@@ -17,6 +17,8 @@ for(const p of pages){
 }
 const home=read("index.html"),catalogue=read("gaming-products.html"),disclosure=read("affiliate-disclosure.html");
 const register=JSON.parse(read("data/product-verification.json"));
+const archive=read("product-research-archive.html");
+const archiveData=JSON.parse(read("data/historical-22-product-research.json"));
 const policy=register.outbound_link_policy||{},tag=policy.associate_tag;
 check(/Discover Gaming Gear/.test(home),"Homepage title is not gaming focused");
 check(/gaming mice/i.test(home)&&/handheld PC/i.test(home)&&/sim racing/i.test(home),"Homepage missing restored gaming categories");
@@ -39,6 +41,14 @@ check(!/affiliate-link-disclosure|\(affiliate link\)/i.test(catalogue),"Affiliat
 check(register.status==="gaming_catalogue_restored_retailer_verification_pending","Product register status mismatch");
 check(register.candidate_products.length>=20,"Product evidence register missing candidates");
 check(register.candidate_products.every(p=>p.status==="candidate_not_verified"&&p.asin===null&&p.retailer_url===null),"Unverified products incorrectly marked verified");
+check((archive.match(/class="archive-card"/g)||[]).length===22,"Historical research archive must render exactly 22 records");
+check(archiveData.products.length===22,"Historical research JSON must contain 22 records");
+check(archiveData.products.filter(p=>p.asin!==null).length===20,"Historical research JSON must contain 20 candidate ASINs");
+check(archiveData.products.every(p=>p.asin ? p.asin_status==="unverified_historical_candidate" : p.asin_status==="not_applicable_category_only"),"Historical ASIN evidence states are inconsistent");
+check(archiveData.products.every(p=>p.amazon_listing_status==="not_checked"&&p.seller_status==="not_checked"&&p.variant_status==="not_checked"),"Unverified marketplace evidence was incorrectly promoted");
+check(archiveData.affiliate_and_retail_policy.amazon_special_links===false&&archiveData.affiliate_and_retail_policy.affiliate_tracking===false,"Archive must not contain affiliate functionality");
+check(!/amazon\\.com\\/(?:dp\\/|s\\?k=)|tag=progamefinds-20/i.test(archive),"Archive must not publish retailer product or affiliate links");
+check(read("sitemap.xml").includes("https://progamefinds.online/product-research-archive.html"),"Sitemap missing historical research archive");
 check(read("sitemap.xml").includes("https://progamefinds.online/gaming-products.html"),"Sitemap missing gaming catalogue");
 check(read("sitemap.xml").includes("https://progamefinds.online/guides.html"),"Sitemap missing public gaming guides index");
 for(const route of ["/gaming-mice.html","/gaming-keyboards.html","/gaming-headsets.html","/gaming-controllers.html","/gaming-chairs-desks.html","/gaming-room-setup.html"])check(read("_redirects").includes(route),"Legacy gaming route missing: "+route);
