@@ -47,7 +47,17 @@
         "Match the exact colour and regional SKU.",
         "Check seller, condition, receiver and return terms."
       ],
-      "note": "The 23 November audit had manufacturer facts for this model, but explicitly left the candidate ASIN, seller and variant unverified."
+      "note": "The 23 November audit had manufacturer facts for this model, but explicitly left the candidate ASIN, seller and variant unverified.",
+      "asin_status": "unverified_historical_candidate",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 2,
@@ -68,7 +78,17 @@
         "Confirm wired G502 HERO—not another G502 revision.",
         "Check cable, included weights and exact model number."
       ],
-      "note": "Specifications are from Logitech support; the historical Amazon candidate remains unverified."
+      "note": "Specifications are from Logitech support; the historical Amazon candidate remains unverified.",
+      "asin_status": "unverified_historical_candidate",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 3,
@@ -88,7 +108,17 @@
         "Confirm X PLUS—not G502 X or G502 X LIGHTSPEED.",
         "Check colour, receiver, charging accessories and seller."
       ],
-      "note": "Do not treat this candidate ASIN as an approved listing match."
+      "note": "Do not treat this candidate ASIN as an approved listing match.",
+      "asin_status": "unverified_historical_candidate",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 4,
@@ -109,7 +139,17 @@
         "Distinguish original G502 LIGHTSPEED from G502 X LIGHTSPEED.",
         "Verify included receiver, charging cable and optional weights."
       ],
-      "note": "Published specs describe the manufacturer's model; they do not confirm the archived ASIN."
+      "note": "Published specs describe the manufacturer's model; they do not confirm the archived ASIN.",
+      "asin_status": "unverified_historical_candidate",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 5,
@@ -130,7 +170,17 @@
         "Check the exact colour and wired edition.",
         "Confirm 3.5 mm versus USB connection and platform-specific features."
       ],
-      "note": "Compatibility can differ by connector and console; check the exact package and device."
+      "note": "Compatibility can differ by connector and console; check the exact package and device.",
+      "asin_status": "unverified_historical_candidate",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 6,
@@ -151,7 +201,17 @@
         "Check 3.5 mm TRRS support and any required splitter.",
         "Confirm exact edition and supported virtual-surround features."
       ],
-      "note": "Do not assume software-based surround features behave identically across operating systems."
+      "note": "Do not assume software-based surround features behave identically across operating systems.",
+      "asin_status": "unverified_historical_candidate",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 7,
@@ -172,7 +232,17 @@
         "Check regional variant, dongle type and supported consoles.",
         "Treat battery life as a manufacturer test claim, not a guarantee."
       ],
-      "note": "Battery life varies with volume, connection mode, use and battery condition."
+      "note": "Battery life varies with volume, connection mode, use and battery condition.",
+      "asin_status": "unverified_historical_candidate",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 8,
@@ -193,7 +263,17 @@
         "Check wired versus wireless product naming carefully.",
         "Confirm the included USB control box, cable and microphone."
       ],
-      "note": "The Cloud II has package/edition differences; check the exact contents."
+      "note": "The Cloud II has package/edition differences; check the exact contents.",
+      "asin_status": "unverified_historical_candidate",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 9,
@@ -209,7 +289,17 @@
         "Resolve the duplicate before selecting this candidate.",
         "Verify whether this ASIN is a distinct colour/region/package or a duplicate record."
       ],
-      "note": "The original audit specifically flagged this as a possible duplicate and did not confirm a variant."
+      "note": "The original audit specifically flagged this as a possible duplicate and did not confirm a variant.",
+      "asin_status": "unverified_historical_candidate",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 10,
@@ -230,7 +320,17 @@
         "Confirm full-size US/UK or other keyboard layout.",
         "Check exact revision, key legends and included documentation."
       ],
-      "note": "Do not assume all regional layouts share the same key arrangement."
+      "note": "Do not assume all regional layouts share the same key arrangement.",
+      "asin_status": "unverified_historical_candidate",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 11,
@@ -251,7 +351,17 @@
         "Confirm TKL model rather than full-size Apex 3.",
         "Check IP32 wording, keyboard layout and exact colour."
       ],
-      "note": "IP32 is a defined ingress-protection rating, not waterproofing; keep liquids away from electronics."
+      "note": "IP32 is a defined ingress-protection rating, not waterproofing; keep liquids away from electronics.",
+      "asin_status": "unverified_historical_candidate",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 12,
@@ -272,7 +382,17 @@
         "Confirm exact console/platform edition and wireless receiver bundle.",
         "Check polling-rate support on the intended platform; 1,000 Hz claim is for PC."
       ],
-      "note": "Do not assume wireless operation on Xbox; GameSir specifies wired Xbox connectivity for this model."
+      "note": "Do not assume wireless operation on Xbox; GameSir specifies wired Xbox connectivity for this model.",
+      "asin_status": "unverified_historical_candidate",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 13,
@@ -293,7 +413,17 @@
         "Confirm wired-only G7 SE versus G7 Pro or other G7 versions.",
         "Check console licence, detachable cable and included accessories."
       ],
-      "note": "The G7 SE described by GameSir is wired; do not advertise it as a wireless controller."
+      "note": "The G7 SE described by GameSir is wired; do not advertise it as a wireless controller.",
+      "asin_status": "unverified_historical_candidate",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 14,
@@ -309,7 +439,17 @@
         "Identify the precise licensed edition and official model code.",
         "Do not transfer base G7 SE specs to this candidate until the edition is confirmed."
       ],
-      "note": "No exact manufacturer source was recorded for this claimed edition; the candidate ASIN-to-edition mapping is unverified."
+      "note": "No exact manufacturer source was recorded for this claimed edition; the candidate ASIN-to-edition mapping is unverified.",
+      "asin_status": "unverified_historical_candidate",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 15,
@@ -325,7 +465,17 @@
         "Confirm that the exact model name exists in the target market.",
         "Verify platform list, connection modes, polling rate and included receiver from the model's official manual."
       ],
-      "note": "No global manufacturer document was captured in the historical audit; do not infer specs from similarly named Nova controllers."
+      "note": "No global manufacturer document was captured in the historical audit; do not infer specs from similarly named Nova controllers.",
+      "asin_status": "unverified_historical_candidate",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 16,
@@ -345,7 +495,17 @@
         "Match the exact Govee model number and strip length.",
         "Check whether Wi-Fi, Bluetooth, voice assistant and music-sync functions apply to that exact SKU."
       ],
-      "note": "Govee RGBIC is a product family, not one universal SKU; features differ by model."
+      "note": "Govee RGBIC is a product family, not one universal SKU; features differ by model.",
+      "asin_status": "unverified_historical_candidate",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 17,
@@ -365,7 +525,17 @@
         "Confirm whether the set is one continuous strip or multiple reels.",
         "Check controller, adapter voltage, remote, app requirements and connector type."
       ],
-      "note": "Do not assume the 100 ft description alone identifies the exact power or control bundle."
+      "note": "Do not assume the 100 ft description alone identifies the exact power or control bundle.",
+      "asin_status": "unverified_historical_candidate",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 18,
@@ -385,7 +555,17 @@
         "Match the precise DAYBETTER SKU, LED count and remote/controller bundle.",
         "Check power adapter, cut marks, indoor-use limits and warranty."
       ],
-      "note": "Do not transfer specifications between different 32.8 ft DAYBETTER variants."
+      "note": "Do not transfer specifications between different 32.8 ft DAYBETTER variants.",
+      "asin_status": "unverified_historical_candidate",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 19,
@@ -401,7 +581,17 @@
         "Find a reliable manufacturer or brand-owner product document.",
         "Verify reel layout, voltage/current, controller, remote/app and safety markings before describing features."
       ],
-      "note": "No reliable manufacturer source was captured for this candidate; no specifications are asserted."
+      "note": "No reliable manufacturer source was captured for this candidate; no specifications are asserted.",
+      "asin_status": "unverified_historical_candidate",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 20,
@@ -417,7 +607,17 @@
         "Find the exact manufacturer SKU/manual and verify reel configuration.",
         "Confirm power supply, controller, app/remote, cut points and indoor/outdoor rating."
       ],
-      "note": "No reliable manufacturer source was captured for this candidate; no specifications are asserted."
+      "note": "No reliable manufacturer source was captured for this candidate; no specifications are asserted.",
+      "asin_status": "unverified_historical_candidate",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 21,
@@ -433,7 +633,17 @@
         "Choose an exact model and size range before research can become product-specific.",
         "Check user height guidance, seat dimensions, load rating, adjustment range, warranty and return costs."
       ],
-      "note": "Category-only idea; no manufacturer, model, Amazon ASIN or product-level specifications were recorded."
+      "note": "Category-only idea; no manufacturer, model, Amazon ASIN or product-level specifications were recorded.",
+      "asin_status": "not_applicable_category_only",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     },
     {
       "id": 22,
@@ -449,7 +659,17 @@
         "Choose an exact model and tabletop dimensions.",
         "Check height, stability, materials, cable management, power accessories, assembly and delivery constraints."
       ],
-      "note": "Category-only idea; no manufacturer, model, Amazon ASIN or product-level specifications were recorded."
+      "note": "Category-only idea; no manufacturer, model, Amazon ASIN or product-level specifications were recorded.",
+      "asin_status": "not_applicable_category_only",
+      "amazon_listing_status": "not_checked",
+      "seller_status": "not_checked",
+      "variant_status": "not_checked",
+      "region_status": "not_checked",
+      "price": null,
+      "availability": null,
+      "rating": null,
+      "review_count": null,
+      "affiliate_url": null
     }
   ]
 }
