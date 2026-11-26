@@ -23,36 +23,28 @@ check(manifest.candidate_products.every(p=>
  p.retailer_url===null && p.price===null && p.availability===null
 ),"A product candidate is incorrectly marked as retailer-verified");
 
-check(policy.special_links_enabled===true,"Amazon Special Links may only be enabled after adult account-holder confirmation");
-check(policy.affiliate_account_approval==="adult_account_holder_confirmed","Adult legal account-holder confirmation is missing");
-check(policy.account_confirmation_date==="2026-11-26","Account-holder confirmation date is missing");
-check(typeof tag==="string"&&tag.length>0,"Assigned Associates Tracking ID is missing");
+check(policy.special_links_enabled===false,"Amazon Special Links must be disabled");
+check(policy.affiliate_account_approval==="not_applicable_links_removed","Affiliate programme status must not be presented as active");
+check(policy.associate_tag===null,"Affiliate tracking ID must be removed from active site configuration");
+check(tag===null,"No Associates Tracking ID should be active while all shopping links are removed");
 check(policy.commission_claims_enabled===false,"Do not claim specific commission earnings");
-check(policy.commission_disclosure_enabled===true,"Amazon affiliate commission disclosure must be enabled");
+check(policy.commission_disclosure_enabled===false,"Affiliate commission disclosure must be disabled while there are no affiliate links");
 
 check(existsSync(resolve(root,logo)),"ProGameFinds brand logo is missing");
 check(/gaming-3d\.css/.test(home),"Gaming design stylesheet is not loaded");
 check(home.includes("/affiliate-disclosure.html"),"Homepage navigation must link to the affiliate disclosure page");
-check(disclosure.includes("As an Amazon Associate I earn from qualifying purchases."),"Exact Amazon Associates disclosure is missing");
-check(/affiliate disclosure/i.test(catalogue),"Catalogue affiliate disclosure heading is missing");
-check(catalogue.includes("As an Amazon Associate I earn from qualifying purchases."),"Catalogue must show the Amazon Associates disclosure near product links");
+check(!disclosure.includes("As an Amazon Associate I earn from qualifying purchases."),"Active Amazon earnings statement must be removed");
+check(/retail link status/i.test(catalogue),"Catalogue must show current retail-link status");
+check(!catalogue.includes("As an Amazon Associate I earn from qualifying purchases."),"Catalogue must not make an active Amazon commission claim");
 
 const cards=[...catalogue.matchAll(/<article class="product-card">[\s\S]*?<\/article>/g)].map(m=>m[0]);
 check(cards.length===30,"Expected 30 product candidate cards in the catalogue");
 check(manifest.candidate_products.length===cards.length,"Catalogue and evidence manifest candidate counts differ");
 for(const [index,card] of cards.entries()){
- const link=card.match(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i);
- check(!!link,"Product card "+(index+1)+" is missing its outbound research link");
- if(link){
-  check(/^https:\/\/www\.amazon\.com\/s\?k=/.test(link[1]),"Product card "+(index+1)+" must use an Amazon search URL");
-  let actualTag=null;
-  try{actualTag=new URL(link[1]).searchParams.get("tag");}catch{}
-  check(actualTag===tag,"Product card "+(index+1)+" does not use the account-confirmed Associate Tracking ID");
-  check(/target="_blank"/i.test(card)&&/rel="noopener noreferrer"/i.test(card),"Product card "+(index+1)+" is missing safe external-link attributes");
-  check(/class="affiliate-link-disclosure">\(affiliate link\)<\/small>/i.test(card),"Product card "+(index+1)+" is missing a visible affiliate link label");
- }
+ check(!/<a\b[^>]*href="https?:\/\//i.test(card),"Product card "+(index+1)+" must not contain an external retailer link");
+ check(!/affiliate-link-disclosure|\(affiliate link\)/i.test(card),"Product card "+(index+1)+" must not show an affiliate label");
+ check(card.includes("Retail link currently unavailable."),"Product card "+(index+1)+" must show that its retail link is disabled");
 }
-check(!/amazon\.com\/dp\//i.test(catalogue),"Unverified direct ASIN links are prohibited");
 check(!/assets\/products\//i.test(home+catalogue),"Legacy non-gaming product artwork must not be presented as gaming product photography");
 check(stylesheet.length<30*1024,"Gaming stylesheet exceeds 30KB");
 check(/prefers-reduced-motion/.test(stylesheet),"Reduced-motion support missing");
@@ -67,4 +59,4 @@ if(errors.length){
  process.exit(1);
 }
 console.log("GAMING PORTAL ASSET AND LINK-SAFETY AUDIT: PASS");
-console.log("Candidates: "+cards.length+"; tagged Amazon Special Links: "+cards.length+"; exact ASINs verified: 0; tracking ID: "+tag+".");
+console.log("Candidates: "+cards.length+"; active retailer shopping links: 0; exact ASINs verified: 0.");
