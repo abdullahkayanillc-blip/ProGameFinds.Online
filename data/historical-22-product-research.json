@@ -1,0 +1,455 @@
+{
+  "schema_version": "1.0",
+  "title": "ProGameFinds historical 22-product research archive",
+  "archive_published": "2026-11-26",
+  "historical_audit_date": "2026-11-23",
+  "evidence_snapshot_date": "2026-11-26",
+  "counts": {
+    "catalogue_records": 22,
+    "historical_asin_candidates": 20,
+    "verified_asin_to_model_mappings": 0,
+    "category_only_records_without_asin": 2,
+    "records_with_manufacturer_reference": 16,
+    "retailer_listing_checks_completed": 0
+  },
+  "affiliate_and_retail_policy": {
+    "amazon_special_links": false,
+    "affiliate_tracking": false,
+    "associate_tag": null,
+    "commission_claims": false,
+    "retailer_product_links": false,
+    "prices_ratings_reviews_stock": "not published; not verified in this archive"
+  },
+  "methodology": [
+    "The 22 entries and 20 ASIN candidates come from the historical 23 November 2026 repository evidence register.",
+    "Candidate ASINs are historical identifiers only. No archived ASIN-to-model mapping is marked verified.",
+    "Manufacturer references were added as model-family/specification context on 26 November 2026; those references do not validate Amazon ASINs, sellers, variants or live offers.",
+    "No price, discount, rating, review count, stock status, sales volume or commission estimate is published.",
+    "Two records are category ideas only (gaming chairs and gaming desks) and have no exact ASIN."
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Logitech G305 LIGHTSPEED",
+      "brand": "Logitech",
+      "category": "mice",
+      "asin": "B07CMS5Q6P",
+      "specs": [
+        "HERO optical sensor; 200–12,000 DPI.",
+        "LIGHTSPEED 2.4 GHz wireless connection.",
+        "Manufacturer claim: up to 250 hours on one AA battery.",
+        "Six programmable buttons."
+      ],
+      "source": "https://www.logitechg.com/en-us/shop/p/g305-lightspeed-wireless-gaming-mouse",
+      "sourceLabel": "Logitech G305 manufacturer page",
+      "sourceNote": "Model-family source found; the historical ASIN-to-model mapping is still unverified.",
+      "checks": [
+        "Match the exact colour and regional SKU.",
+        "Check seller, condition, receiver and return terms."
+      ],
+      "note": "The 23 November audit had manufacturer facts for this model, but explicitly left the candidate ASIN, seller and variant unverified."
+    },
+    {
+      "id": 2,
+      "name": "Logitech G502 HERO",
+      "brand": "Logitech",
+      "category": "mice",
+      "asin": "B07GBZ4Q68",
+      "specs": [
+        "HERO optical sensor; 100–25,600 DPI.",
+        "1,000 Hz report rate and onboard memory.",
+        "11 programmable buttons.",
+        "Adjustable weight system; official spec lists up to 18 g optional weights."
+      ],
+      "source": "https://support.logi.com/hc/en-us/articles/360023303534-Specification-G502-HERO-Gaming-Mouse",
+      "sourceLabel": "Logitech G502 HERO technical specifications",
+      "sourceNote": "Official model reference; candidate ASIN match, seller and live offer have not been checked.",
+      "checks": [
+        "Confirm wired G502 HERO—not another G502 revision.",
+        "Check cable, included weights and exact model number."
+      ],
+      "note": "Specifications are from Logitech support; the historical Amazon candidate remains unverified."
+    },
+    {
+      "id": 3,
+      "name": "Logitech G502 X Plus Wireless",
+      "brand": "Logitech",
+      "category": "mice",
+      "asin": "B092CB69Q4",
+      "specs": [
+        "LIGHTFORCE hybrid optical-mechanical switches.",
+        "LIGHTSPEED wireless and LIGHTSYNC RGB.",
+        "HERO 25K sensor family; verify exact generation and regional SKU."
+      ],
+      "source": "https://www.logitechg.com/en-us/shop/p/g502-x-plus-wireless-lightforce.910-006169",
+      "sourceLabel": "Logitech G502 X PLUS product page",
+      "sourceNote": "Official product-family reference; it does not validate this historical ASIN.",
+      "checks": [
+        "Confirm X PLUS—not G502 X or G502 X LIGHTSPEED.",
+        "Check colour, receiver, charging accessories and seller."
+      ],
+      "note": "Do not treat this candidate ASIN as an approved listing match."
+    },
+    {
+      "id": 4,
+      "name": "Logitech G502 LIGHTSPEED (HERO 25K)",
+      "brand": "Logitech",
+      "category": "mice",
+      "asin": "B07L4BM851",
+      "specs": [
+        "Wireless G502 family with HERO sensor; up to 25,600 DPI in Logitech's support specifications.",
+        "11 programmable buttons; hyper-fast scroll wheel.",
+        "114 g mouse-only weight in the published technical specification.",
+        "Manufacturer battery claim: up to 60 hours without lighting; actual use varies."
+      ],
+      "source": "https://support.logi.com/hc/en-gb/articles/360023303914-G502-LIGHTSPEED-Wireless-Gaming-Mouse-Technical-Specifications",
+      "sourceLabel": "Logitech G502 LIGHTSPEED technical specifications",
+      "sourceNote": "Official model reference; exact marketplace ASIN, condition and seller remain unverified.",
+      "checks": [
+        "Distinguish original G502 LIGHTSPEED from G502 X LIGHTSPEED.",
+        "Verify included receiver, charging cable and optional weights."
+      ],
+      "note": "Published specs describe the manufacturer's model; they do not confirm the archived ASIN."
+    },
+    {
+      "id": 5,
+      "name": "HyperX Cloud III",
+      "brand": "HyperX",
+      "category": "headsets",
+      "asin": "B0C3BSZ56D",
+      "specs": [
+        "Wired, closed-back over-ear headset.",
+        "53 mm dynamic drivers; published headphone response 10 Hz–21 kHz.",
+        "Detachable microphone; USB and 3.5 mm connection options are described by the manufacturer.",
+        "Manufacturer compatibility list spans PC, PlayStation, Xbox, Switch, Mac and mobile; check connection-specific limits."
+      ],
+      "source": "https://hyperx.com/products/hyperx-cloud-iii-wired-gaming-headset",
+      "sourceLabel": "HyperX Cloud III manufacturer page",
+      "sourceNote": "Official base-model page; it does not verify the historical ASIN or every platform/connection combination.",
+      "checks": [
+        "Check the exact colour and wired edition.",
+        "Confirm 3.5 mm versus USB connection and platform-specific features."
+      ],
+      "note": "Compatibility can differ by connector and console; check the exact package and device."
+    },
+    {
+      "id": 6,
+      "name": "Razer BlackShark V2 X",
+      "brand": "Razer",
+      "category": "headsets",
+      "asin": "B086PKMZ21",
+      "specs": [
+        "TriForce 50 mm drivers.",
+        "HyperClear cardioid microphone.",
+        "3.5 mm analogue audio connection on the documented model.",
+        "Razer lists PC, Mac, PlayStation, Xbox, Switch, Steam Deck and mobile compatibility via 3.5 mm; verify device jack requirements."
+      ],
+      "source": "https://www.razer.com/gaming-headsets/Razer-BlackShark-V2-X",
+      "sourceLabel": "Razer BlackShark V2 X product page",
+      "sourceNote": "Official product reference; archived ASIN, colour and any platform-specific edition are not verified.",
+      "checks": [
+        "Check 3.5 mm TRRS support and any required splitter.",
+        "Confirm exact edition and supported virtual-surround features."
+      ],
+      "note": "Do not assume software-based surround features behave identically across operating systems."
+    },
+    {
+      "id": 7,
+      "name": "HyperX Cloud III S Wireless",
+      "brand": "HyperX",
+      "category": "headsets",
+      "asin": "B0F6NZWPTC",
+      "specs": [
+        "Wireless headset with 2.4 GHz and Bluetooth 5.3 options described by HyperX.",
+        "53 mm dynamic drivers; closed-back over-ear design.",
+        "Manufacturer battery claim: up to 120 hours on 2.4 GHz under stated test conditions.",
+        "Detachable boom mic and separate built-in microphone features are documented."
+      ],
+      "source": "https://hyperx.com/products/hyperx-cloud-iii-s-wireless-gaming-headset",
+      "sourceLabel": "HyperX Cloud III S Wireless manufacturer page",
+      "sourceNote": "Official model reference; the historical ASIN and its exact bundle/colour are not verified.",
+      "checks": [
+        "Check regional variant, dongle type and supported consoles.",
+        "Treat battery life as a manufacturer test claim, not a guarantee."
+      ],
+      "note": "Battery life varies with volume, connection mode, use and battery condition."
+    },
+    {
+      "id": 8,
+      "name": "HyperX Cloud II",
+      "brand": "HyperX",
+      "category": "headsets",
+      "asin": "B00SAYCXWG",
+      "specs": [
+        "53 mm dynamic drivers; closed-back over-ear design.",
+        "Published headphone frequency response: 10 Hz–23 kHz.",
+        "Detachable noise-cancelling microphone and USB audio control box in the described package.",
+        "Manufacturer lists PC, PlayStation, Xbox, Switch and mobile compatibility; connector-dependent."
+      ],
+      "source": "https://hyperx.com/products/hyperx-cloud-ii",
+      "sourceLabel": "HyperX Cloud II manufacturer page",
+      "sourceNote": "Official product-family reference; the archived ASIN, seller and package revision remain unverified.",
+      "checks": [
+        "Check wired versus wireless product naming carefully.",
+        "Confirm the included USB control box, cable and microphone."
+      ],
+      "note": "The Cloud II has package/edition differences; check the exact contents."
+    },
+    {
+      "id": 9,
+      "name": "HyperX Cloud III (second listing)",
+      "brand": "HyperX",
+      "category": "headsets",
+      "asin": "B0C3BV19Q3",
+      "specs": [],
+      "source": "https://hyperx.com/products/hyperx-cloud-iii-wired-gaming-headset",
+      "sourceLabel": "HyperX Cloud III base-model reference",
+      "sourceNote": "Reference is for the base Cloud III only; it does not prove this second candidate ASIN is a separate colour, edition or legitimate variant.",
+      "checks": [
+        "Resolve the duplicate before selecting this candidate.",
+        "Verify whether this ASIN is a distinct colour/region/package or a duplicate record."
+      ],
+      "note": "The original audit specifically flagged this as a possible duplicate and did not confirm a variant."
+    },
+    {
+      "id": 10,
+      "name": "Logitech G213 Prodigy",
+      "brand": "Logitech",
+      "category": "keyboards",
+      "asin": "B07QGHK6Q8",
+      "specs": [
+        "Full-size RGB gaming keyboard.",
+        "Tactile Mech-Dome keys; Logitech describes spill resistance.",
+        "LIGHTSYNC RGB lighting, integrated palm rest and adjustable feet.",
+        "Dedicated media controls."
+      ],
+      "source": "https://www.logitechg.com/en-us/shop/p/g213-rgb-gaming-keyboard",
+      "sourceLabel": "Logitech G213 Prodigy product page",
+      "sourceNote": "Official model reference; historical ASIN-to-model mapping, region and seller remain unverified.",
+      "checks": [
+        "Confirm full-size US/UK or other keyboard layout.",
+        "Check exact revision, key legends and included documentation."
+      ],
+      "note": "Do not assume all regional layouts share the same key arrangement."
+    },
+    {
+      "id": 11,
+      "name": "SteelSeries Apex 3 TKL RGB",
+      "brand": "SteelSeries",
+      "category": "keyboards",
+      "asin": "B09FTNMT84",
+      "specs": [
+        "Tenkeyless keyboard layout without a number pad.",
+        "IP32 water/dust resistance is stated by SteelSeries for the Apex 3 TKL.",
+        "Eight-zone PrismSync RGB lighting.",
+        "Quiet switches; check exact regional layout and colour."
+      ],
+      "source": "https://steelseries.com/gaming-keyboards/apex-3?keyboardSize=tkl",
+      "sourceLabel": "SteelSeries Apex 3 TKL product page",
+      "sourceNote": "Official model reference; archived ASIN, regional layout and seller are not verified.",
+      "checks": [
+        "Confirm TKL model rather than full-size Apex 3.",
+        "Check IP32 wording, keyboard layout and exact colour."
+      ],
+      "note": "IP32 is a defined ingress-protection rating, not waterproofing; keep liquids away from electronics."
+    },
+    {
+      "id": 12,
+      "name": "GameSir G7 Pro",
+      "brand": "GameSir",
+      "category": "controllers",
+      "asin": "B0FD41XC3P",
+      "specs": [
+        "Tri-mode connectivity: wired Xbox; wired/2.4 GHz PC; Bluetooth Android, according to GameSir.",
+        "Mag-Res TMR sticks and Hall Effect analogue triggers with trigger-stop options.",
+        "1,000 Hz polling rate on PC via wired or 2.4 GHz connections.",
+        "Four mappable controls and built-in gyro mapping on PC are described by the manufacturer."
+      ],
+      "source": "https://gamesir.com/products/gamesir-g7-pro",
+      "sourceLabel": "GameSir G7 Pro official product page",
+      "sourceNote": "Official model reference; exact historical ASIN, package and seller remain unverified.",
+      "checks": [
+        "Confirm exact console/platform edition and wireless receiver bundle.",
+        "Check polling-rate support on the intended platform; 1,000 Hz claim is for PC."
+      ],
+      "note": "Do not assume wireless operation on Xbox; GameSir specifies wired Xbox connectivity for this model."
+    },
+    {
+      "id": 13,
+      "name": "GameSir G7 SE",
+      "brand": "GameSir",
+      "category": "controllers",
+      "asin": "B0C7GW9F88",
+      "specs": [
+        "Hall Effect sticks and Hall Effect analogue triggers.",
+        "Wired USB-C connection with a 3 m detachable cable in GameSir's manual.",
+        "Two lockable rear buttons and four rumble motors.",
+        "GameSir documentation lists Xbox Series X|S, Xbox One and Windows 10/11; check current device/firmware notes."
+      ],
+      "source": "https://gamesir.com/support/manuals/gamesir-g7-se",
+      "sourceLabel": "GameSir G7 SE official manual",
+      "sourceNote": "Official model reference; the historical ASIN, seller and colour edition are not verified.",
+      "checks": [
+        "Confirm wired-only G7 SE versus G7 Pro or other G7 versions.",
+        "Check console licence, detachable cable and included accessories."
+      ],
+      "note": "The G7 SE described by GameSir is wired; do not advertise it as a wireless controller."
+    },
+    {
+      "id": 14,
+      "name": "GameSir G7 SE (licensed edition)",
+      "brand": "GameSir",
+      "category": "controllers",
+      "asin": "B0CT3BXRLS",
+      "specs": [],
+      "source": null,
+      "sourceLabel": null,
+      "sourceNote": null,
+      "checks": [
+        "Identify the precise licensed edition and official model code.",
+        "Do not transfer base G7 SE specs to this candidate until the edition is confirmed."
+      ],
+      "note": "No exact manufacturer source was recorded for this claimed edition; the candidate ASIN-to-edition mapping is unverified."
+    },
+    {
+      "id": 15,
+      "name": "GameSir Nova Lite 2 Wireless",
+      "brand": "GameSir",
+      "category": "controllers",
+      "asin": "B0F3D25PD3",
+      "specs": [],
+      "source": null,
+      "sourceLabel": null,
+      "sourceNote": null,
+      "checks": [
+        "Confirm that the exact model name exists in the target market.",
+        "Verify platform list, connection modes, polling rate and included receiver from the model's official manual."
+      ],
+      "note": "No global manufacturer document was captured in the historical audit; do not infer specs from similarly named Nova controllers."
+    },
+    {
+      "id": 16,
+      "name": "Govee RGBIC LED Strip",
+      "brand": "Govee",
+      "category": "lighting",
+      "asin": "B0991Q94KP",
+      "specs": [
+        "Govee publishes multiple RGBIC strip models and lengths; its current product family includes distinct model numbers and feature sets.",
+        "The official family page describes app/Bluetooth control, multi-colour RGBIC effects and music-sync scenes for specific variants.",
+        "The current family reference is not proof that this archived ASIN is one of those exact variants."
+      ],
+      "source": "https://us.govee.com/products/govee-rgbic-basic-bluetooth-led-strip-lights-with-smart-control",
+      "sourceLabel": "Govee RGBIC family page",
+      "sourceNote": "Family-level reference only. Model number, length, power supply and candidate ASIN mapping are unresolved.",
+      "checks": [
+        "Match the exact Govee model number and strip length.",
+        "Check whether Wi-Fi, Bluetooth, voice assistant and music-sync functions apply to that exact SKU."
+      ],
+      "note": "Govee RGBIC is a product family, not one universal SKU; features differ by model."
+    },
+    {
+      "id": 17,
+      "name": "KSIPZE 100ft RGB Strip",
+      "brand": "KSIPZE",
+      "category": "lighting",
+      "asin": "B09V366BDY",
+      "specs": [
+        "Brand product page describes a 100 ft RGB strip with app and IR remote control.",
+        "Bluetooth app control, music-sync modes and timer/scheduling features are described on the manufacturer page.",
+        "Adhesive installation is intended for suitable clean, dry indoor surfaces; confirm exact installation guidance."
+      ],
+      "source": "https://www.ksipze.com/products/ksipze-100ft-led-strip-lights",
+      "sourceLabel": "KSIPZE 100 ft product page",
+      "sourceNote": "Product-family reference found; the historical ASIN-to-model mapping, package and seller are still unverified.",
+      "checks": [
+        "Confirm whether the set is one continuous strip or multiple reels.",
+        "Check controller, adapter voltage, remote, app requirements and connector type."
+      ],
+      "note": "Do not assume the 100 ft description alone identifies the exact power or control bundle."
+    },
+    {
+      "id": 18,
+      "name": "DAYBETTER LED Strip 32.8 ft",
+      "brand": "DAYBETTER",
+      "category": "lighting",
+      "asin": "B08D99TWQJ",
+      "specs": [
+        "DAYBETTER's current 32.8 ft RGB family page describes 300 LEDs and a 44-key IR remote.",
+        "The manufacturer page describes cut points every three LEDs for the referenced SKU.",
+        "That current product page has its own SKU; it does not verify the historical Amazon ASIN."
+      ],
+      "source": "https://www.daybetter.com/products/32-8-ft-led-strip-lights-daybetter-rgb-color-changing-lights-strip",
+      "sourceLabel": "DAYBETTER 32.8 ft RGB strip page",
+      "sourceNote": "Current manufacturer-family reference only; no exact ASIN/SKU match has been established.",
+      "checks": [
+        "Match the precise DAYBETTER SKU, LED count and remote/controller bundle.",
+        "Check power adapter, cut marks, indoor-use limits and warranty."
+      ],
+      "note": "Do not transfer specifications between different 32.8 ft DAYBETTER variants."
+    },
+    {
+      "id": 19,
+      "name": "HBOWMDJIA LED Lights 200 ft",
+      "brand": "HBOWMDJIA",
+      "category": "lighting",
+      "asin": "B0DFYBYPZM",
+      "specs": [],
+      "source": null,
+      "sourceLabel": null,
+      "sourceNote": null,
+      "checks": [
+        "Find a reliable manufacturer or brand-owner product document.",
+        "Verify reel layout, voltage/current, controller, remote/app and safety markings before describing features."
+      ],
+      "note": "No reliable manufacturer source was captured for this candidate; no specifications are asserted."
+    },
+    {
+      "id": 20,
+      "name": "Leeleberd LED Lights 100 ft",
+      "brand": "Leeleberd",
+      "category": "lighting",
+      "asin": "B0C2MHG632",
+      "specs": [],
+      "source": null,
+      "sourceLabel": null,
+      "sourceNote": null,
+      "checks": [
+        "Find the exact manufacturer SKU/manual and verify reel configuration.",
+        "Confirm power supply, controller, app/remote, cut points and indoor/outdoor rating."
+      ],
+      "note": "No reliable manufacturer source was captured for this candidate; no specifications are asserted."
+    },
+    {
+      "id": 21,
+      "name": "Gaming chairs",
+      "brand": "Unspecified",
+      "category": "furniture",
+      "asin": null,
+      "specs": [],
+      "source": null,
+      "sourceLabel": null,
+      "sourceNote": null,
+      "checks": [
+        "Choose an exact model and size range before research can become product-specific.",
+        "Check user height guidance, seat dimensions, load rating, adjustment range, warranty and return costs."
+      ],
+      "note": "Category-only idea; no manufacturer, model, Amazon ASIN or product-level specifications were recorded."
+    },
+    {
+      "id": 22,
+      "name": "Gaming desks",
+      "brand": "Unspecified",
+      "category": "furniture",
+      "asin": null,
+      "specs": [],
+      "source": null,
+      "sourceLabel": null,
+      "sourceNote": null,
+      "checks": [
+        "Choose an exact model and tabletop dimensions.",
+        "Check height, stability, materials, cable management, power accessories, assembly and delivery constraints."
+      ],
+      "note": "Category-only idea; no manufacturer, model, Amazon ASIN or product-level specifications were recorded."
+    }
+  ]
+}
