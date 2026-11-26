@@ -1,80 +1,79 @@
-# ProGameFinds — Fitness Equipment Research Portal
+# ProGameFinds — Gaming Gear Research
 
-## Current project direction
+ProGameFinds is an independent editorial website for gaming peripherals, handheld gaming accessories, VR add-ons, sim-racing equipment, streaming tools and gaming-space setup information.
 
-ProGameFinds is being migrated from a gaming-gear catalogue to an independent fitness and home-gym equipment research portal.
+## Current public-site scope
 
-### Active editorial categories
-- Strength equipment
-- Cardio equipment
-- Home-gym planning
-- Fitness accessories
-- Gym flooring and storage
-- Mobility and recovery accessories
+- Gaming gear discovery catalogue with clearly labelled research candidates.
+- GameSir G7 Pro model research page and support FAQ.
+- Historical 22-record product research archive.
+- Buying guides, compatibility checks and product-listing verification guidance.
+- About, research-method, retail-link status, privacy, terms and contact pages.
+- Responsive static HTML/CSS/JavaScript site hosted on Cloudflare Pages.
 
-### Editorial standards
-- Prioritise exact model identification and primary manufacturer documentation.
-- Distinguish manufacturer facts from retailer listing, seller, fulfilment and variant checks.
-- Do not publish unsupported prices, stock, ratings, customer reviews or compatibility claims.
-- Use age-appropriate safety language; this site is not a medical service or training-plan provider.
-- Do not scrape retailer pages or copy protected retailer content.
+The active public homepage and catalogue are gaming-focused. Older fitness-portal migration notes and fitness-specific legacy files are historical repository artifacts, not the current editorial scope. Do not treat those legacy files as active public catalogue pages.
 
-## Retail-link and affiliate status
+## Editorial and evidence standards
 
-**All external product-shopping links are currently disabled.** The 30 Amazon product links and their affiliate tracking tags have been removed from the public catalogue. Product cards are research candidates only.
+- Identify exact manufacturer, model, generation, revision, region and SKU where evidence supports it.
+- Separate manufacturer specifications from retailer listing, seller, fulfilment, variant and availability checks.
+- Do not infer an Amazon ASIN-to-model match from a similar product name or image.
+- Do not invent prices, discounts, stock, ratings, review counts, hands-on testing or customer experiences.
+- Clearly label original vector artwork as illustration, not product photography.
+- Use manufacturer photography or creator content only when the specific asset's usage rights are documented.
+- Publish corrections transparently and retain source dates for volatile information.
 
-The site is designed for an Amazon-only affiliate pathway in the future, but it currently displays:
-- no Amazon Special Links on public pages;
-- no active Associates tracking ID in the site configuration;
-- no Amazon Associate earnings claim or commission disclosure statement.
-- no commission or approval claim.
+## Current retail-link and affiliate state
 
-Affiliate functionality must remain disabled until the actual legally eligible account holder independently verifies the Associates account's status, declared site, active approval and assigned Associate ID. Do not use another person's identity or credentials as a workaround, and do not operate an Associates account on behalf of a minor.
+**The public site currently publishes no Amazon Special Links, affiliate tracking links or retailer product-shopping links.**
 
-Amazon policy links for the actual account holder to review:
-- https://affiliate-program.amazon.com/help/operating/agreement/
-- https://affiliate-program.amazon.com/help/operating/policies
-- https://affiliate-program.amazon.com/help/node/topic/G8TW5AE9XL2VX9VM
+- No Associate Tracking ID is active in the public site.
+- No commission or earnings claim is made.
+- Historical ASINs in the research archive remain unverified research references.
+- The GameSir G7 Pro supplied ASIN is also an unverified reference, not a confirmed live product listing.
+- Do not add affiliate links, tracking identifiers or account-status claims as part of ordinary editorial changes.
 
-The Amazon agreement states that an Associate must be legally able to enter contracts and not be a minor. Special Links must use the Associate ID assigned by Amazon. See the current official documents above.
+Amazon Associates participation is subject to Amazon's current agreement and eligibility requirements. Any programme account must be managed independently by a legally eligible account holder. No age or identity restriction may be bypassed.
 
-## Website implementation
+## Privacy and contact implementation
 
-- Static HTML/CSS/JavaScript hosted on Cloudflare Pages.
-- No external font requests, heavy client framework, checkout or product-purchase flow.
-- Local equipment search and category filters.
-- Responsive navigation, visible focus styles and reduced-motion support.
-- Security response headers remain configured through the Cloudflare Pages headers file.
-- Legacy gaming routes redirect to current fitness information pages.
-- Product evidence manifest contains no active products until exact model/source verification is complete.
-- Contact form is not enabled; the direct support email link is available.
+- Static Cloudflare Pages hosting.
+- No on-site checkout, user account, customer profile database or product-order workflow.
+- Local catalogue search and filters run in the visitor's browser.
+- Direct email contact is available through the published support address.
+- The website contact form is not enabled; no form submission is collected.
+- Do not claim analytics, cookies, consent management or email delivery are enabled unless separately configured and tested.
 
-## Validation
+## Technical quality gates
 
-GitHub Actions runs:
-- node scripts/validate-site.mjs
-- node scripts/quality-audit.mjs
-- node scripts/audit-product-image-rights.mjs
-- Playwright Chromium browser QA for desktop and mobile.
+GitHub Actions validates:
+- Required public pages and local references.
+- HTML metadata, duplicate IDs, image alt text and asset dimensions.
+- Product evidence and image-rights records.
+- Absence of retailer shopping links and affiliate tracking while disabled.
+- Desktop and mobile Chromium browser behavior.
 
-The validators ensure the active portal contains no distributor/manufacturer/Amazon shopping links, no affiliate tags, no stale gaming product content, and no unverified product records.
+A successful CI run proves only the checks executed by that workflow. It does not independently prove Amazon account approval, product listing accuracy, legal compliance, Search Console ownership, real-world performance metrics or successful email delivery.
 
 ## Release process
 
-1. Work on a separate feature branch.
-2. Run the static validators and browser QA on the Cloudflare Pages preview.
-3. Review all changed files and the preview.
-4. Merge only when all required checks pass.
-5. Confirm Cloudflare production deployment and verify the canonical domain.
+1. Work on an isolated feature branch.
+2. Preserve existing files and user content; make additive, scoped changes.
+3. Run static validation, quality audit, image-rights audit and desktop/mobile browser QA.
+4. Review the complete diff and deployed preview.
+5. Obtain explicit approval before merging or deploying production.
+6. Verify the canonical production domain and key routes after an approved release.
 
-Do not mark a product, retailer listing, Associate approval, email delivery or domain ownership as verified without direct evidence.
-
-
-## Historical product research archive
+## Historical research archive
 
 - Public archive: `/product-research-archive.html`
 - Structured evidence register: `data/historical-22-product-research.json`
-- The archive preserves 22 historical candidates, including 20 unverified historical ASIN references and two category-only placeholders.
-- Manufacturer references are context only and do not validate an Amazon ASIN, seller, variant, region or live offer.
-- The archive contains no Amazon Special Links, affiliate tracking, retailer product-shopping URLs, prices, ratings, reviews or stock claims.
-- The site validator and quality audit enforce the record counts and non-affiliate state.
+- 22 historical product candidates are retained.
+- 20 ASIN candidates are recorded, with zero verified ASIN-to-model mappings in the archive snapshot.
+- Two records are category-only ideas without ASINs.
+- Manufacturer references provide model-family context only; they do not prove an Amazon listing, seller, variant, region or live offer.
+- No prices, ratings, reviews, stock or commission estimates are published in the archive.
+
+## Cost and service boundaries
+
+Cloudflare Pages and GitHub Actions may have free-tier quotas and limits. Check the current account plan and usage before relying on capacity. Do not add paid services, paid APIs or external browser wallets without explicit owner approval.
