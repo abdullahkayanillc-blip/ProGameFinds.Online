@@ -38,7 +38,7 @@ try{
  check((await researchPage.locator("h1").innerText()).includes("GameSir G7 Pro"),"GameSir research page H1 renders");
  check(await researchPage.locator('img[src="/assets/research-controller.svg"]').count()===1,"Original illustrative controller artwork renders");
  check(await researchPage.locator('a[href^="mailto:support@progamefinds.online"]').count()===1,"Community review email submission link renders");
- check(await researchPage.locator('a[href*="youtube.com/watch?v=BeBWB_5k8DI"]').count()===1,"Official GameSir tutorial source link renders");
+ check(await researchPage.locator('a[href^="https://"]').count()===0,"No external tutorial or retailer links are published");
  const researchBody=await researchPage.locator("body").innerText();
  check(researchBody.includes("No community reviews published yet."),"No fabricated community reviews are displayed");
  check(researchBody.includes("Wired connection"),"Xbox wired-connection caveat is visible");
