@@ -4,6 +4,7 @@ const root=process.cwd(),errors=[];
 const read=path=>readFileSync(resolve(root,path),"utf8");
 const check=(condition,message)=>{if(!condition)errors.push(message);};
 const pages=["index.html","gaming-products.html","gamesir-g7-pro-research.html","guides.html","about.html","how-we-review.html","affiliate-disclosure.html","privacy.html","terms.html","support.html","product-research-archive.html"];
+for(const page of pages){ const html=read(page); check(!/<a\b[^>]*href=["']https?:\/\//i.test(html),page+": external website links must remain disabled"); }
 for(const path of pages){
  const html=read(path);
  for(const match of html.matchAll(/(?:href|src)="([^"]+)"/g)){
