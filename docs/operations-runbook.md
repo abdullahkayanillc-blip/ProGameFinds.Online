@@ -8,7 +8,7 @@ This runbook applies to the isolated preview branch and future production releas
 - Professional redesign preview: `progamefinds-professional-upgrade-2026-11-19`.
 - QA extension branch: `progamefinds-professional-qa-2026-11-19`.
 - QA extension PR: #3, targeting the professional preview branch.
-- Keep all changes additive. Do not delete or overwrite existing product guides, affiliate links, tracking tags, or user content without an explicit review.
+- Keep all changes additive. Preserve existing product guides and user content. Retailer shopping links and affiliate tracking tags are currently disabled and must not be reintroduced without a separate review.
 
 ## Quality gates
 
@@ -19,7 +19,7 @@ node scripts/validate-site.mjs
 node scripts/quality-audit.mjs
 ```
 
-The first validator checks the existing affiliate-link and disclosure controls, required pages, sitemap, robots file and security headers. The second checks HTML metadata, duplicate IDs, local references, image alt text and dimensions, required assets, product-evidence manifest integrity, and raw CSS/JS size budgets.
+The first validator checks that retailer shopping links and affiliate tracking remain disabled, alongside required pages, sitemap, robots file and security headers. The second checks HTML metadata, duplicate IDs, local references, image alt text and dimensions, required assets, product-evidence manifest integrity, and raw CSS/JS size budgets.
 
 A passing static audit is not a substitute for browser testing, accessibility testing with assistive technology, or a real-world performance measurement.
 
@@ -50,7 +50,7 @@ Before release, test the preview at mobile and desktop widths:
 
 - Page loads over HTTPS; no broken navigation or local assets.
 - Search and each category filter work with keyboard and touch.
-- All product CTAs point to the intended listing and show the required adjacent affiliate disclosure.
+- Product cards must not expose retailer shopping CTAs while the affiliate feature is disabled.
 - No accidental form submission, purchase, login, or data collection during QA.
 - No console errors, failed requests, horizontal overflow, missing image alt text, or layout shifts caused by un-sized images.
 - Measure Lighthouse/PageSpeed metrics (LCP, INP, CLS, TBT, accessibility and best practices) on the deployed preview. Save the report and test date; do not claim "ultra-fast" without measured results.
@@ -59,9 +59,9 @@ Before release, test the preview at mobile and desktop widths:
 
 ## Affiliate and legal readiness
 
-- Confirm the exact Associates Central account status and the active tracking ID directly in the account owner session.
-- Never describe the site as approved until Amazon confirms acceptance.
-- Preserve the exact required disclosure and clear link-level paid-link labels.
+- Current site state: all retailer shopping links are removed, and no Associate Tracking ID is active in the public site manifest.
+- Do not imply the site earns commissions or is actively using Special Links.
+- Any future reactivation requires a separate owner review, verified programme eligibility, policy-compliant links and clear disclosures.
 - Recheck the current Amazon Operating Agreement, Program Policies and permitted data/image usage before adding any feature.
 - Privacy and terms pages must reflect the actual services, cookies, analytics, forms and data retention that are enabled at release time.
 
@@ -79,7 +79,7 @@ Before release, test the preview at mobile and desktop widths:
 2. Verify the preview visually on mobile and desktop.
 3. Complete the owner-only checks above and attach evidence.
 4. Obtain explicit owner approval before merging or deploying production.
-5. After release, smoke-test the canonical domain and key navigation/affiliate destinations.
+5. After release, smoke-test the canonical domain and key internal navigation destinations; confirm no retailer shopping links were reintroduced.
 6. If a regression occurs, revert the specific release commit or restore the last known-good deployment. Do not rewrite or delete unrelated history.
 
 ## Cost labels

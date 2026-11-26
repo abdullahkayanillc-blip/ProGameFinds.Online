@@ -21,12 +21,12 @@ ProGameFinds is being migrated from a gaming-gear catalogue to an independent fi
 
 ## Retail-link and affiliate status
 
-**All external product-shopping links are currently disabled.** Distributor and manufacturer shopping links have been removed from active pages. The legacy gaming catalogue register is marked retired.
+**All external product-shopping links are currently disabled.** The 30 Amazon product links and their affiliate tracking tags have been removed from the public catalogue. Product cards are research candidates only.
 
 The site is designed for an Amazon-only affiliate pathway in the future, but it currently displays:
-- no Amazon Special Links;
-- no Associates tracking ID;
-- no Amazon Associate earnings claim;
+- no Amazon Special Links on public pages;
+- no active Associates tracking ID in the site configuration;
+- no Amazon Associate earnings claim or commission disclosure statement.
 - no commission or approval claim.
 
 Affiliate functionality must remain disabled until the actual legally eligible account holder independently verifies the Associates account's status, declared site, active approval and assigned Associate ID. Do not use another person's identity or credentials as a workaround, and do not operate an Associates account on behalf of a minor.

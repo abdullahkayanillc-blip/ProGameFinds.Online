@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "status": "gaming_catalogue_restored_retailer_verification_pending",
-  "last_updated": "2026-11-25",
+  "last_updated": "2026-11-26",
   "public_site_scope": "gaming_gear_discovery_and_editorial_research",
   "active_product_records": [],
   "candidate_products": [
@@ -15,7 +15,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "Razer Viper V4 Pro",
@@ -27,7 +27,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "Logitech G Pro X Superlight",
@@ -39,7 +39,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "Wooting 80HE",
@@ -51,7 +51,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "MonsGeek FUN60 Ultra TMR",
@@ -63,7 +63,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "SteelSeries Apex Pro Mini",
@@ -75,7 +75,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "HyperX Cloud III",
@@ -87,7 +87,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "SteelSeries Arctis Nova Pro Wireless",
@@ -99,7 +99,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "Razer BlackShark V3 X HyperSpeed",
@@ -111,7 +111,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "Xbox Wireless Controller",
@@ -123,7 +123,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "PlayStation DualSense Wireless Controller",
@@ -135,7 +135,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "8BitDo Ultimate 2C Wireless",
@@ -147,7 +147,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "Sony DualSense Charging Station",
@@ -159,7 +159,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "Secretlab TITAN Evo",
@@ -171,7 +171,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "Secretlab MAGNUS Pro",
@@ -183,7 +183,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "Arozzi Arena Gaming Desk",
@@ -195,7 +195,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "Corsair ST100 RGB Headset Stand",
@@ -207,7 +207,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "Govee AI Sync Box Kit",
@@ -219,7 +219,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "Elgato Stream Deck Neo",
@@ -231,7 +231,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "JSAUX 5-in-1 Docking Station",
@@ -243,7 +243,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "Spigen Rugged Armor for Steam Deck",
@@ -255,7 +255,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "Samsung PRO Plus microSD",
@@ -267,7 +267,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "BOBOVR S3 Pro",
@@ -279,7 +279,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "YOGES 10,000mAh Magnetic Battery Strap",
@@ -291,7 +291,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "ANNAPRO Elite / A3 Max",
@@ -303,7 +303,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "Logitech G923 Racing Wheel",
@@ -315,7 +315,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "Next Level Racing GT Lite",
@@ -327,7 +327,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "MOZA R9 Wheel Base",
@@ -339,7 +339,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "HyperX QuadCast S",
@@ -351,7 +351,7 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     },
     {
       "name": "Elgato Game Capture 4K X",
@@ -363,19 +363,19 @@
       "retailer_url": null,
       "price": null,
       "availability": null,
-      "notes": "Amazon search link only; exact listing, seller, ASIN, variant, region, price and stock not independently verified."
+      "notes": "No retailer shopping link is currently published. Exact listing, seller, ASIN, variant, region, price and availability have not been independently verified."
     }
   ],
   "outbound_link_policy": {
-    "destination": "amazon.com search results",
-    "link_type": "amazon_associate_special_links",
-    "associate_tag": "progamefinds-20",
-    "special_links_enabled": true,
+    "destination": "none; retailer product-shopping links removed",
+    "link_type": "none",
+    "associate_tag": null,
+    "special_links_enabled": false,
     "commission_claims_enabled": false,
-    "commission_disclosure_enabled": true,
-    "affiliate_account_approval": "adult_account_holder_confirmed",
-    "account_confirmation_date": "2026-11-26",
-    "account_confirmation_source": "Adult legal account holder confirmation relayed for this site update; not independently checked through Associates Central."
+    "commission_disclosure_enabled": false,
+    "affiliate_account_approval": "not_applicable_links_removed",
+    "account_confirmation_date": null,
+    "account_confirmation_source": "No Amazon account status is asserted by this website configuration. All product-shopping links are disabled."
   },
   "verification_policy": {
     "exact_model_required": true,
