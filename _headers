@@ -51,3 +51,11 @@
 
 /support
   Link: </assets/gaming-3d.css?v=20261128-brand-refresh>; rel=preload; as=style
+# Critical stylesheet hints for the editorial blog.
+/blog
+  Link: </assets/gaming-3d.css?v=20261128-brand-refresh>; rel=preload; as=style
+  Link: </assets/blog.css?v=20261128-blog-launch>; rel=preload; as=style
+
+/blog/*
+  Link: </assets/gaming-3d.css?v=20261128-brand-refresh>; rel=preload; as=style
+  Link: </assets/blog.css?v=20261128-blog-launch>; rel=preload; as=style
