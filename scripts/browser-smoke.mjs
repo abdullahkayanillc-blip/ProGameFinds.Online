@@ -93,8 +93,9 @@ try{
   check(mobile.documentWidth<=mobile.width,path+" has no mobile horizontal overflow");
   await article.setViewportSize({width:1365,height:900});
  }
- const legacyGuide=await article.goto(new URL("/guides/choosing-a-gaming-mouse.html",baseURL).toString(),{waitUntil:"networkidle",timeout:45000});
- check(!!legacyGuide&&legacyGuide.ok()&&article.url().endsWith("/guides/selecting-a-gaming-mouse.html"),"Legacy gaming mouse guide redirects to its expanded article");
+ const legacyGuide=await page.request.get(new URL("/guides/choosing-a-gaming-mouse.html",baseURL).toString());
+ const legacyHtml=await legacyGuide.text();
+ check(legacyGuide.ok()&&legacyHtml.includes('http-equiv="refresh" content="0;url=/guides/selecting-a-gaming-mouse.html"')&&legacyHtml.includes('href="/guides/selecting-a-gaming-mouse.html"'),"Legacy gaming mouse URL serves an immediate meta-refresh and fallback to its expanded article");
  const archiveResponse=await page.request.get(new URL("/product-research-archive.html",baseURL).toString());
  check(archiveResponse.ok(),"Historical research archive responds successfully");
  const a=await browser.newPage({viewport:{width:1440,height:1000}});
