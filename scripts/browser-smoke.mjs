@@ -10,7 +10,7 @@ try{
  check((await page.title()).includes("Gaming Gear"),"Homepage title identifies gaming gear");
  check(await page.locator("h1").count()===1,"One primary H1");
  check((await page.locator("h1").innerText()).toLowerCase().includes("confidence"),"Professional gaming hero headline renders");
- check(await page.locator(".category-card").count()===10,"Ten gaming category cards render");
+ check(await page.locator("#categories .category-card").count()===10,"Ten gaming category cards render");
  check(await page.locator('a[href="/blog/"]').count()>=1,"Homepage navigation links to the editorial blog");
  const logo=page.locator(".brand img");check(await logo.count()>=1&&await logo.first().evaluate(img=>img.complete&&img.naturalWidth>0),"Brand logo loads");
  const productLink=page.locator('a[href="/gaming-products.html"]').first();check(await productLink.count()===1,"Gaming catalogue navigation exists");
