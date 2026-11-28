@@ -1,74 +1,79 @@
-# ProGameFinds — Gaming Gear Research & Buying Guides
+# ProGameFinds — Gaming Gear Research
 
-## Current project direction
+ProGameFinds is an independent editorial website for gaming peripherals, handheld gaming accessories, VR add-ons, sim-racing equipment, streaming tools and gaming-space setup information.
 
-ProGameFinds is an independent gaming gear research and buying-guide website. Its editorial scope is gaming equipment only.
+## Current public-site scope
 
-### Editorial categories
-- Gaming mice and keyboards
-- Gaming headsets and controllers
-- Gaming monitors and displays
-- Gaming desks and setup accessories
-- Handheld PC accessories
-- VR accessories
-- Sim-racing equipment
-- Streaming and creator peripherals
+- Gaming gear discovery catalogue with clearly labelled research candidates.
+- GameSir G7 Pro model research page and support FAQ.
+- Historical 22-record product research archive.
+- Buying guides, compatibility checks and product-listing verification guidance.
+- About, research-method, retail-link status, privacy, terms and contact pages.
+- Responsive static HTML/CSS/JavaScript site hosted on Cloudflare Pages.
 
-### Editorial standards
-- Prioritise exact model identity and primary manufacturer documentation.
-- Distinguish manufacturer specifications from marketplace listing, seller, fulfilment and variant checks.
-- Do not publish unsupported prices, stock, ratings, customer reviews or compatibility claims.
-- Do not claim hands-on testing unless a test was actually performed and documented.
-- Use original commentary, analysis and practical checklists rather than copying retailer or manufacturer prose.
-- Do not scrape retailer pages or copy protected retailer content.
-- Keep advice age-appropriate and avoid unsafe or restricted product categories.
+The active public homepage and catalogue are gaming-focused. Older fitness-portal migration notes and fitness-specific legacy files are historical repository artifacts, not the current editorial scope. Do not treat those legacy files as active public catalogue pages.
 
-## Retail-link and affiliate status
+## Editorial and evidence standards
 
-**All external product-shopping links are currently disabled.** The historical Amazon product links and tracking tags have been removed from the public catalogue. Product cards and archive entries are research candidates only.
+- Identify exact manufacturer, model, generation, revision, region and SKU where evidence supports it.
+- Separate manufacturer specifications from retailer listing, seller, fulfilment, variant and availability checks.
+- Do not infer an Amazon ASIN-to-model match from a similar product name or image.
+- Do not invent prices, discounts, stock, ratings, review counts, hands-on testing or customer experiences.
+- Clearly label original vector artwork as illustration, not product photography.
+- Use manufacturer photography or creator content only when the specific asset's usage rights are documented.
+- Publish corrections transparently and retain source dates for volatile information.
 
-The current public site displays:
-- no Amazon Special Links;
-- no active Associates tracking ID in the site configuration;
-- no Amazon Associate earnings claim or commission disclosure statement;
-- no retailer checkout or automatic redirect links;
-- no claim that any Associates application or account has been approved.
+## Current retail-link and affiliate state
 
-Do not add commission-generating functionality, tracking IDs or purchase CTAs through this content release. Account eligibility, legal participant requirements and any future monetisation decision are separate from the publication of non-affiliate editorial content.
+**The public site currently publishes no Amazon Special Links, affiliate tracking links or retailer product-shopping links.**
 
-## Website implementation
+- No Associate Tracking ID is active in the public site.
+- No commission or earnings claim is made.
+- Historical ASINs in the research archive remain unverified research references.
+- The GameSir G7 Pro supplied ASIN is also an unverified reference, not a confirmed live product listing.
+- Do not add affiliate links, tracking identifiers or account-status claims as part of ordinary editorial changes.
 
-- Static HTML, CSS and JavaScript hosted on Cloudflare Pages.
-- GitHub source repository: `abdullahkayanillc-blip/ProGameFinds.Online`.
-- Cloudflare Pages production branch: `main`.
-- Responsive navigation, visible focus styles and reduced-motion support.
-- Local search and category filters in the gaming catalogue.
-- Security response headers configured in `_headers`.
-- Canonical host and legacy-route handling in `_redirects`.
-- Public guide library: `/guides.html`.
-- Ten original, non-affiliate gaming buying guides under `/guides/`.
-- Historical product research archive: `/product-research-archive.html`.
-- Product evidence manifest keeps unverified marketplace candidates unverified.
-- Contact form is not enabled; a direct support email link is provided.
+Amazon Associates participation is subject to Amazon's current agreement and eligibility requirements. Any programme account must be managed independently by a legally eligible account holder. No age or identity restriction may be bypassed.
 
-## Validation and release
+## Privacy and contact implementation
 
-The repository includes static validation, professional quality checks, product-image rights checks and desktop/mobile browser QA. The checks cover required pages, SEO metadata, internal links, product evidence state, security headers and the disabled-shopping-link policy.
+- Static Cloudflare Pages hosting.
+- No on-site checkout, user account, customer profile database or product-order workflow.
+- Local catalogue search and filters run in the visitor's browser.
+- Direct email contact is available through the published support address.
+- The website contact form is not enabled; no form submission is collected.
+- Do not claim analytics, cookies, consent management or email delivery are enabled unless separately configured and tested.
 
-Release process:
-1. Work on a separate feature branch.
-2. Confirm the preview deployment and inspect changed pages.
-3. Run static validators and browser QA.
-4. Review all changed files and the preview.
-5. Merge to `main` only after required checks pass.
-6. Confirm Cloudflare production deployment and test the canonical domain.
+## Technical quality gates
 
-Do not mark a product, retailer listing, Associate approval, email delivery or domain ownership as verified without direct evidence.
+GitHub Actions validates:
+- Required public pages and local references.
+- HTML metadata, duplicate IDs, image alt text and asset dimensions.
+- Product evidence and image-rights records.
+- Absence of retailer shopping links and affiliate tracking while disabled.
+- Desktop and mobile Chromium browser behavior.
 
-## Historical product research archive
+A successful CI run proves only the checks executed by that workflow. It does not independently prove Amazon account approval, product listing accuracy, legal compliance, Search Console ownership, real-world performance metrics or successful email delivery.
 
-- Public archive: `/product-research-archive.html`.
-- Structured evidence register: `data/historical-22-product-research.json`.
-- The archive preserves 22 historical candidates, including unverified historical ASIN references and category-only placeholders.
-- Manufacturer references are context only and do not validate an Amazon ASIN, seller, variant, region or live offer.
-- The archive contains no Amazon Special Links, affiliate tracking, retailer product-shopping URLs, prices, ratings, reviews or stock claims.
+## Release process
+
+1. Work on an isolated feature branch.
+2. Preserve existing files and user content; make additive, scoped changes.
+3. Run static validation, quality audit, image-rights audit and desktop/mobile browser QA.
+4. Review the complete diff and deployed preview.
+5. Obtain explicit approval before merging or deploying production.
+6. Verify the canonical production domain and key routes after an approved release.
+
+## Historical research archive
+
+- Public archive: `/product-research-archive.html`
+- Structured evidence register: `data/historical-22-product-research.json`
+- 22 historical product candidates are retained.
+- 20 ASIN candidates are recorded, with zero verified ASIN-to-model mappings in the archive snapshot.
+- Two records are category-only ideas without ASINs.
+- Manufacturer references provide model-family context only; they do not prove an Amazon listing, seller, variant, region or live offer.
+- No prices, ratings, reviews, stock or commission estimates are published in the archive.
+
+## Cost and service boundaries
+
+Cloudflare Pages and GitHub Actions may have free-tier quotas and limits. Check the current account plan and usage before relying on capacity. Do not add paid services, paid APIs or external browser wallets without explicit owner approval.
