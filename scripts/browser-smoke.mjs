@@ -11,6 +11,7 @@ try{
  check(await page.locator("h1").count()===1,"One primary H1");
  check((await page.locator("h1").innerText()).toLowerCase().includes("confidence"),"Professional gaming hero headline renders");
  check(await page.locator(".category-card").count()===10,"Ten gaming category cards render");
+ check(await page.locator('a[href="/blog/"]').count()>=1,"Homepage navigation links to the editorial blog");
  const logo=page.locator(".brand img");check(await logo.count()>=1&&await logo.first().evaluate(img=>img.complete&&img.naturalWidth>0),"Brand logo loads");
  const productLink=page.locator('a[href="/gaming-products.html"]').first();check(await productLink.count()===1,"Gaming catalogue navigation exists");
  const productResponse=await page.request.get(new URL("/gaming-products.html",baseURL).toString());
@@ -72,6 +73,51 @@ try{
  check(JSON.stringify(guideHrefs)===JSON.stringify(expectedGuides),"Guide index links match all ten published article routes");
  const guideExternal=guideIndex.locator('a[href^="https://"],a[href^="http://"]');
  check(await guideExternal.count()===0,"Guides index has no external or retailer links");
+ const blogResponse=await page.request.get(new URL("/blog/",baseURL).toString());
+ check(blogResponse.ok(),"Editorial blog index responds successfully");
+ const blogIndex=await browser.newPage({viewport:{width:1440,height:960}});
+ const blogErrors=[];blogIndex.on("pageerror",e=>blogErrors.push(e.message));
+ await blogIndex.goto(new URL("/blog/",baseURL).toString(),{waitUntil:"networkidle",timeout:45000});
+ check((await blogIndex.title()).includes("Gaming Tech Blog"),"Blog index title renders");
+ check(await blogIndex.locator("h1").count()===1,"Blog index has one primary heading");
+ check(await blogIndex.locator(".blog-card").count()===5,"Exactly five original blog article cards render");
+ check(await blogIndex.locator('a[href^="https://"],a[href^="http://"]').count()===0,"Blog index has no external or retailer links");
+ const blogDesktop=await blogIndex.evaluate(()=>({width:innerWidth,documentWidth:document.documentElement.scrollWidth}));
+ check(blogDesktop.documentWidth<=blogDesktop.width,"Blog index has no desktop horizontal overflow");
+ await blogIndex.setViewportSize({width:390,height:844});
+ const blogMobile=await blogIndex.evaluate(()=>({width:innerWidth,documentWidth:document.documentElement.scrollWidth,menu:getComputedStyle(document.querySelector("details.mobile-nav")).display}));
+ check(blogMobile.documentWidth<=blogMobile.width,"Blog index has no mobile horizontal overflow");
+ check(blogMobile.menu!=="none","Blog index mobile menu remains visible");
+ const blogArticles=[
+  "/blog/controller-stick-sensor-technology.html",
+  "/blog/handheld-pc-usbc-docking.html",
+  "/blog/vram-vs-ram-vs-storage.html",
+  "/blog/streaming-microphone-basics.html",
+  "/blog/understanding-game-latency.html"
+ ];
+ const blogArticlePage=await browser.newPage({viewport:{width:1365,height:900}});
+ const blogArticleErrors=[];blogArticlePage.on("pageerror",e=>blogArticleErrors.push(e.message));
+ const allowedBlogSources=["gamesir.com","displayport.org","nvidia.com","shure.com","microsoft.com"];
+ for(const path of blogArticles){
+  const response=await blogArticlePage.goto(new URL(path,baseURL).toString(),{waitUntil:"networkidle",timeout:45000});
+  check(!!response&&response.ok(),path+" responds successfully");
+  check(await blogArticlePage.locator("h1").count()===1,path+" has one primary heading");
+  check((await blogArticlePage.title()).includes("ProGameFinds"),path+" has branded metadata title");
+  check((await blogArticlePage.locator(".post-body").innerText()).length>2500,path+" contains substantial editorial text");
+  check(await blogArticlePage.locator(".post-sources a").count()>=1,path+" includes technical source references");
+  const outbound=await blogArticlePage.locator(".post-sources a").evaluateAll(nodes=>nodes.map(n=>n.href));
+  check(outbound.every(url=>{try{return allowedBlogSources.some(domain=>new URL(url).hostname===domain||new URL(url).hostname.endsWith("."+domain));}catch(e){return false;}}),path+" links only to approved official source domains");
+  check(await blogArticlePage.locator('a[href*="amazon."],a[href*="tag=progamefinds-20"]').count()===0,path+" has no retailer or affiliate links");
+  const desktop=await blogArticlePage.evaluate(()=>({width:innerWidth,documentWidth:document.documentElement.scrollWidth}));
+  check(desktop.documentWidth<=desktop.width,path+" has no desktop horizontal overflow");
+  await blogArticlePage.setViewportSize({width:390,height:844});
+  const mobile=await blogArticlePage.evaluate(()=>({width:innerWidth,documentWidth:document.documentElement.scrollWidth}));
+  check(mobile.documentWidth<=mobile.width,path+" has no mobile horizontal overflow");
+  await blogArticlePage.setViewportSize({width:1365,height:900});
+ }
+ check(blogErrors.length===0,"Blog index has no uncaught browser errors");
+ check(blogArticleErrors.length===0,"Blog articles have no uncaught browser errors");
+
  const guideIndexDesktop=await guideIndex.evaluate(()=>({width:innerWidth,documentWidth:document.documentElement.scrollWidth}));
  check(guideIndexDesktop.documentWidth<=guideIndexDesktop.width,"Guides index has no desktop horizontal overflow");
  await guideIndex.setViewportSize({width:390,height:844});
