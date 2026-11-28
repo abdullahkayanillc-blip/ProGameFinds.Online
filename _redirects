@@ -3,7 +3,7 @@ https://www.progamefinds.online/* https://progamefinds.online/:splat 301
 http://progamefinds.online/* https://progamefinds.online/:splat 301
 http://www.progamefinds.online/* https://progamefinds.online/:splat 301
 
-# Restore the legacy gaming category routes to the current gaming catalogue.
+# Legacy gaming category routes.
 /gaming-mice.html /gaming-products.html#gaming-mice 302
 /gaming-keyboards.html /gaming-products.html#gaming-keyboards 302
 /gaming-headsets.html /gaming-products.html#gaming-headsets 302
@@ -17,14 +17,14 @@ http://www.progamefinds.online/* https://progamefinds.online/:splat 301
 /gaming-chairs-desks /gaming-products.html#chairs-desks 302
 /gaming-room-setup /gaming-products.html#room-setup 302
 
-# Restore legacy gaming guide URLs to the gaming hub until dedicated guides are rebuilt.
-/guides/building-a-balanced-gaming-setup.html /gaming-products.html#verification 302
-/guides/choosing-a-gaming-headset.html /gaming-products.html#gaming-headsets 302
-/guides/choosing-a-gaming-mouse.html /gaming-products.html#gaming-mice 302
-/guides/controller-compatibility-checklist.html /gaming-products.html#controllers 302
-/guides/gaming-chair-fit-and-ergonomics.html /gaming-products.html#chairs-desks 302
-/guides/gaming-desk-sizing-guide.html /gaming-products.html#chairs-desks 302
-/guides/gaming-keyboard-layouts-and-switches.html /gaming-products.html#gaming-keyboards 302
-/guides/gaming-room-lighting.html /gaming-products.html#room-setup 302
-/guides/how-to-check-an-online-product-listing.html /gaming-products.html#verification 302
-/guides/wired-vs-wireless-gaming-gear.html /gaming-products.html#verification 302
+# Legacy guide URLs now resolve to their expanded original guides.
+/guides/building-a-balanced-gaming-setup.html /guides/balanced-gaming-setup-planning.html 301
+/guides/choosing-a-gaming-headset.html /guides/gaming-headset-compatibility-guide.html 301
+/guides/choosing-a-gaming-mouse.html /guides/selecting-a-gaming-mouse.html 301
+/guides/controller-compatibility-checklist.html /guides/controller-platform-compatibility.html 301
+/guides/gaming-chair-fit-and-ergonomics.html /guides/gaming-desk-space-and-fit.html 301
+/guides/gaming-desk-sizing-guide.html /guides/gaming-desk-space-and-fit.html 301
+/guides/gaming-keyboard-layouts-and-switches.html /guides/selecting-a-gaming-keyboard.html 301
+/guides/gaming-room-lighting.html /guides/balanced-gaming-setup-planning.html 301
+/guides/how-to-check-an-online-product-listing.html /guides/verify-gaming-product-listing.html 301
+/guides/wired-vs-wireless-gaming-gear.html /guides/wired-vs-wireless-gaming-gear-guide.html 301
