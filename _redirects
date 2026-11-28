@@ -1,7 +1,4 @@
 # Canonical host and protocol redirects.
-https://www.progamefinds.online/* https://progamefinds.online/:splat 301
-http://progamefinds.online/* https://progamefinds.online/:splat 301
-http://www.progamefinds.online/* https://progamefinds.online/:splat 301
 
 # Legacy gaming category routes.
 /gaming-mice.html /gaming-products.html#gaming-mice 302
