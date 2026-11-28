@@ -1,80 +1,74 @@
-# ProGameFinds — Fitness Equipment Research Portal
+# ProGameFinds — Gaming Gear Research & Buying Guides
 
 ## Current project direction
 
-ProGameFinds is being migrated from a gaming-gear catalogue to an independent fitness and home-gym equipment research portal.
+ProGameFinds is an independent gaming gear research and buying-guide website. Its editorial scope is gaming equipment only.
 
-### Active editorial categories
-- Strength equipment
-- Cardio equipment
-- Home-gym planning
-- Fitness accessories
-- Gym flooring and storage
-- Mobility and recovery accessories
+### Editorial categories
+- Gaming mice and keyboards
+- Gaming headsets and controllers
+- Gaming monitors and displays
+- Gaming desks and setup accessories
+- Handheld PC accessories
+- VR accessories
+- Sim-racing equipment
+- Streaming and creator peripherals
 
 ### Editorial standards
-- Prioritise exact model identification and primary manufacturer documentation.
-- Distinguish manufacturer facts from retailer listing, seller, fulfilment and variant checks.
+- Prioritise exact model identity and primary manufacturer documentation.
+- Distinguish manufacturer specifications from marketplace listing, seller, fulfilment and variant checks.
 - Do not publish unsupported prices, stock, ratings, customer reviews or compatibility claims.
-- Use age-appropriate safety language; this site is not a medical service or training-plan provider.
+- Do not claim hands-on testing unless a test was actually performed and documented.
+- Use original commentary, analysis and practical checklists rather than copying retailer or manufacturer prose.
 - Do not scrape retailer pages or copy protected retailer content.
+- Keep advice age-appropriate and avoid unsafe or restricted product categories.
 
 ## Retail-link and affiliate status
 
-**All external product-shopping links are currently disabled.** The 30 Amazon product links and their affiliate tracking tags have been removed from the public catalogue. Product cards are research candidates only.
+**All external product-shopping links are currently disabled.** The historical Amazon product links and tracking tags have been removed from the public catalogue. Product cards and archive entries are research candidates only.
 
-The site is designed for an Amazon-only affiliate pathway in the future, but it currently displays:
-- no Amazon Special Links on public pages;
+The current public site displays:
+- no Amazon Special Links;
 - no active Associates tracking ID in the site configuration;
-- no Amazon Associate earnings claim or commission disclosure statement.
-- no commission or approval claim.
+- no Amazon Associate earnings claim or commission disclosure statement;
+- no retailer checkout or automatic redirect links;
+- no claim that any Associates application or account has been approved.
 
-Affiliate functionality must remain disabled until the actual legally eligible account holder independently verifies the Associates account's status, declared site, active approval and assigned Associate ID. Do not use another person's identity or credentials as a workaround, and do not operate an Associates account on behalf of a minor.
-
-Amazon policy links for the actual account holder to review:
-- https://affiliate-program.amazon.com/help/operating/agreement/
-- https://affiliate-program.amazon.com/help/operating/policies
-- https://affiliate-program.amazon.com/help/node/topic/G8TW5AE9XL2VX9VM
-
-The Amazon agreement states that an Associate must be legally able to enter contracts and not be a minor. Special Links must use the Associate ID assigned by Amazon. See the current official documents above.
+Do not add commission-generating functionality, tracking IDs or purchase CTAs through this content release. Account eligibility, legal participant requirements and any future monetisation decision are separate from the publication of non-affiliate editorial content.
 
 ## Website implementation
 
-- Static HTML/CSS/JavaScript hosted on Cloudflare Pages.
-- No external font requests, heavy client framework, checkout or product-purchase flow.
-- Local equipment search and category filters.
+- Static HTML, CSS and JavaScript hosted on Cloudflare Pages.
+- GitHub source repository: `abdullahkayanillc-blip/ProGameFinds.Online`.
+- Cloudflare Pages production branch: `main`.
 - Responsive navigation, visible focus styles and reduced-motion support.
-- Security response headers remain configured through the Cloudflare Pages headers file.
-- Legacy gaming routes redirect to current fitness information pages.
-- Product evidence manifest contains no active products until exact model/source verification is complete.
-- Contact form is not enabled; the direct support email link is available.
+- Local search and category filters in the gaming catalogue.
+- Security response headers configured in `_headers`.
+- Canonical host and legacy-route handling in `_redirects`.
+- Public guide library: `/guides.html`.
+- Ten original, non-affiliate gaming buying guides under `/guides/`.
+- Historical product research archive: `/product-research-archive.html`.
+- Product evidence manifest keeps unverified marketplace candidates unverified.
+- Contact form is not enabled; a direct support email link is provided.
 
-## Validation
+## Validation and release
 
-GitHub Actions runs:
-- node scripts/validate-site.mjs
-- node scripts/quality-audit.mjs
-- node scripts/audit-product-image-rights.mjs
-- Playwright Chromium browser QA for desktop and mobile.
+The repository includes static validation, professional quality checks, product-image rights checks and desktop/mobile browser QA. The checks cover required pages, SEO metadata, internal links, product evidence state, security headers and the disabled-shopping-link policy.
 
-The validators ensure the active portal contains no distributor/manufacturer/Amazon shopping links, no affiliate tags, no stale gaming product content, and no unverified product records.
-
-## Release process
-
+Release process:
 1. Work on a separate feature branch.
-2. Run the static validators and browser QA on the Cloudflare Pages preview.
-3. Review all changed files and the preview.
-4. Merge only when all required checks pass.
-5. Confirm Cloudflare production deployment and verify the canonical domain.
+2. Confirm the preview deployment and inspect changed pages.
+3. Run static validators and browser QA.
+4. Review all changed files and the preview.
+5. Merge to `main` only after required checks pass.
+6. Confirm Cloudflare production deployment and test the canonical domain.
 
 Do not mark a product, retailer listing, Associate approval, email delivery or domain ownership as verified without direct evidence.
 
-
 ## Historical product research archive
 
-- Public archive: `/product-research-archive.html`
-- Structured evidence register: `data/historical-22-product-research.json`
-- The archive preserves 22 historical candidates, including 20 unverified historical ASIN references and two category-only placeholders.
+- Public archive: `/product-research-archive.html`.
+- Structured evidence register: `data/historical-22-product-research.json`.
+- The archive preserves 22 historical candidates, including unverified historical ASIN references and category-only placeholders.
 - Manufacturer references are context only and do not validate an Amazon ASIN, seller, variant, region or live offer.
 - The archive contains no Amazon Special Links, affiliate tracking, retailer product-shopping URLs, prices, ratings, reviews or stock claims.
-- The site validator and quality audit enforce the record counts and non-affiliate state.
