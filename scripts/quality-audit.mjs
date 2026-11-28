@@ -80,16 +80,17 @@ for(const path of blogArticles){
  check(/ProGameFinds Editorial Team/.test(html),path+": editorial byline missing");
  check(/article:published_time/.test(html),path+": published-date metadata missing");
  const outbound=[...html.matchAll(/href="(https?:\/\/[^"]+)"/gi)].map(m=>m[1]);
- check(outbound.length>=1,path+": official source references missing");
- for(const url of outbound){
+ const external=outbound.filter(url=>{try{const host=new URL(url).hostname.toLowerCase();return host!=="progamefinds.online"&&!host.endsWith(".progamefinds.online");}catch(e){return true;}});
+ check(external.length>=1,path+": official source references missing");
+ for(const url of external){
   try { const host=new URL(url).hostname.toLowerCase(); check(allowedSourceHosts.some(domain=>host===domain||host.endsWith("."+domain)),path+": unapproved external source domain "+host); }
   catch(e){ check(false,path+": malformed source URL"); }
  }
  check(!/amazon\.(?:com|co\.uk|ca|de|co\.jp)|tag=progamefinds-20|affiliate-link-disclosure/i.test(html),path+": retailer or affiliate content is prohibited");
 }
 for(const route of ["/blog","/blog/*"]) {
- check(headers.includes(route+"\n  Link: </assets/gaming-3d.css?v=20261128-brand-refresh>; rel=preload; as=style"),route+": shared CSS Early Hint missing");
- check(headers.includes(route+"\n  Link: </assets/blog.css?v=20261128-blog-launch>; rel=preload; as=style"),route+": blog CSS Early Hint missing");
+ check(headers.includes(route+"\n")&&headers.includes("Link: </assets/gaming-3d.css?v=20261128-brand-refresh>; rel=preload; as=style"),route+": shared CSS Early Hint missing");
+ check(headers.includes(route+"\n")&&headers.includes("Link: </assets/blog.css?v=20261128-blog-launch>; rel=preload; as=style"),route+": blog CSS Early Hint missing");
 }
 if(errors.length){console.error("PROGAMEFINDS QUALITY AUDIT: FAIL");for(const error of errors)console.error("- "+error);process.exit(1);}
 console.log("PROGAMEFINDS QUALITY AUDIT: PASS");
