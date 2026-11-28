@@ -15,8 +15,9 @@ const pages=["index.html","gaming-products.html","gamesir-g7-pro-research.html",
   "guides/handheld-pc-gaming-accessory-compatibility.html",
   "guides/verify-gaming-product-listing.html",
 "about.html","how-we-review.html","affiliate-disclosure.html","privacy.html","terms.html","support.html","product-research-archive.html"];
+const blogPages=["blog/index.html","blog/controller-stick-sensor-technology.html","blog/handheld-pc-usbc-docking.html","blog/vram-vs-ram-vs-storage.html","blog/streaming-microphone-basics.html","blog/understanding-game-latency.html"];
 for(const page of pages){ const html=read(page); check(!/<a\b[^>]*href=["']https?:\/\//i.test(html),page+": external website links must remain disabled"); }
-for(const path of pages){
+for(const path of [...pages,...blogPages]){
  const html=read(path);
  for(const match of html.matchAll(/(?:href|src)="([^"]+)"/g)){
   const url=match[1];
@@ -62,6 +63,34 @@ check(archiveData.products.every(p=>p.amazon_listing_status==="not_checked"&&p.a
 check(!/amazon\.com\/(?:dp\/|s\?k=)|tag=progamefinds-20/i.test(archive),"Historical archive must not contain retailer or affiliate links");
 check(!/affiliate-link-disclosure|\(affiliate link\)/i.test(catalogue),"Affiliate link labels must be removed");
 check(read("sitemap.xml").includes("https://progamefinds.online/guides.html"),"Public guides index missing from sitemap");
+const blogIndex=read("blog/index.html"),blogCss=read("assets/blog.css");
+const blogArticles=blogPages.filter(path=>path!=="blog/index.html");
+check((blogIndex.match(/class="blog-card"/g)||[]).length===5,"Blog index must contain exactly five original article cards");
+check(blogCss.length<12*1024,"Blog stylesheet exceeds 12KB");
+check(home.includes('href="/blog/"'),"Homepage primary navigation must include the blog");
+check(home.includes("Go deeper into gaming tech"),"Homepage editorial blog feature is missing");
+check(read("guides.html").includes('href="/blog/"'),"Buying guides index must link to the blog");
+check(catalogue.includes('href="/blog/"'),"Gaming catalogue must link to the blog");
+const allowedSourceHosts=["gamesir.com","displayport.org","nvidia.com","shure.com","microsoft.com"];
+for(const path of blogArticles){
+ const html=read(path);
+ const wordCount=(html.replace(/<[^>]*>/g," ").replace(/&[^;]+;/g," ").match(/\b[\w'-]+\b/g)||[]).length;
+ check(wordCount>=500,path+": article should contain at least 500 words");
+ check(/class="post-sources"/.test(html),path+": source notes missing");
+ check(/ProGameFinds Editorial Team/.test(html),path+": editorial byline missing");
+ check(/article:published_time/.test(html),path+": published-date metadata missing");
+ const outbound=[...html.matchAll(/href="(https?:\/\/[^"]+)"/gi)].map(m=>m[1]);
+ check(outbound.length>=1,path+": official source references missing");
+ for(const url of outbound){
+  try { const host=new URL(url).hostname.toLowerCase(); check(allowedSourceHosts.some(domain=>host===domain||host.endsWith("."+domain)),path+": unapproved external source domain "+host); }
+  catch(e){ check(false,path+": malformed source URL"); }
+ }
+ check(!/amazon\.(?:com|co\.uk|ca|de|co\.jp)|tag=progamefinds-20|affiliate-link-disclosure/i.test(html),path+": retailer or affiliate content is prohibited");
+}
+for(const route of ["/blog","/blog/*"]) {
+ check(headers.includes(route+"\n  Link: </assets/gaming-3d.css?v=20261128-brand-refresh>; rel=preload; as=style"),route+": shared CSS Early Hint missing");
+ check(headers.includes(route+"\n  Link: </assets/blog.css?v=20261128-blog-launch>; rel=preload; as=style"),route+": blog CSS Early Hint missing");
+}
 if(errors.length){console.error("PROGAMEFINDS QUALITY AUDIT: FAIL");for(const error of errors)console.error("- "+error);process.exit(1);}
 console.log("PROGAMEFINDS QUALITY AUDIT: PASS");
 console.log("Pages checked: "+pages.length+"; candidate product cards: 30; active Amazon product links: "+amazonLinks.length+".");
