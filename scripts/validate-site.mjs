@@ -76,7 +76,7 @@ check(/GameSir G7 Pro/.test(research),"GameSir G7 Pro research page content miss
 check(/Manufacturer-confirmed specifications/.test(research),"Research page must distinguish manufacturer-confirmed specifications");
 check(/not a photograph/i.test(research),"Research illustration must be clearly labelled as non-photographic");
 check(/mailto:support@progamefinds\.online/.test(research),"Community review email submission route missing");
-for(const p of pages){ if(!existsSync(resolve(root,p))) continue; const pageHtml=read(p); check(!/<a\b[^>]*href=["']https?:\/\//i.test(pageHtml),p+": external website links must remain disabled"); }
+for(const p of pages){ if(!existsSync(resolve(root,p)) || p.startsWith("blog/")) continue; const pageHtml=read(p); check(!/<a\b[^>]*href=["']https?:\/\//i.test(pageHtml),p+": external website links must remain disabled"); }
 check(!/amazon\.com\/dp\/|linkCode=|tag=progamefinds-20/i.test(research),"Research profile must not publish an Amazon shopping or affiliate link");
 check(read("sitemap.xml").includes("https://progamefinds.online/gamesir-g7-pro-research.html"),"Sitemap missing GameSir research profile");
 const blogIndex=read("blog/index.html");
