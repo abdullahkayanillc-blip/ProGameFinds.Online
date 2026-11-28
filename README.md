@@ -10,6 +10,13 @@ ProGameFinds is an independent editorial website for gaming peripherals, handhel
 - About, research-method, retail-link status, privacy, terms and contact pages.
 - Responsive static HTML/CSS/JavaScript site hosted on Cloudflare Pages.
 
+## Editorial blog
+- Blog index: /blog/
+- Five original source-led articles cover controller stick sensing, handheld PC USB-C docking, VRAM vs system RAM vs storage, streaming microphone fundamentals, and end-to-end game latency.
+- Each article includes an editorial byline, publication date, source notes, and internal links to relevant buying guides or research pages.
+- Blog articles are educational explainers, not hands-on tests, product endorsements, live retailer checks, or product-shopping offers.
+- No AdSense code, advertising tags, affiliate links, or retailer checkout links are installed by this blog release.
+
 ## Brand and visual system
 - Primary identity: PG shield emblem and ProGameFinds wordmark.
 - Palette: deep navy, electric cyan, signal blue and violet accents.
