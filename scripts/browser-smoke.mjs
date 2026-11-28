@@ -48,6 +48,54 @@ try{
  const researchMobileNarrow=await researchPage.evaluate(()=>({width:innerWidth,documentWidth:document.documentElement.scrollWidth}));
  check(researchMobileNarrow.documentWidth<=researchMobileNarrow.width,"GameSir research page has no mobile horizontal overflow");
  check(researchErrors.length===0,"GameSir research page has no uncaught browser errors");
+ const guideIndexResponse=await page.request.get(new URL("/guides.html",baseURL).toString());
+ check(guideIndexResponse.ok(),"Gaming guides index responds successfully");
+ const guideIndex=await browser.newPage({viewport:{width:1440,height:960}});
+ await guideIndex.goto(new URL("/guides.html",baseURL).toString(),{waitUntil:"networkidle",timeout:45000});
+ check((await guideIndex.title()).includes("Gaming Buying Guides"),"Gaming guides index title renders");
+ check((await guideIndex.locator("h1").innerText()).includes("Gaming buying guides"),"Gaming guides index H1 renders");
+ const guideCards=guideIndex.locator(".category-card");
+ check(await guideCards.count()===10,"Exactly ten original guide cards render");
+ const guideHrefs=await guideCards.evaluateAll(nodes=>nodes.map(n=>n.getAttribute("href")));
+ const expectedGuides=[
+  "/guides/selecting-a-gaming-mouse.html",
+  "/guides/selecting-a-gaming-keyboard.html",
+  "/guides/gaming-headset-compatibility-guide.html",
+  "/guides/controller-platform-compatibility.html",
+  "/guides/gaming-monitor-resolution-refresh-rate.html",
+  "/guides/wired-vs-wireless-gaming-gear-guide.html",
+  "/guides/balanced-gaming-setup-planning.html",
+  "/guides/gaming-desk-space-and-fit.html",
+  "/guides/handheld-pc-gaming-accessory-compatibility.html",
+  "/guides/verify-gaming-product-listing.html"
+ ];
+ check(JSON.stringify(guideHrefs)===JSON.stringify(expectedGuides),"Guide index links match all ten published article routes");
+ const guideExternal=guideIndex.locator('a[href^="https://"],a[href^="http://"]');
+ check(await guideExternal.count()===0,"Guides index has no external or retailer links");
+ const guideIndexDesktop=await guideIndex.evaluate(()=>({width:innerWidth,documentWidth:document.documentElement.scrollWidth}));
+ check(guideIndexDesktop.documentWidth<=guideIndexDesktop.width,"Guides index has no desktop horizontal overflow");
+ await guideIndex.setViewportSize({width:390,height:844});
+ const guideIndexMobile=await guideIndex.evaluate(()=>({width:innerWidth,documentWidth:document.documentElement.scrollWidth,menu:getComputedStyle(document.querySelector("details.mobile-nav")).display}));
+ check(guideIndexMobile.documentWidth<=guideIndexMobile.width,"Guides index has no mobile horizontal overflow");
+ check(guideIndexMobile.menu!=="none","Guides index mobile menu remains visible");
+ const article=await browser.newPage({viewport:{width:1365,height:900}});
+ for(const path of expectedGuides){
+  const response=await article.goto(new URL(path,baseURL).toString(),{waitUntil:"networkidle",timeout:45000});
+  check(!!response&&response.ok(),path+" responds successfully");
+  check(await article.locator("h1").count()===1,path+" has one primary heading");
+  check((await article.locator("h1").innerText()).trim().length>=12,path+" has a descriptive heading");
+  check((await article.title()).includes("ProGameFinds"),path+" has branded metadata title");
+  check(await article.locator('a[href^="https://"],a[href^="http://"]').count()===0,path+" has no external or retailer links");
+  const desktop=await article.evaluate(()=>({width:innerWidth,documentWidth:document.documentElement.scrollWidth}));
+  check(desktop.documentWidth<=desktop.width,path+" has no desktop horizontal overflow");
+  await article.setViewportSize({width:390,height:844});
+  const mobile=await article.evaluate(()=>({width:innerWidth,documentWidth:document.documentElement.scrollWidth}));
+  check(mobile.documentWidth<=mobile.width,path+" has no mobile horizontal overflow");
+  await article.setViewportSize({width:1365,height:900});
+ }
+ const legacyGuide=await page.request.get(new URL("/guides/choosing-a-gaming-mouse.html",baseURL).toString());
+ const legacyHtml=await legacyGuide.text();
+ check(legacyGuide.ok()&&legacyHtml.includes('http-equiv="refresh" content="0;url=/guides/selecting-a-gaming-mouse.html"')&&legacyHtml.includes('href="/guides/selecting-a-gaming-mouse.html"'),"Legacy gaming mouse URL serves an immediate meta-refresh and fallback to its expanded article");
  const archiveResponse=await page.request.get(new URL("/product-research-archive.html",baseURL).toString());
  check(archiveResponse.ok(),"Historical research archive responds successfully");
  const a=await browser.newPage({viewport:{width:1440,height:1000}});

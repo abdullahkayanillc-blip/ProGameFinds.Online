@@ -3,7 +3,18 @@ import { resolve } from "node:path";
 const root=process.cwd(), errors=[];
 const read=p=>readFileSync(resolve(root,p),"utf8");
 const check=(ok,msg)=>{if(!ok)errors.push(msg);};
-const pages=["index.html","gaming-products.html","gamesir-g7-pro-research.html","guides.html","about.html","how-we-review.html","affiliate-disclosure.html","privacy.html","terms.html","support.html","product-research-archive.html"];
+const pages=["index.html","gaming-products.html","gamesir-g7-pro-research.html","guides.html",
+  "guides/selecting-a-gaming-mouse.html",
+  "guides/selecting-a-gaming-keyboard.html",
+  "guides/gaming-headset-compatibility-guide.html",
+  "guides/controller-platform-compatibility.html",
+  "guides/gaming-monitor-resolution-refresh-rate.html",
+  "guides/wired-vs-wireless-gaming-gear-guide.html",
+  "guides/balanced-gaming-setup-planning.html",
+  "guides/gaming-desk-space-and-fit.html",
+  "guides/handheld-pc-gaming-accessory-compatibility.html",
+  "guides/verify-gaming-product-listing.html",
+"about.html","how-we-review.html","affiliate-disclosure.html","privacy.html","terms.html","support.html","product-research-archive.html"];
 for(const p of pages){
  check(existsSync(resolve(root,p)),"Missing required page: "+p);
  if(!existsSync(resolve(root,p)))continue;
