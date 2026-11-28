@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<title id="title">ProGameFinds gaming gear showcase</title>
+<desc id="desc">Original vector artwork showing generic gaming peripherals on illuminated display platforms, with a controller, headset, keyboard, mouse and handheld gaming device.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07152d"/><stop offset=".52" stop-color="#071022"/><stop offset="1" stop-color="#130d2b"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#1268d8" stop-opacity=".5"/><stop offset="1" stop-color="#1268d8" stop-opacity="0"/></radialGradient>
+ <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d9f5ff"/><stop offset=".22" stop-color="#6c9acb"/><stop offset=".5" stop-color="#263e65"/><stop offset=".8" stop-color="#0a1428"/><stop offset="1" stop-color="#7188ad"/></linearGradient>
+ <linearGradient id="surface" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#1a3563"/><stop offset=".45" stop-color="#0b1730"/><stop offset="1" stop-color="#030814"/></linearGradient>
+ <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#63f7ff"/><stop offset=".53" stop-color="#2d8eff"/><stop offset="1" stop-color="#a767ff"/></linearGradient>
+ <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#113a73"/><stop offset=".5" stop-color="#0b1b43"/><stop offset="1" stop-color="#29165a"/></linearGradient>
+ <pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse"><path d="M54 0H0V54" fill="none" stroke="#7da9df" stroke-opacity=".12" stroke-width="1"/></pattern>
+ <filter id="shadow" x="-35%" y="-35%" width="170%" height="190%"><feGaussianBlur in="SourceAlpha" stdDeviation="14" result="blur"/><feOffset dy="16" result="offset"/><feColorMatrix in="offset" type="matrix" values="0 0 0 0 0 0 0 0 0 0.02 0 0 0 0 0.08 0 0 0 .62 0" result="shadow"/><feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <filter id="soft"><feGaussianBlur stdDeviation="24"/></filter>
+</defs>
+<rect width="1200" height="760" rx="34" fill="url(#bg)"/>
+<rect width="1200" height="760" rx="34" fill="url(#grid)"/>
+<ellipse cx="785" cy="340" rx="500" ry="390" fill="url(#glow)"/>
+<path d="M550 0C690 105 710 225 830 330s210 140 370 135" fill="none" stroke="#1d74e6" stroke-opacity=".32" stroke-width="2"/>
+<path d="M690 0C820 130 890 240 1000 300s160 70 200 65" fill="none" stroke="#a767ff" stroke-opacity=".25" stroke-width="2"/>
+<g fill="none" stroke="url(#cyan)" stroke-opacity=".48">
+ <ellipse cx="790" cy="500" rx="370" ry="120" stroke-width="2" transform="rotate(-8 790 500)"/>
+ <ellipse cx="790" cy="500" rx="320" ry="88" stroke-width="1.5" transform="rotate(-8 790 500)"/>
+</g>
+<g filter="url(#shadow)">
+ <!-- back headset stand -->
+ <path d="M795 345v-50c0-97 70-164 151-164s151 67 151 164v50" fill="none" stroke="#a7c9ed" stroke-width="27" stroke-linecap="round"/>
+ <path d="M795 345v-50c0-97 70-164 151-164s151 67 151 164v50" fill="none" stroke="#172947" stroke-width="17" stroke-linecap="round"/>
+ <rect x="776" y="278" width="54" height="132" rx="22" fill="url(#metal)" stroke="#80dfff" stroke-width="3"/>
+ <rect x="1062" y="278" width="54" height="132" rx="22" fill="url(#metal)" stroke="#80dfff" stroke-width="3"/>
+ <rect x="786" y="300" width="34" height="90" rx="15" fill="#08152c"/>
+ <rect x="1072" y="300" width="34" height="90" rx="15" fill="#08152c"/>
+ <path d="M795 317h25M1072 317h25" stroke="#62edff" stroke-width="4" stroke-linecap="round"/>
+ <!-- headset platform -->
+ <ellipse cx="948" cy="446" rx="180" ry="47" fill="#020713" opacity=".9"/>
+ <path d="M768 425c70 24 287 24 360 0v34c-72 39-286 39-360 0z" fill="url(#surface)" stroke="#397bbd" stroke-width="2"/>
+ <path d="M771 449c90 29 270 29 354 0" fill="none" stroke="url(#cyan)" stroke-width="5" stroke-linecap="round"/>
+ <!-- controller -->
+ <g transform="translate(275 240) rotate(-7)">
+  <path d="M42 57C68 25 108 12 160 16h110c52-4 92 9 118 41l36 84c20 47-12 79-52 72l-67-22H125l-67 22c-40 7-72-25-52-72z" fill="url(#metal)" stroke="#91dfff" stroke-width="4"/>
+  <path d="M58 66c22-22 54-32 100-32h114c46 0 78 10 100 32l22 56c10 25-6 45-32 40l-70-19H138l-70 19c-26 5-42-15-32-40z" fill="#0a1730" stroke="#4a6e9a" stroke-width="3"/>
+  <path d="M91 93v64M59 125h64" stroke="#dcefff" stroke-width="17" stroke-linecap="round"/>
+  <circle cx="111" cy="165" r="22" fill="#0d1a31" stroke="#7dbbe9" stroke-width="5"/><circle cx="111" cy="165" r="9" fill="#243e63"/>
+  <circle cx="286" cy="105" r="11" fill="#67efff"/><circle cx="317" cy="130" r="11" fill="#a76aff"/><circle cx="255" cy="130" r="11" fill="#8fe8c2"/><circle cx="286" cy="155" r="11" fill="#f5c76e"/>
+  <circle cx="219" cy="106" r="20" fill="#09162c" stroke="#6da3d7" stroke-width="4"/><circle cx="219" cy="106" r="9" fill="#324f76"/>
+  <path d="M174 57h70" stroke="#63eaff" stroke-width="4" stroke-linecap="round"/>
+ </g>
+ <!-- keyboard stage -->
+ <path d="M80 555c18-29 58-50 111-50h400c52 0 93 21 111 50v69c-18 27-59 42-111 42H191c-53 0-93-15-111-42z" fill="url(#surface)" stroke="#4d85c4" stroke-width="3"/>
+ <path d="M87 615c100 35 508 35 607 0" fill="none" stroke="url(#cyan)" stroke-width="7" stroke-linecap="round"/>
+ <g transform="translate(128 451) skewX(-15)">
+  <path d="M0 36 43 0h394l44 36v101H0z" fill="#071225" stroke="#83c8f1" stroke-width="3"/>
+  <g fill="url(#metal)" stroke="#263f65" stroke-width="2">
+   <rect x="12" y="47" width="28" height="15" rx="3"/><rect x="46" y="47" width="28" height="15" rx="3"/><rect x="80" y="47" width="28" height="15" rx="3"/><rect x="114" y="47" width="28" height="15" rx="3"/><rect x="148" y="47" width="28" height="15" rx="3"/><rect x="182" y="47" width="28" height="15" rx="3"/><rect x="216" y="47" width="28" height="15" rx="3"/><rect x="250" y="47" width="28" height="15" rx="3"/><rect x="284" y="47" width="28" height="15" rx="3"/><rect x="318" y="47" width="28" height="15" rx="3"/><rect x="352" y="47" width="28" height="15" rx="3"/><rect x="386" y="47" width="28" height="15" rx="3"/><rect x="420" y="47" width="28" height="15" rx="3"/><rect x="6" y="69" width="28" height="15" rx="3"/><rect x="40" y="69" width="28" height="15" rx="3"/><rect x="74" y="69" width="28" height="15" rx="3"/><rect x="108" y="69" width="28" height="15" rx="3"/><rect x="142" y="69" width="28" height="15" rx="3"/><rect x="176" y="69" width="28" height="15" rx="3"/><rect x="210" y="69" width="28" height="15" rx="3"/><rect x="244" y="69" width="28" height="15" rx="3"/><rect x="278" y="69" width="28" height="15" rx="3"/><rect x="312" y="69" width="28" height="15" rx="3"/><rect x="346" y="69" width="28" height="15" rx="3"/><rect x="380" y="69" width="28" height="15" rx="3"/><rect x="414" y="69" width="28" height="15" rx="3"/><rect x="0" y="91" width="28" height="15" rx="3"/><rect x="34" y="91" width="28" height="15" rx="3"/><rect x="68" y="91" width="28" height="15" rx="3"/><rect x="102" y="91" width="28" height="15" rx="3"/><rect x="136" y="91" width="28" height="15" rx="3"/><rect x="170" y="91" width="28" height="15" rx="3"/><rect x="204" y="91" width="28" height="15" rx="3"/><rect x="238" y="91" width="28" height="15" rx="3"/><rect x="272" y="91" width="28" height="15" rx="3"/><rect x="306" y="91" width="28" height="15" rx="3"/><rect x="340" y="91" width="28" height="15" rx="3"/><rect x="374" y="91" width="28" height="15" rx="3"/><rect x="408" y="91" width="28" height="15" rx="3"/><rect x="-6" y="113" width="28" height="15" rx="3"/><rect x="28" y="113" width="28" height="15" rx="3"/><rect x="62" y="113" width="28" height="15" rx="3"/><rect x="96" y="113" width="28" height="15" rx="3"/><rect x="130" y="113" width="28" height="15" rx="3"/><rect x="164" y="113" width="28" height="15" rx="3"/><rect x="198" y="113" width="28" height="15" rx="3"/><rect x="232" y="113" width="28" height="15" rx="3"/><rect x="266" y="113" width="28" height="15" rx="3"/><rect x="300" y="113" width="28" height="15" rx="3"/><rect x="334" y="113" width="28" height="15" rx="3"/><rect x="368" y="113" width="28" height="15" rx="3"/><rect x="402" y="113" width="28" height="15" rx="3"/>
+   <rect x="116" y="135" width="180" height="15" rx="4"/>
+  </g>
+  <path d="M15 48h410M8 72h420M2 96h432M0 120h442" stroke="url(#cyan)" stroke-opacity=".45" stroke-width="2"/>
+ </g>
+ <!-- mouse on pedestal -->
+ <ellipse cx="615" cy="638" rx="150" ry="26" fill="#020713" opacity=".9"/>
+ <path d="M468 620c32 20 231 20 294 0v28c-59 32-251 32-294 0z" fill="url(#surface)" stroke="#4c81c1" stroke-width="2"/>
+ <path d="M472 644c76 24 213 24 286 0" fill="none" stroke="url(#cyan)" stroke-width="5" stroke-linecap="round"/>
+ <path d="M555 545c-26 24-37 58-31 82 6 22 34 31 84 31s78-9 84-31c6-24-5-58-31-82-30-28-76-28-106 0z" fill="url(#metal)" stroke="#88dfff" stroke-width="3"/>
+ <path d="M608 550v39" stroke="#07152e" stroke-width="3"/><path d="M608 553v23" stroke="#63efff" stroke-width="4" stroke-linecap="round"/>
+ <path d="M566 567c-17 17-23 39-17 55 8 15 27 20 59 20s51-5 59-20c6-16 0-38-17-55-23-20-61-20-84 0z" fill="#101e38" opacity=".42"/>
+ <!-- handheld platform -->
+ <path d="M815 567c26-21 60-30 104-30h187c44 0 78 9 104 30v64c-26 22-60 32-104 32H919c-44 0-78-10-104-32z" fill="url(#surface)" stroke="#4e80bb" stroke-width="3"/>
+ <path d="M822 625c80 32 285 32 381 0" fill="none" stroke="url(#cyan)" stroke-width="6" stroke-linecap="round"/>
+ <g transform="translate(852 405) rotate(4)">
+  <rect x="0" y="0" width="411" height="164" rx="38" fill="url(#metal)" stroke="#90dcff" stroke-width="4"/>
+  <rect x="79" y="17" width="254" height="130" rx="12" fill="url(#screen)" stroke="#4a73af" stroke-width="3"/>
+  <path d="M112 118 159 75l38 27 40-51 59 69" fill="none" stroke="#63ecff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/>
+  <circle cx="41" cy="48" r="14" fill="#152843" stroke="#72b7e7" stroke-width="4"/><circle cx="41" cy="48" r="6" fill="#a4efff"/>
+  <path d="M41 83v42M20 104h42" stroke="#142845" stroke-width="11" stroke-linecap="round"/>
+  <circle cx="366" cy="43" r="10" fill="#69edff"/><circle cx="390" cy="67" r="10" fill="#ad71ff"/><circle cx="342" cy="67" r="10" fill="#81f0bd"/><circle cx="366" cy="91" r="10" fill="#f6c76d"/>
+  <rect x="167" y="151" width="80" height="4" rx="2" fill="#53eaff"/>
+ </g>
+</g>
+<g opacity=".85" fill="none" stroke="url(#cyan)" stroke-linecap="round">
+ <path d="M74 168h130" stroke-width="2"/><path d="M74 168l22-11m-22 11 22 11" stroke-width="2"/>
+ <path d="M1020 95h110" stroke-width="2"/><path d="M1128 95l-18-10m18 10-18 10" stroke-width="2"/>
+</g>
+<circle cx="108" cy="220" r="4" fill="#65f3ff"/><circle cx="1122" cy="210" r="4" fill="#ad75ff"/><circle cx="715" cy="88" r="3" fill="#65f3ff"/>
+</svg>

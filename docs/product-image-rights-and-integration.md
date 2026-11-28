@@ -1,49 +1,38 @@
 # Product image rights and integration plan
 
 ## Scope and safety
+This implementation is staging-only. Do not change main, production assets, Cloudflare settings, DNS, affiliate credentials, or publish product photographs until each exact product, source, and usage right is verified.
 
-This implementation is staging-only. Do not change `main`, production assets, Cloudflare settings, DNS, affiliate credentials, or publish product photographs until each exact product, source, and usage right is verified.
+The catalogue contains 30 candidate entries. Existing /assets/products/*.svg files are original category illustrations, not photographs of exact products. Keep them as safe fallbacks.
 
-The catalogue contains 22 entries. Existing `/assets/products/*.svg` files are original category illustrations, not photographs of the exact products. Keep these files as safe fallbacks.
+## Original brand illustrations
+- assets/brand/hero-showcase.svg is original vector artwork created for the ProGameFinds visual identity refresh.
+- It depicts generic gaming gear as a conceptual brand scene. It does not depict a verified retail SKU, exact controller model, real-world product photograph, or official manufacturer image.
+- It contains no copied third-party product photography, retailer imagery, logos or customer-submitted content.
+- It is a brand/hero illustration only, never evidence for a product candidate.
+- Logo and social SVGs under assets/brand/ and assets/social-preview.svg are original brand artwork.
 
-## Approved image-source order
+## Approved product-image source order
+1. Amazon Creators API: use only after the Associates account has final approval, API access is granted, and the account is eligible. Request the primary image for a verified ASIN using the account's own credentials and partner tag. Do not download or permanently host API image content.
+2. Manufacturer press/media assets: use only when an explicit licence or written permission covers commercial website display, responsive use and the intended delivery method.
+3. Commissioned/licensed photography or UGC: use only with written commercial web-use permission, creator/source details and proof of licence. AI-created content must never be represented as official product photography or genuine customer UGC.
 
-1. **Amazon Creators API**: use only after the Associates account has final approval, API access is granted, and the account is eligible. Request `images.primary.large` for a verified US-marketplace ASIN using the account's own credentials and partner tag. Render the returned image URL directly; do not download or permanently host the image.
-2. **Manufacturer press/media assets**: use only when an explicit licence or written permission covers commercial affiliate-site display, the website's mobile/responsive use where applicable, and the intended image delivery method.
-3. **Commissioned/licensed photography or UGC**: use only with written commercial web-use permission covering this site, creator/source details, and proof of licence or permission. Authentic UGC and AI-created content must never be represented as official product photography or genuine customer UGC.
-
-Do not use Google Images, retailer-page scraping, Amazon page scraping, copied marketplace images, Pinterest, or unattributed social posts. A publicly accessible or downloadable image is not automatically licensed. Verify any Creative Commons licence and its commercial-use and attribution conditions.
+Do not use Google Images, retailer-page scraping, Amazon page scraping, copied marketplace images, Pinterest or unattributed social posts. A publicly accessible image is not automatically licensed.
 
 ## Per-product release gate
-
-Before replacing a fallback illustration, record:
-- exact product model and variant verified against the manufacturer;
-- exact Amazon ASIN-to-model mapping verified against the live product detail page;
-- live listing, seller, and variant checked;
-- image source URL and source owner;
-- licence/permission type, proof reference, date checked, and required attribution;
-- confirmation that the source permits commercial affiliate-site display, mobile/responsive use where required, and hotlinking/hosting as implemented;
-- final approved image URL and exact related Amazon detail-page link.
-
-If any field is unknown, keep the original category illustration. Never label an illustration as a real product photo.
+Before replacing a fallback illustration, record exact model and variant, ASIN-to-model mapping, live listing/seller/variant, image source and owner, licence/permission proof, date checked, required attribution, permitted commercial and mobile use, and the matching exact retailer destination. If any field is unknown, keep the original illustration.
 
 ## Amazon Creators API compliance gate
-
-- Amazon's US onboarding requires final acceptance into Associates. PA API access through Creators API additionally requires at least 10 qualifying sales in the trailing 30 days; API eligibility can be reviewed and may take up to 48 hours.
-- Credentials must remain server-side in secret storage; never commit keys or expose them to browser JavaScript. Use Amazon's official SDK/authentication flow.
-- Request only the primary large image for each verified ASIN.
-- Amazon's US policy says Product Advertising Content must link to the relevant Amazon page. It also restricts use on sites designed or intended for mobile phones without express prior written approval. Because this site is responsive, obtain Amazon's written clarification/approval for mobile-site use before enabling Creators API images.
-- Do not cache or store image content. Amazon policy permits storing an image URL link for no more than 24 hours. Do not copy API image files into this repository or Cloudflare assets.
-- If access is unavailable, returns an eligibility error, an image URL is stale/missing, or an ASIN cannot be verified, serve the existing original SVG fallback.
-- Keep the Amazon image linked to the exact matching ASIN page and preserve the Associates tracking tag/URL parameters.
+- API use requires final Associates acceptance and current API eligibility.
+- Credentials must remain server-side; never commit keys or expose them to browser JavaScript.
+- Confirm applicable Amazon mobile-site permissions before enabling API images on a responsive site.
+- Do not cache or store image content. Follow Amazon's current image URL retention policy.
+- If access is unavailable, a URL is stale/missing, or an ASIN cannot be verified, serve the existing original SVG fallback.
 
 ## Automated release audit
+scripts/audit-product-image-rights.mjs checks product imagery, alt text and fallback files, and blocks exact photos unless model/ASIN/listing/seller/variant, source permission, API eligibility, mobile approval and matching destination are recorded.
 
-`scripts/audit-product-image-rights.mjs` checks all 22 product cards for exactly one image each, verifies fallback illustration files and alt text, and blocks exact photos unless model/ASIN/listing/seller/variant, source permission, API eligibility, mobile-site approval, fresh image URL, and matching affiliate destination are all recorded. The audit runs in the professional GitHub Actions workflow.
-
-## Current status (2026-11-21)
-
-- The account portal showed that an approved Associates account is required; Creators API access is not confirmed.
-- Candidate ASIN-to-model mappings remain unverified and manufacturer image permissions remain unconfirmed.
-- No exact-product photograph is approved for release. The original illustration fallbacks remain in place by design.
-- This work is staging-only; production remains unchanged.
+## Current status (2026-11-28)
+- No exact-product photograph is approved for release. Original illustration fallbacks remain in place by design.
+- Original brand artwork is separate from product verification evidence.
+- This visual refresh is preview-only until desktop/mobile QA and production review gates pass.

@@ -1,22 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="920" height="190" viewBox="0 0 920 190" role="img" aria-labelledby="title desc">
-<title id="title">ProGameFinds premium brand mark</title><desc id="desc">A dimensional crowned PG emblem and the ProGameFinds gaming gear research wordmark.</desc>
-<defs>
- <linearGradient id="edge" x1="18" y1="12" x2="170" y2="174" gradientUnits="userSpaceOnUse"><stop stop-color="#9CFBFF"/><stop offset=".48" stop-color="#287DFF"/><stop offset="1" stop-color="#B56AFF"/></linearGradient>
- <linearGradient id="metal" x1="40" y1="35" x2="140" y2="145" gradientUnits="userSpaceOnUse"><stop stop-color="#FFFFFF"/><stop offset=".28" stop-color="#CFE4FF"/><stop offset=".55" stop-color="#7896BC"/><stop offset=".78" stop-color="#F8FCFF"/><stop offset="1" stop-color="#8CA8CE"/></linearGradient>
- <linearGradient id="word" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".55" stop-color="#B7D2F2"/><stop offset="1" stop-color="#718FB8"/></linearGradient>
- <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#64F5FF"/><stop offset=".52" stop-color="#398EFF"/><stop offset="1" stop-color="#B76BFF"/></linearGradient>
- <filter id="lift" x="-35%" y="-35%" width="170%" height="180%"><feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/><feOffset dy="5" result="offset"/><feComponentTransfer><feFuncA type="linear" slope=".42"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-</defs>
-<g transform="translate(5 3)" filter="url(#lift)">
- <path d="M90 7 164 47V132L90 174 16 132V47Z" fill="#071329" stroke="url(#edge)" stroke-width="4"/>
- <path d="M90 17 154 52V126L90 163 26 126V52Z" fill="url(#metal)" fill-opacity=".055" stroke="#8AC8FF" stroke-opacity=".35" stroke-width="1.5"/>
- <path d="M47 67 55 48 73 62 90 37 107 62 125 48 133 67 127 77H53Z" fill="url(#metal)" stroke="url(#edge)" stroke-width="2.5" stroke-linejoin="round"/>
- <path d="M90 48 94 58 90 64 86 58Z" fill="#A6F8FF"/>
- <text x="90" y="132" text-anchor="middle" fill="url(#metal)" font-family="Arial,sans-serif" font-size="70" font-weight="900" letter-spacing="-9">PG</text>
- <path d="M55 145H125" stroke="url(#accent)" stroke-width="3" stroke-linecap="round"/>
- <circle cx="71" cy="153" r="3" fill="#6BF4FF"/><circle cx="90" cy="153" r="3" fill="#4A9EFF"/><circle cx="109" cy="153" r="3" fill="#B76BFF"/>
-</g>
-<text x="220" y="104" fill="url(#word)" font-family="Arial,sans-serif" font-size="78" font-weight="900" letter-spacing="-4">ProGame<tspan fill="#65DFFF">Finds</tspan></text>
-<path d="M226 128H890" stroke="url(#accent)" stroke-width="3.5" stroke-linecap="round"/>
-<text x="230" y="161" fill="#B8CBE5" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="5.5">GAMING GEAR  •  RESEARCH  •  GUIDES</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="190" viewBox="0 0 960 190" role="img" aria-labelledby="title desc">
+<title id="title">ProGameFinds logo</title><desc id="desc">A clean PG shield emblem and ProGameFinds wordmark for a gaming gear research publication.</desc>
+<defs><linearGradient id="edge" x1="10" y1="8" x2="170" y2="174"><stop stop-color="#83F5FF"/><stop offset=".5" stop-color="#368DFF"/><stop offset="1" stop-color="#A875FF"/></linearGradient><linearGradient id="metal" x1="30" y1="24" x2="145" y2="164"><stop stop-color="#FFFFFF"/><stop offset=".48" stop-color="#C8DDF7"/><stop offset="1" stop-color="#8199BA"/></linearGradient><linearGradient id="word" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".58" stop-color="#C9DAF0"/><stop offset="1" stop-color="#91A8C7"/></linearGradient><linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#65F4FF"/><stop offset=".52" stop-color="#378FFF"/><stop offset="1" stop-color="#AC71FF"/></linearGradient></defs>
+<g transform="translate(8 6)"><path d="M82 4 154 43v83l-72 41-72-41V43Z" fill="#07152B" stroke="url(#edge)" stroke-width="4"/><path d="M82 15 143 49v70l-61 35-61-35V49Z" fill="#B7D7F8" fill-opacity=".04" stroke="#9BC9F0" stroke-opacity=".34" stroke-width="1.5"/><path d="M82 31 110 59 82 87 54 59Z" fill="none" stroke="url(#accent)" stroke-width="3"/><path d="M82 43v32M66 59h32" stroke="#DDF7FF" stroke-width="6" stroke-linecap="round"/><circle cx="82" cy="59" r="7" fill="#65EFFF"/><text x="82" y="126" text-anchor="middle" font-family="Arial,sans-serif" font-size="52" font-weight="900" letter-spacing="-7" fill="url(#metal)">PG</text><path d="M48 143H116" stroke="url(#accent)" stroke-width="3" stroke-linecap="round"/></g>
+<text x="206" y="101" font-family="Arial,sans-serif" font-size="73" font-weight="900" letter-spacing="-3.6" fill="url(#word)">ProGame<tspan fill="#67DFFF">Finds</tspan></text><path d="M212 124H925" stroke="url(#accent)" stroke-width="3.5" stroke-linecap="round"/><text x="216" y="158" font-family="Arial,sans-serif" font-size="17" font-weight="700" letter-spacing="5.4" fill="#AFC3DF">GAMING GEAR  •  RESEARCH  •  GUIDES</text></svg>
