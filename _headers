@@ -11,3 +11,43 @@
 
 /*.html
   Cache-Control: public, max-age=300, must-revalidate
+
+# Early Hints for Cloudflare Pages clean URLs. Keep preloads limited to assets used by each route.
+/
+  Link: </assets/gaming-3d.css?v=20261128-brand-refresh>; rel=preload; as=style
+  Link: </assets/g7-pro-research.css?v=20261128-performance>; rel=preload; as=style
+  Link: </assets/brand/hero-showcase.svg?v=20261128-brand-refresh>; rel=preload; as=image
+
+/gaming-products
+  Link: </assets/gaming-3d.css?v=20261128-brand-refresh>; rel=preload; as=style
+
+/gamesir-g7-pro-research
+  Link: </assets/gaming-3d.css?v=20261128-brand-refresh>; rel=preload; as=style
+  Link: </assets/g7-pro-research.css?v=20261128-performance>; rel=preload; as=style
+
+/product-research-archive
+  Link: </assets/gaming-3d.css?v=20261128-brand-refresh>; rel=preload; as=style
+
+/guides
+  Link: </assets/gaming-3d.css?v=20261128-brand-refresh>; rel=preload; as=style
+
+/guides/*
+  Link: </assets/gaming-3d.css?v=20261128-brand-refresh>; rel=preload; as=style
+
+/about
+  Link: </assets/gaming-3d.css?v=20261128-brand-refresh>; rel=preload; as=style
+
+/how-we-review
+  Link: </assets/gaming-3d.css?v=20261128-brand-refresh>; rel=preload; as=style
+
+/affiliate-disclosure
+  Link: </assets/gaming-3d.css?v=20261128-brand-refresh>; rel=preload; as=style
+
+/privacy
+  Link: </assets/gaming-3d.css?v=20261128-brand-refresh>; rel=preload; as=style
+
+/terms
+  Link: </assets/gaming-3d.css?v=20261128-brand-refresh>; rel=preload; as=style
+
+/support
+  Link: </assets/gaming-3d.css?v=20261128-brand-refresh>; rel=preload; as=style

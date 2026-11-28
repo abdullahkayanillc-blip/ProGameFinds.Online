@@ -31,7 +31,15 @@ for(const path of pages){
   check(classes.length<=1,path+": duplicate class attributes in "+tag[0].slice(0,160));
  }
 }
-const css=read("assets/gaming-3d.css"),home=read("index.html"),catalogue=read("gaming-products.html"),disclosure=read("affiliate-disclosure.html");
+const css=read("assets/gaming-3d.css"),home=read("index.html"),headers=read("_headers"),catalogue=read("gaming-products.html"),disclosure=read("affiliate-disclosure.html");
+const coreEarlyHint='Link: </assets/gaming-3d.css?v=20261128-brand-refresh>; rel=preload; as=style';
+for(const route of ["/","/gaming-products","/gamesir-g7-pro-research","/product-research-archive","/guides","/guides/*","/about","/how-we-review","/affiliate-disclosure","/privacy","/terms","/support"]) check(headers.includes(route+"\n  "+coreEarlyHint),route+": core CSS Early Hint missing");
+const homepageHeaderBlock=(headers.split("\n\n/gaming-products\n")[0]||"");
+const detailHeaderBlock=(headers.split("\n\n/gamesir-g7-pro-research\n")[1]||"").split("\n\n/product-research-archive\n")[0]||"";
+check(homepageHeaderBlock.includes("Link: </assets/brand/hero-showcase.svg?v=20261128-brand-refresh>; rel=preload; as=image"),"Homepage hero Early Hint missing");
+check(homepageHeaderBlock.includes("Link: </assets/g7-pro-research.css?v=20261128-performance>; rel=preload; as=style"),"Homepage spotlight CSS Early Hint missing");
+check(detailHeaderBlock.includes("Link: </assets/g7-pro-research.css?v=20261128-performance>; rel=preload; as=style"),"GameSir detail CSS Early Hint missing");
+check(/research-controller\.svg[^>]*loading="lazy"[^>]*decoding="async"/.test(home),"Below-fold homepage spotlight image should be lazy loaded");
 const manifest=JSON.parse(read("data/product-verification.json")),policy=manifest.outbound_link_policy||{},trackingId=policy.associate_tag;
 const archiveData=JSON.parse(read("data/historical-22-product-research.json")),archive=read("product-research-archive.html");
 check(css.length<30*1024,"CSS exceeds 30KB");
