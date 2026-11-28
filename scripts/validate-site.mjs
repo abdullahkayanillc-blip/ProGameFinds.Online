@@ -4,6 +4,7 @@ const root=process.cwd(), errors=[];
 const read=p=>readFileSync(resolve(root,p),"utf8");
 const check=(ok,msg)=>{if(!ok)errors.push(msg);};
 const pages=["index.html","gaming-products.html","gamesir-g7-pro-research.html","guides.html",
+  "blog/index.html","blog/controller-stick-sensor-technology.html","blog/handheld-pc-usbc-docking.html","blog/vram-vs-ram-vs-storage.html","blog/streaming-microphone-basics.html","blog/understanding-game-latency.html",
   "guides/selecting-a-gaming-mouse.html",
   "guides/selecting-a-gaming-keyboard.html",
   "guides/gaming-headset-compatibility-guide.html",
@@ -78,6 +79,20 @@ check(/mailto:support@progamefinds\.online/.test(research),"Community review ema
 for(const p of pages){ if(!existsSync(resolve(root,p))) continue; const pageHtml=read(p); check(!/<a\b[^>]*href=["']https?:\/\//i.test(pageHtml),p+": external website links must remain disabled"); }
 check(!/amazon\.com\/dp\/|linkCode=|tag=progamefinds-20/i.test(research),"Research profile must not publish an Amazon shopping or affiliate link");
 check(read("sitemap.xml").includes("https://progamefinds.online/gamesir-g7-pro-research.html"),"Sitemap missing GameSir research profile");
+const blogIndex=read("blog/index.html");
+const blogArticlePaths=["blog/controller-stick-sensor-technology.html","blog/handheld-pc-usbc-docking.html","blog/vram-vs-ram-vs-storage.html","blog/streaming-microphone-basics.html","blog/understanding-game-latency.html"];
+check((blogIndex.match(/class="blog-card"/g)||[]).length===5,"Blog index must display exactly five original articles");
+check(/ProGameFinds Editorial Team/.test(blogIndex),"Blog index must identify its editorial publisher");
+for(const path of blogArticlePaths){
+ const html=read(path);
+ const words=(html.replace(/<[^>]*>/g," ").replace(/&[^;]+;/g," ").match(/\b[\w'-]+\b/g)||[]).length;
+ check(words>=500,path+": article content is too short for a substantial editorial explainer");
+ check(/class="post-sources"/.test(html),path+": source notes are missing");
+ check(/ProGameFinds Editorial Team/.test(html),path+": editorial byline is missing");
+ check(/article:published_time/.test(html),path+": publication date metadata is missing");
+ check(!/amazon\.(?:com|co\.uk|ca|de|co\.jp)|tag=progamefinds-20|amazon\.com\/(?:dp|s\?k=)/i.test(html),path+": retailer or affiliate link detected");
+}
+for(const url of ["https://progamefinds.online/blog/","https://progamefinds.online/blog/controller-stick-sensor-technology.html","https://progamefinds.online/blog/handheld-pc-usbc-docking.html","https://progamefinds.online/blog/vram-vs-ram-vs-storage.html","https://progamefinds.online/blog/streaming-microphone-basics.html","https://progamefinds.online/blog/understanding-game-latency.html"]) check(read("sitemap.xml").includes(url),"Blog sitemap entry missing: "+url);
 if(errors.length){console.error("PROGAMEFINDS GAMING VALIDATION: FAIL");for(const e of errors)console.error("- "+e);process.exit(1);}
 console.log("PROGAMEFINDS GAMING VALIDATION: PASS");
 console.log("Required pages: "+pages.length+"; product candidates: "+register.candidate_products.length+"; active retailer shopping links: "+amazonLinks.length+".");
